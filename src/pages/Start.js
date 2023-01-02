@@ -17,8 +17,7 @@ export default function Start(){
     const navigate = useNavigate();
 
     const handleClickButton = () => {
-        // navigate('/Test');
-        alert('아직이양...😉')
+        navigate('/Test');
     }
 
 
@@ -27,11 +26,9 @@ export default function Start(){
         .then((result)=>{
             let copy = result.data.question[0];
             setTitle(copy);
-            console.log('성공...');
 
         })
         .catch(()=>{
-            console.log('실패...');
         })
 
 
@@ -41,7 +38,6 @@ export default function Start(){
             setMainImg(`https://teal-swan-1836fc.netlify.app/${imageData.url[0]}`);
         })
         .catch(()=>{
-            console.log('img실패...');
         })
 
     },[])
