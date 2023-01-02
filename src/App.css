@@ -1,10 +1,47 @@
 .App {
-  text-align: center;
+  font-family: "DalseoDarling";
+  /* text-align: center; */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@font-face{
+  font-family: "DalseoDarling";
+  src:url("/src/assets/fonts/DalseoDarling.ttf");
+}
+
+.mt_20{
+  margin-top: 20px;
+}
+
+.mt_40{
+  margin-top: 40px;
+}
+
+.left_btn{
+  width:40%;
+  min-height: 200px;
+  font-size: 18pt;
+
+}
+
+.ele_center_whole{
+  width: 550px;
+  display: block;
+  margin: 0 auto;
+  background: cornsilk;
+}
+.right_btn{
+  width:40%;
+  min-height: 200px;
+  font-size: 18pt;
+  margin-left:20px;
+}
+
+
+.img_size{
+  width:50%;
+  height:50%;
+  max-width: 500px;
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {
