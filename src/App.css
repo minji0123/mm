@@ -1,12 +1,12 @@
-.App {
-  font-family: "DalseoDarling";
-  /* text-align: center; */
-}
 
+ .App {
+  font-family: "Jua";
+}
+/*
 @font-face{
   font-family: "DalseoDarling";
   src:url("/src/assets/fonts/DalseoDarling.ttf");
-}
+} */
 
 .mt_20{
   margin-top: 20px;
@@ -14,6 +14,11 @@
 
 .mt_40{
   margin-top: 40px;
+}
+
+.btn{
+  font-family: "Jua";
+
 }
 
 .left_btn{

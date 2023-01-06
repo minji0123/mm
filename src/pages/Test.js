@@ -86,7 +86,7 @@ export default function Test(){
                 <Title> {contents.length>0 && contents[qNumber].content} </Title>
                 <ButtonGroup className="mt_20">
                     <Button 
-                        className="left_btn"
+                        className="btn left_btn"
                         onClick={() => handleClickBtn(1,contents[qNumber].type)}
                     >
                         {contents.length>0 && contents[qNumber].answer1}
@@ -94,7 +94,7 @@ export default function Test(){
 
                     <Button 
                     color="primary"
-                    className="right_btn"
+                    className="btn right_btn"
                     onClick={() => handleClickBtn(0,contents[qNumber].type)}
                     >
                         {contents.length>0 && contents[qNumber].answer2}
@@ -108,7 +108,7 @@ export default function Test(){
 const Wrapper = styled.div`
     height: 100vh;
     width:100%;
-    font-family:'Cute Font';
+    font-family: "Jua";
     padding:25px;
 
 `

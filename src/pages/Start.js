@@ -51,7 +51,9 @@ export default function Start(){
                 <LogoImage>
                     <img alt="메인사진" src={mainImg} width={350} height={350}></img>
                 </LogoImage>
-                <Button variant="contained" style={{fontSize: "20px"}}
+                <Button 
+                        className='btn'
+                        variant="contained" style={{fontSize: "20px", fontFamily: "Jua" }}
                         onClick={handleClickButton}
                 >시작하기</Button>
                 </Content>
@@ -65,7 +67,7 @@ export default function Start(){
 const Wrapper = styled.div`
     height: 100vh;
     width:100%;
-    font-family:"Cute Font";
+    font-family: "Jua";
     padding:25px;
 
 `

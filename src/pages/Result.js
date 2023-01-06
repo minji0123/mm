@@ -2,28 +2,62 @@ import { useEffect,useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import axios from 'axios';
 
 
 export default function Result(){
+    let [title,setTitle] = useState("");
+    let [mainImg,setMainImg] = useState("");
+    const [qNumber, setQNumber] = useState(1);
 
+    const navigate = useNavigate();
+
+    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+    const URL = `${PROXY}/test/1/2.json`;
+    const imgURL = `${PROXY}/test/1/2.json`;
+
+    useEffect(()=>{
+        axios.get(URL)
+        .then((result)=>{
+            let copy = result.data.result[0];
+            setTitle(copy);
+
+        })
+        .catch(()=>{
+        })
+
+
+        axios.get(imgURL)
+        .then((result)=>{
+            const imageData = result.data.result;
+            console.log(imageData);
+            // setMainImg(`https://teal-swan-1836fc.netlify.app/${imageData.url[0]}`);
+        })
+        .catch(()=>{
+        })
+
+    },[])
 
 
     return(
         <>
             <Wrapper>
-                <Header > 제목 </Header>
+                <Header>{title && title}</Header>
                 <Content>
+
                 <Title > 결과 </Title>
                 <LogoImage>
-                    <img alt="결과사진" src={resultData.image} className="rounded-circle" width={350} height={350}></img>
+                    {/* <img alt="결과사진" src={resultData.image} className="rounded-circle" width={350} height={350}></img> */}
                 </LogoImage>
-                <Desc> {resultData.name} 로 놀러가볼까요?</Desc>
-                <More>{resultData.desc}</More>
+                {/* <Desc> {resultData.name} 로 놀러가볼까요?</Desc>
+                <More>{resultData.desc}</More> */}
                 <ButtonGroup>
-                    <Button variant="outline-success" style={{fontSize: "20px"}}
+                    <Button 
+                            className='btn'
+                            variant="contained" style={{fontSize: "20px"}}
                             onClick={() => navigate("/")}
                     >테스트 다시하기</Button>
-                    <KakaoShareBtn data={resultData}/>
+                    {/* <KakaoShareBtn data={resultData}/> */}
                     
                 </ButtonGroup>
 
@@ -36,19 +70,19 @@ export default function Result(){
 const Wrapper = styled.div`
     height: 100vh;
     width:100%;
-    font-family:"Cute Font";
+    font-family: "Jua";
     padding:25px;
 
 `
 
 const Header = styled.div`
-    font-size: 40pt;
+    font-size: 30pt;
     display: flex;
     justify-content:center;
     align-items:center;
 `
 const Title = styled.div`
-    font-size: 30pt;
+    font-size: 20pt;
     margin-top:40px;
     display: flex;
     justify-content:center;
