@@ -4,7 +4,7 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import {matchType} from "../utils/matchType.js";
-
+// import {KakaoShareBtn} from "../utils/KakaoShareBtn"
 
 export default function Result(){
     let [title,setTitle] = useState("");
