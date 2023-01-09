@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate,createSearchParams } from "react-router-dom";
 // import Button from '@material-ui/core/Button';
-import LinearProgress from '@material-ui/core/LinearProgress';
+// import LinearProgress from '@material-ui/core/LinearProgress';
 import {matchType} from "../utils/matchType.js";
 
 export default function Test(){
@@ -89,7 +89,7 @@ export default function Test(){
     return(
         <>
             <Wrapper>
-                <LinearProgress variant="determinate" value={progress} />
+                {/* <LinearProgress variant="determinate" value={progress} /> */}
                 <Title> {contents.length>0 && contents[qNumber].content} </Title>
                 <ButtonGroup className="mt_20">
                     <button 
