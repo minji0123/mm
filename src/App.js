@@ -11,6 +11,7 @@ function App() {
         <Routes>
           <Route path = '/' element={<Start/>}></Route>
           <Route path = '/test' element={<Test/>}></Route>
+          {/* <Route path='/result/:id' element={<Result/>}/> */}
           <Route path='/result' element={<Result/>}/>
         </Routes>
       </BrowserRouter>

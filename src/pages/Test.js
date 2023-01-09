@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate,createSearchParams } from "react-router-dom";
 import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import {matchType} from "../utils/matchType.js";
 
 export default function Test(){
     const navigate = useNavigate();
@@ -11,25 +12,27 @@ export default function Test(){
     const [contents, setContents] = useState([]);
     const [qNumber, setQNumber] = useState(1);
     const [progress, setProgress] = useState(0);
-
+    const [mId,setMId] = useState(0);
     /* ********************************
         Test 계산 로직
     *********************************/
     const [total, setTotal] = useState([
-        {id:"EI",score:0},
-        {id:"SN",score:0},
-        {id:"TF",score:0},
-        {id:"JP",score:0},
+        {mType:"EI",score:0},
+        {mType:"SN",score:0},
+        {mType:"TF",score:0},
+        {mType:"JP",score:0},
     ])
 
     console.log(total,'total');
 
+
+
     const handleClickBtn = (no, type) => {
 
         // map 을 돌면서... 
-        // total 객체의 id 값 === 파라미터로 받아온 type => 그 타입의 score + 파라미터id값
+        // total 객체의 mType 값 === 파라미터로 받아온 type => 그 타입의 score + 파라미터id값
         const calScore = total.map((a,i)=>{
-            return a.id === type ? {id:a.id , score:a.score + no} : a
+            return a.mType === type ? {mType:a.mType , score:a.score + no} : a
         })
         setTotal(calScore);
 
@@ -46,16 +49,20 @@ export default function Test(){
             const finalResult = calScore.reduce(
                 (acc, cur) =>
                     acc +
-                    (cur.score >= 2 ? cur.id.substring(0, 1) : cur.id.substring(1, 2)), // E랑 I, T랑 F 이런식으로 TYPE 을 분리시킴
+                    (cur.score >= 2 ? cur.mType.substring(0, 1) : cur.mType.substring(1, 2)), // E랑 I, T랑 F 이런식으로 TYPE 을 분리시킴
                     ""// 초기값
             )
+            console.log(finalResult);
+
             // 결과 페이지로 이동
+            // 이동할때 어떤 방식으로 넘겨줄지 고민....
             navigate({
                 pathname: "/result",
                 search: `?${createSearchParams({// ~/resutl?mbti=ESTJ get 요청으로 데이터를 넘길 수 있음
                   mbti: finalResult,
                 })}`,
               });
+
         }
         
     }

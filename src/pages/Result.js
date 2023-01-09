@@ -1,15 +1,17 @@
 import { useEffect,useState } from 'react';
 import styled from 'styled-components';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import {matchType} from "../utils/matchType.js";
 
 
 export default function Result(){
     let [title,setTitle] = useState("");
     let [mainImg,setMainImg] = useState("");
-    const [qNumber, setQNumber] = useState(1);
-
+    let [content,setContent] = useState("");
+    const [searchParams] = useSearchParams();
+    const mbti = searchParams.get('mbti');
     const navigate = useNavigate();
 
     const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
@@ -19,19 +21,18 @@ export default function Result(){
     useEffect(()=>{
         axios.get(URL)
         .then((result)=>{
-            let copy = result.data.result[0];
-            setTitle(copy);
-
+            let realTit = result.data.result[0];
+            let realCont = result.data.result[matchType(mbti)];
+            setTitle(realTit);
+            setContent(realCont);
         })
         .catch(()=>{
         })
 
-
         axios.get(imgURL)
         .then((result)=>{
-            const imageData = result.data.result;
-            console.log(imageData);
-            // setMainImg(`https://teal-swan-1836fc.netlify.app/${imageData.url[0]}`);
+            const imageData = result.data.result[matchType(mbti)].img;
+            setMainImg(`https://teal-swan-1836fc.netlify.app/${imageData}`);
         })
         .catch(()=>{
         })
@@ -45,12 +46,12 @@ export default function Result(){
                 <Header>{title && title}</Header>
                 <Content>
 
-                <Title > 결과 </Title>
+                <Title > 결과보기 </Title>
                 <LogoImage>
-                    {/* <img alt="결과사진" src={resultData.image} className="rounded-circle" width={350} height={350}></img> */}
+                    <img alt="결과사진" src={mainImg} width={350} height={350}></img>
                 </LogoImage>
-                {/* <Desc> {resultData.name} 로 놀러가볼까요?</Desc>
-                <More>{resultData.desc}</More> */}
+                <Desc> {content && content.name} 입니다.</Desc>
+                <More>{content && content.text}</More>
                 <ButtonGroup>
                     <Button 
                             className='btn'
