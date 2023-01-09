@@ -1,7 +1,7 @@
 import { useEffect,useState } from 'react';
 import styled from 'styled-components';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import axios from 'axios';
 import {matchType} from "../utils/matchType.js";
 // import {KakaoShareBtn} from "../utils/KakaoShareBtn"
@@ -53,11 +53,11 @@ export default function Result(){
                 <Desc> {content && content.name} 입니다.</Desc>
                 <More>{content && content.text}</More>
                 <ButtonGroup>
-                    <Button 
+                    <button 
                             className='btn'
                             variant="contained" style={{fontSize: "20px"}}
                             onClick={() => navigate("/")}
-                    >테스트 다시하기</Button>
+                    >테스트 다시하기</button>
                     {/* <KakaoShareBtn data={resultData}/> */}
                     
                 </ButtonGroup>

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate,createSearchParams } from "react-router-dom";
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import {matchType} from "../utils/matchType.js";
 
@@ -92,20 +92,20 @@ export default function Test(){
                 <LinearProgress variant="determinate" value={progress} />
                 <Title> {contents.length>0 && contents[qNumber].content} </Title>
                 <ButtonGroup className="mt_20">
-                    <Button 
+                    <button 
                         className="btn left_btn"
                         onClick={() => handleClickBtn(1,contents[qNumber].type)}
                     >
                         {contents.length>0 && contents[qNumber].answer1}
-                    </Button>
+                    </button>
 
-                    <Button 
+                    <button 
                     color="primary"
                     className="btn right_btn"
                     onClick={() => handleClickBtn(0,contents[qNumber].type)}
                     >
                         {contents.length>0 && contents[qNumber].answer2}
-                    </Button>
+                    </button>
                 </ButtonGroup>
             </Wrapper>
         </>
