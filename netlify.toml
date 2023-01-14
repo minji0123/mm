@@ -1,5 +1,0 @@
-[[redirects]]
-  from = "/proxy/*"
-  to = "https://teal-swan-1836fc.netlify.app/:splat"
-  status = 200
-  force = true
