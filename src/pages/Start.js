@@ -1,46 +1,25 @@
 
-import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Button } from 'react-bootstrap';
 
+//style
+import styled from 'styled-components';
+//data
+import MainImg from '../assets/img/0.jpg'
+import MainData from '../assets/data/title.json'
+
 export default function Start(){
-    let [title,setTitle] = useState("");
-    let [mainImg,setMainImg] = useState("");
-
-    const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-    const URL = `${PROXY}/test/1/1.json`;
-    const imgURL = `${PROXY}/test/1/img.json`;
-
+    let [title,setTitle] = useState(MainData.title);
+    let [mainImg,setMainImg] = useState(MainImg);
+    console.log(title);
 
     const navigate = useNavigate();
 
     const handleClickButton = () => {
         navigate('/Test');
     }
-
-
-    useEffect(()=>{
-        axios.get(URL)
-        .then((result)=>{
-            let copy = result.data.question[0];
-            setTitle(copy);
-
-        })
-        .catch(()=>{
-        })
-
-
-        axios.get(imgURL)
-        .then((result)=>{
-            const imageData = result.data;
-            setMainImg(`https://teal-swan-1836fc.netlify.app/${imageData.url[0]}`);
-        })
-        .catch(()=>{
-        })
-
-    },[])
 
 
     return(
@@ -51,9 +30,10 @@ export default function Start(){
                 <LogoImage>
                     <img alt="메인사진" src={mainImg} width={350} height={350}></img>
                 </LogoImage>
+
                  <Button variant="secondary"
                             className='btn'
-                            style={{fontSize: "20px", fontFamily: "Jua" }}
+                            style={{fontSize: "20px", fontFamily: "Jua" , marginTop: "30px"}}
                             onClick={handleClickButton}
                             >Start</Button>
                 </Content>

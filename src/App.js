@@ -4,6 +4,7 @@ import Start from './pages/Start';
 import Test from './pages/Test';
 import Result from './pages/Result';
 import RegStart from './regPages/RegStart';
+import RegTest from './regPages/RegTest';
 
 function App() {
   return (
@@ -15,9 +16,11 @@ function App() {
           <Route path = '/test' element={<Test/>}></Route>
           {/* <Route path='/result/:id' element={<Result/>}/> */}
           <Route path='/result' element={<Result/>}/>
+          
           {/* 테스트 제작하는 경로 
             따로 버튼안만들고 분리해서 갈거임...*/}
           <Route path='/regst' element={<RegStart/>}/>
+          <Route path='/regtest' element={<RegTest/>}/>
         </Routes>
       </BrowserRouter>
     </div>
