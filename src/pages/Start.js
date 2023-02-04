@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-// import Button from '@material-ui/core/Button';
+import { Button } from 'react-bootstrap';
 
 export default function Start(){
     let [title,setTitle] = useState("");
@@ -51,11 +51,11 @@ export default function Start(){
                 <LogoImage>
                     <img alt="메인사진" src={mainImg} width={350} height={350}></img>
                 </LogoImage>
-                <button 
-                        className='btn'
-                        variant="contained" style={{fontSize: "20px", fontFamily: "Jua" }}
-                        onClick={handleClickButton}
-                >시작하기</button>
+                 <Button variant="secondary"
+                            className='btn'
+                            style={{fontSize: "20px", fontFamily: "Jua" }}
+                            onClick={handleClickButton}
+                            >Start</Button>
                 </Content>
             </Wrapper>
         </>
