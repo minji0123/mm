@@ -16,10 +16,16 @@
   margin-top: 40px;
 }
 
+
+.mb_20{
+  margin-bottom: 20px;
+}
+
 .btn{
   font-family: "Jua";
 
 }
+
 
 .left_btn{
   width:40%;
@@ -27,19 +33,33 @@
   font-size: 18pt;
 
 }
-
-.ele_center_whole{
-  width: 550px;
-  display: block;
-  margin: 0 auto;
-  background: cornsilk;
-}
 .right_btn{
   width:40%;
   min-height: 200px;
   font-size: 18pt;
   margin-left:20px;
 }
+
+.reg_left_btn{
+  width:40%;
+  min-height: 200px;
+  font-size: 10px;
+
+
+}
+.reg_right_btn{
+  width:40%;
+  min-height: 200px;
+  font-size: 10px;
+  margin-left:20px;
+}
+.ele_center_whole{
+  width: 550px;
+  display: block;
+  margin: 0 auto;
+  background: cornsilk;
+}
+
 
 
 .img_size{

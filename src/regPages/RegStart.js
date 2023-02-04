@@ -8,7 +8,7 @@ export default () => {
     const navigate = useNavigate();
 
     const handleClickButton = () => {
-        navigate('/regtest');
+        navigate('/regmain');
     }
 
 

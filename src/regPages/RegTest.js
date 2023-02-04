@@ -1,86 +1,121 @@
 
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 
 import Card from 'react-bootstrap/Card';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
+import RegTestInput from './RegTestInput';
+
 export default () => {
-    let [title,setTitle] = useState("");
-    let [mainImg,setMainImg] = useState("");
+    const [question,setQuestion] = useState("");
+    const [answer1,setAnswer1] = useState("");
+    const [answer2,setAnswer2] = useState("");
+
+    // const [realQ, setRealQ] = useState();
+    
+
+
+    const navigate = useNavigate();
     
     const handleData = (event) => {
         if (event.target.id === 'first') {
-            setTitle(event.target.value);
+            setQuestion(event.target.value);
+        }else if (event.target.id === 'second') {
+            setAnswer1(event.target.value);
+        }else if (event.target.id === 'third') {
+            setAnswer2(event.target.value);
         }
+
     }
 
-    const setPreviewImg = (event) => {
-
-        var reader = new FileReader();
-
-        reader.onload = function(event) {
-            setMainImg(event.target.result);
-        };
-
-        reader.readAsDataURL(event.target.files[0]);
+    const handleClickButton = (link) => {
+        navigate(link);
     }
 
     return(
         <Wrapper>
             <Content>
-                <Title>메인화면 만들기</Title>
+                <Title>테스트화면 만들기</Title>
+
+                <p>예시입니당</p>
 
                 <div style={{ width: '18rem' }}>
-                    <InputGroup className="mb-3">
 
-                    <input  type="text"
-                            style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                    marginBottom:"4px",width:"290px"}}
-                            id="first" value={title} onChange={handleData}
-                    />
+                    <div className="mb-3">
 
-                    <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px"}}
-                        onChange={setPreviewImg}/>
+                        <input  type="text"
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                        marginBottom:"4px",width:"290px"}}
+                                id="first" value={question} onChange={handleData}
+                                placeholder="예시질문이에요"
+                        />
+                        <input  type="text"
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                        marginBottom:"4px",width:"290px"}}
+                                id="second" value={answer1} onChange={handleData}
+                                placeholder="예시답변이에요"
+                        />
+                        <input  type="text"
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                        marginBottom:"4px",width:"290px"}}
+                                id="third" value={answer2} onChange={handleData}
+                                placeholder="예시답변이에요"
+                        />
 
-                    </InputGroup>
+                    </div>
+
                 </div>
+
+
+
 
                 <p></p>
                 <p>이렇게 보일거에요</p>
                 <p>↓ ↓ ↓</p>
+
                 <Card style={{ width: '18rem' }}>
                     <Content>
-                        <SubTitle>{ title} </SubTitle>
-                        <LogoImage>
-                            <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
-                        </LogoImage>
+                        <SubTitle>{ question} </SubTitle>
+                        <ButtonGroup className="mb_20">
+                            {answer1 && <Button variant="secondary"
+                                    className="btn reg_left_btn"
+                            >
+                                {answer1}
+                            </Button>}
 
-                        <Button variant="secondary"
-                                className='btn'
-                                style={{fontSize: "10px", fontFamily: "Jua" , marginTop: "30px", marginBottom: "30px"}}
-                                >Start</Button>
+                            {answer2 && <Button variant="secondary"
+                                    className="btn reg_right_btn"
+                            >
+                                {answer2}
+                            </Button>}
+                        </ButtonGroup>
                     </Content>
                 </Card>
 
-                <p>❕ 1:1 비율 사진을 사용하면 좋아요</p>
+                {/* <p>❕ </p> */}
+                <p></p>
+
+                <RegTestInput/>
 
                 <ButtonGroup className="mt_20">
                     <Button variant="light"
                             className="btn"
+                            onClick={() => handleClickButton('/regmain')}
                     >
                         이전
                     </Button>
-
                     <Button variant="light"
                             className="btn"
+                            onClick={() => handleClickButton('/regtest')}
+
                     >
                         다음
                     </Button>
+
+                    
                 </ButtonGroup>
 
             </Content>
@@ -105,12 +140,12 @@ const Title = styled.div`
 
 `
 const SubTitle = styled.div`
-    font-size: 10px;
-    margin-top:40px;
+    font-size: 20px;
+    margin-top:10px;
+    margin-bottom:10px;
     display: flex;
     justify-content:center;
     align-items:center;
-
 `
 const Content = styled.div`
     // font-size: 20pt;
@@ -118,10 +153,6 @@ const Content = styled.div`
     justify-content:center;
     align-items:center;
     flex-direction:column;
-
-`
-const LogoImage = styled.div`
-    margin-top:10px;
 
 `
 const ButtonGroup = styled.div`

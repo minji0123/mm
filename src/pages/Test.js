@@ -1,16 +1,18 @@
-import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate,createSearchParams } from "react-router-dom";
-// import LinearProgress from '@material-ui/core/LinearProgress';
+
+//style
+import styled from 'styled-components';
 import {matchType} from "../utils/matchType.js";
 import { Button } from 'react-bootstrap';
-
+//data
+import TestData from '../assets/data/1.json'
 
 export default function Test(){
     const navigate = useNavigate();
 
-    const [contents, setContents] = useState([]);
+    const [contents, setContents] = useState(TestData.question);
     const [qNumber, setQNumber] = useState(1);
     const [progress, setProgress] = useState(0);
     const [mId,setMId] = useState(0);
@@ -25,7 +27,6 @@ export default function Test(){
     ])
 
     console.log(total,'total');
-
 
 
     const handleClickBtn = (no, type) => {
@@ -68,23 +69,23 @@ export default function Test(){
         
     }
 
-    useEffect(()=>{
-        /* ********************************
-            서버 데이터
-        *********************************/
-        const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-        const URL = `${PROXY}/test/1/1.json`;
+    // useEffect(()=>{
+    //     /* ********************************
+    //         서버 데이터
+    //     *********************************/
+    //     const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+    //     const URL = `${PROXY}/test/1/1.json`;
 
-        axios.get(URL)
-        .then((result)=>{
-            let copy = result.data.question;
-            setContents(copy);
-        })
-        .catch(()=>{
-            console.log('실패...');
-        })
+    //     axios.get(URL)
+    //     .then((result)=>{
+    //         let copy = result.data.question;
+    //         setContents(copy);
+    //     })
+    //     .catch(()=>{
+    //         console.log('실패...');
+    //     })
 
-    },[])
+    // },[])
     // console.log(contents);
 
     return(
