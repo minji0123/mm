@@ -4,9 +4,10 @@ import { useNavigate,createSearchParams } from "react-router-dom";
 
 //style
 import styled from 'styled-components';
-import {matchType} from "../utils/matchType.js";
 import { Button } from 'react-bootstrap';
+
 //data
+import {matchType} from "../utils/matchType.js";
 import TestData from '../assets/data/1.json'
 
 export default function Test(){

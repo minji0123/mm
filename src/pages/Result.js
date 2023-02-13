@@ -1,18 +1,40 @@
 import { useEffect,useState } from 'react';
-import styled from 'styled-components';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import axios from 'axios';
-import {matchType} from "../utils/matchType.js";
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+
+//style
+import styled from 'styled-components';
 // import {KakaoShareBtn} from "../utils/KakaoShareBtn"
 import { Button } from 'react-bootstrap';
+
+//data
+import {matchType} from "../utils/matchType.js";
+import ResultData from '../assets/data/2.json'
+import MainImg from '../assets/img/4.jpg'
+
 
 export default function Result(){
     let [title,setTitle] = useState("");
     let [mainImg,setMainImg] = useState("");
     let [content,setContent] = useState("");
     const [searchParams] = useSearchParams();
+
     const mbti = searchParams.get('mbti');
+
     const navigate = useNavigate();
+
+    console.log('ddd',ResultData);
+
+    useEffect(() => {
+        console.log(mbti);
+        let realTit = ResultData.result[0];
+        let realCont = ResultData.result[matchType(mbti)];
+        setTitle(realTit);
+        setContent(realCont);
+
+        setMainImg(MainImg);
+
+    });
 
     // const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
     // const URL = `${PROXY}/test/1/2.json`;
@@ -103,6 +125,7 @@ const More = styled.div`
     font-size: 18pt;
     margin-top:20px;
     margin-bottom:20px;
+    width: 350px;
 `
 
 const Content = styled.div`

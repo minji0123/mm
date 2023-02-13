@@ -7,7 +7,6 @@ import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
-import RegTestInput from './RegTestInput';
 
 export default () => {
     const [question,setQuestion] = useState("");
@@ -38,7 +37,7 @@ export default () => {
     return(
         <Wrapper>
             <Content>
-                <Title>테스트화면 만들기</Title>
+                <Title>결과화면 만들기</Title>
 
                 <p>예시입니당</p>
 
@@ -50,20 +49,14 @@ export default () => {
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px"}}
                                 id="first" value={question} onChange={handleData}
-                                placeholder="예시질문이에요"
+                                placeholder="예시 결과에요"
                         />
-                        <input  type="text"
+                        <textarea  type="text"
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px",
                                     }}
                                 id="second" value={answer1} onChange={handleData}
-                                placeholder="예시답변이에요"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="third" value={answer2} onChange={handleData}
-                                placeholder="예시답변이에요"
+                                placeholder="예시 설명란이에요"
                         />
 
                     </div>
@@ -88,11 +81,6 @@ export default () => {
                                 {answer1}
                             </Button>}
 
-                            {answer2 && <Button variant="secondary"
-                                    className="btn reg_right_btn"
-                            >
-                                {answer2}
-                            </Button>}
                         </ButtonGroup>
                     </Content>
                 </Card>
@@ -100,7 +88,6 @@ export default () => {
                 {/* <p>❕ </p> */}
                 <p></p>
 
-                <RegTestInput/>
 
                 <ButtonGroup className="mt_20">
                     <Button variant="light"
@@ -111,7 +98,7 @@ export default () => {
                     </Button>
                     <Button variant="light"
                             className="btn"
-                            onClick={() => handleClickButton('/regresult')}
+                            onClick={() => handleClickButton('/regtest')}
 
                     >
                         다음
