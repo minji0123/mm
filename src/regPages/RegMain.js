@@ -8,17 +8,23 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
+import { useFirestore } from '../hooks/useFirestore';
+
 export default () => {
-    let [title,setTitle] = useState("");
+
+    const [title,setTitle] = useState("");
     const [mainImg,setMainImg] = useState("");
+
     const navigate = useNavigate();
     
+    // controlled component
     const handleData = (event) => {
         if (event.target.id === 'first') {
             setTitle(event.target.value);
         }
     }
 
+    // 이미지 미리보기
     const setPreviewImg = (event) => {
 
         var reader = new FileReader();
@@ -30,13 +36,21 @@ export default () => {
         reader.readAsDataURL(event.target.files[0]);
     }
 
+    // navigation 이벤트
     const handleClickButton = (link) => {
         navigate(link);
     }
 
 
 
+    /**************************************************************
+     * 글 저장
+     **************************************************************/
+    // 컬랙션 이름 파라미터로 넣어주기
+    const { addComment, response } = useFirestore("comment");
+
     return(
+
         <Wrapper>
             <Content>
                 <Title>메인화면 만들기</Title>
