@@ -7,12 +7,12 @@ import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
 
-import RegTestInput from './RegTestInput';
 
 export default () => {
     const [question,setQuestion] = useState("");
-    const [answer1,setAnswer1] = useState("");
-    const [answer2,setAnswer2] = useState("");
+    const [desc,setDesc] = useState("");
+    const [content,setContent] = useState("");
+    const [mainImg,setMainImg] = useState("");
 
     // const [realQ, setRealQ] = useState();
     
@@ -24,11 +24,22 @@ export default () => {
         if (event.target.id === 'first') {
             setQuestion(event.target.value);
         }else if (event.target.id === 'second') {
-            setAnswer1(event.target.value);
+            setDesc(event.target.value);
         }else if (event.target.id === 'third') {
-            setAnswer2(event.target.value);
+            setContent(event.target.value);
         }
 
+    }
+
+    const setPreviewImg = (event) => {
+
+        var reader = new FileReader();
+
+        reader.onload = function(event) {
+            setMainImg(event.target.result);
+        };
+
+        reader.readAsDataURL(event.target.files[0]);
     }
 
     const handleClickButton = (link) => {
@@ -38,7 +49,7 @@ export default () => {
     return(
         <Wrapper>
             <Content>
-                <Title>테스트화면 만들기</Title>
+                <Title>결과화면 만들기</Title>
 
                 <p>예시입니당</p>
 
@@ -50,21 +61,25 @@ export default () => {
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px"}}
                                 id="first" value={question} onChange={handleData}
-                                placeholder="예시질문이에요"
+                                placeholder="예시 제목이에요"
                         />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="second" value={answer1} onChange={handleData}
-                                placeholder="예시답변이에요"
-                        />
+
                         <input  type="text"
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px"}}
-                                id="third" value={answer2} onChange={handleData}
-                                placeholder="예시답변이에요"
+                                id="second" value={desc} onChange={handleData}
+                                placeholder="예시 결과에요"
                         />
+                        <textarea  type="text"
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                        marginBottom:"4px",width:"290px",
+                                    }}
+                                id="third" value={content} onChange={handleData}
+                                placeholder="예시 설명란이에요"
+                        />
+                        <input type="file" id="image" accept="image/*" 
+                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                        onChange={setPreviewImg}/>
 
                     </div>
 
@@ -78,40 +93,34 @@ export default () => {
                 <p>↓ ↓ ↓</p>
 
                 <Card style={{ width: '18rem' }}>
-                    <Content>
-                        <SubTitle>{ question} </SubTitle>
-                        <ButtonGroup className="mb_20">
-                            {answer1 && <Button variant="secondary"
-                                    className="btn reg_left_btn"
-                                    style={{marginRight:"7px"}}
-                            >
-                                {answer1}
-                            </Button>}
+                    <Header>{ question ?question :"나만의 겨울 휴양지는?"  }</Header>
 
-                            {answer2 && <Button variant="secondary"
-                                    className="btn reg_right_btn"
-                            >
-                                {answer2}
-                            </Button>}
-                        </ButtonGroup>
+                    <Content>
+                        <Title> 결과보기 </Title>
+                        <LogoImage>
+                            <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
+                        </LogoImage>
+                        
+                        <Desc> { desc? desc : "등산"} 입니다.</Desc>
+                        <More>{ content? content:"친구들과 함께 겨울 산을 올라보세요!" }</More>
+
                     </Content>
                 </Card>
 
                 {/* <p>❕ </p> */}
                 <p></p>
 
-                <RegTestInput/>
 
                 <ButtonGroup className="mt_20">
                     <Button variant="light"
                             className="btn"
-                            onClick={() => handleClickButton('/regmain')}
+                            onClick={() => handleClickButton('/regtest')}
                     >
                         이전
                     </Button>
                     <Button variant="light"
                             className="btn"
-                            onClick={() => handleClickButton('/regresult')}
+                            onClick={() => handleClickButton('/regtest')}
 
                     >
                         다음
@@ -131,6 +140,13 @@ const Wrapper = styled.div`
     width:100%;
     font-family: "Jua";
     padding:25px;
+
+`
+const Header = styled.div`
+    font-size: 20pt;
+    display: flex;
+    justify-content:center;
+    align-items:center;
 `
 const Title = styled.div`
     font-size: 30px;
@@ -140,20 +156,31 @@ const Title = styled.div`
     align-items:center;
 `
 const SubTitle = styled.div`
-    font-size: 20px;
-    margin-top:10px;
-    margin-bottom:10px;
+    font-size: 18px;
+    margin-top:40px;
     display: flex;
     justify-content:center;
     align-items:center;
 `
+const LogoImage = styled.div`
+    margin-top:10px;
+
+`
 const Content = styled.div`
-    // font-size: 20pt;
     display: flex;
     justify-content:center;
     align-items:center;
     flex-direction:column;
 
+`
+const Desc = styled.div`
+    font-size: 12pt;
+    margin-top:20px;
+    margin-bottom:20px;
+`
+const More = styled.p`
+    font-size: 12pt;
+    margin-bottom:20px;
 `
 const ButtonGroup = styled.div`
     display: flex;
