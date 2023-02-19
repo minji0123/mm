@@ -78,7 +78,7 @@ export default () => {
                 <p>↓ ↓ ↓</p>
                 <Card style={{ width: '18rem' }}>
                     <Content>
-                        <SubTitle>{title} </SubTitle>
+                        <SubTitle>{title ? title : "나만의 겨울 휴양지 테스트"}  </SubTitle>
                         <LogoImage>
                             <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
                         </LogoImage>
@@ -133,15 +133,12 @@ const Title = styled.div`
 
 `
 const SubTitle = styled.div`
-    font-size: 10px;
+    font-size: 18px;
     margin-top:40px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
+    max-width: 80%;
 
 `
 const Content = styled.div`
-    // font-size: 20pt;
     display: flex;
     justify-content:center;
     align-items:center;

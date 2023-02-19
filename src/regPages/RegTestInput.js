@@ -33,11 +33,12 @@ export default () => {
             <p>이제 진짜 질문과 답변을 입력해보세요</p>
             <p>총 8개의 질답을 입력해야해요</p>
 
-            <div className="row mb-3" >
+            <div  style={{ width: '1000px' }} >
 
+            <Content>
                 {/* ei */}
-                <div className="col-3 mb-3">
-                    <MyInput type="text"
+                <div>
+                    <MyTextarea type="text"
                         id="question1" value={question1} onChange={handleData}
                         placeholder={printDatas[0]+ 임시}
                     />
@@ -52,8 +53,8 @@ export default () => {
                     />
                 </div>
                 {/* sn */}
-                <div className="col-3 mb-3">
-                    <MyInput type="text"
+                <div >
+                    <MyTextarea type="text"
                         id="question2" value={question1} onChange={handleData}
                         placeholder={printDatas[1]+ 임시}
                     />
@@ -68,8 +69,45 @@ export default () => {
                     />
                 </div>
 
-                <div className="col-3 mb-3">
+                {/* tf */}
+                <div >
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[2]+ 임시}
+                    />
                     <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[2].slice(0,1)+ 임시1}
+
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[2].slice(1)+ 임시1}
+                    />
+                </div>
+
+                {/* jp */}
+                <div>
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[3]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[3].slice(0,1)+ 임시1}
+
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[3].slice(1)+ 임시1}
+                    />
+                </div>
+
+            </Content>
+
+            <Content style={{marginTop:"40px" }}>
+                <div >
+                    <MyTextarea type="text"
                         id="question1" value={question1} onChange={handleData}
                         placeholder={printDatas[0]+ 임시}
                     />
@@ -84,85 +122,54 @@ export default () => {
                     />
                 </div>
 
-                <div className="col-3 mb-3">
-                    <MyInput type="text"
+                <div >
+                    <MyTextarea type="text"
                         id="question1" value={question1} onChange={handleData}
-                        placeholder={printDatas[0]+ 임시}
+                        placeholder={printDatas[1]+ 임시}
                     />
                     <MyInput type="text"
                         id="answer1" value={answer1} onChange={handleData}
-                        placeholder={printDatas[0].slice(0,1)+ 임시1}
+                        placeholder={printDatas[1].slice(0,1)+ 임시1}
 
                     />
                     <MyInput type="text"
                         id="answer2" value={answer2} onChange={handleData}
-                        placeholder={printDatas[0].slice(1)+ 임시1}
+                        placeholder={printDatas[1].slice(1)+ 임시1}
                     />
                 </div>
 
-                <div className="col-3 mb-3">
-                    <MyInput type="text"
+                <div>
+                    <MyTextarea type="text"
                         id="question1" value={question1} onChange={handleData}
-                        placeholder={printDatas[0]+ 임시}
+                        placeholder={printDatas[2]+ 임시}
                     />
                     <MyInput type="text"
                         id="answer1" value={answer1} onChange={handleData}
-                        placeholder={printDatas[0].slice(0,1)+ 임시1}
+                        placeholder={printDatas[2].slice(0,1)+ 임시1}
 
                     />
                     <MyInput type="text"
                         id="answer2" value={answer2} onChange={handleData}
-                        placeholder={printDatas[0].slice(1)+ 임시1}
+                        placeholder={printDatas[2].slice(1)+ 임시1}
                     />
                 </div>
 
-                <div className="col-3 mb-3">
-                    <MyInput type="text"
+                <div>
+                    <MyTextarea type="text"
                         id="question1" value={question1} onChange={handleData}
-                        placeholder={printDatas[0]+ 임시}
+                        placeholder={printDatas[3]+ 임시}
                     />
                     <MyInput type="text"
                         id="answer1" value={answer1} onChange={handleData}
-                        placeholder={printDatas[0].slice(0,1)+ 임시1}
+                        placeholder={printDatas[3].slice(0,1)+ 임시1}
 
                     />
                     <MyInput type="text"
                         id="answer2" value={answer2} onChange={handleData}
-                        placeholder={printDatas[0].slice(1)+ 임시1}
+                        placeholder={printDatas[3].slice(1)+ 임시1}
                     />
                 </div>
-
-                <div className="col-3 mb-3">
-                    <MyInput type="text"
-                        id="question1" value={question1} onChange={handleData}
-                        placeholder={printDatas[0]+ 임시}
-                    />
-                    <MyInput type="text"
-                        id="answer1" value={answer1} onChange={handleData}
-                        placeholder={printDatas[0].slice(0,1)+ 임시1}
-
-                    />
-                    <MyInput type="text"
-                        id="answer2" value={answer2} onChange={handleData}
-                        placeholder={printDatas[0].slice(1)+ 임시1}
-                    />
-                </div>
-
-                <div className="col-3 mb-3">
-                    <MyInput type="text"
-                        id="question1" value={question1} onChange={handleData}
-                        placeholder={printDatas[0]+ 임시}
-                    />
-                    <MyInput type="text"
-                        id="answer1" value={answer1} onChange={handleData}
-                        placeholder={printDatas[0].slice(0,1)+ 임시1}
-
-                    />
-                    <MyInput type="text"
-                        id="answer2" value={answer2} onChange={handleData}
-                        placeholder={printDatas[0].slice(1)+ 임시1}
-                    />
-                </div>
+                </Content>
             </div>
 
         </>
@@ -173,6 +180,18 @@ const MyInput = styled.input`
     border-radius: 5px;
     margin-bottom: 4px;
     width: 200px;
+`
+const MyTextarea = styled.textarea`
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    width: 200px;
+`
+const Content = styled.div`
+    display: flex;
+    justify-content:center;
+    align-items:center;
+
 `
 
 {/* {repeatDiv()} */}

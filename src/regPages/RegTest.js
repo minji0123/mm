@@ -79,20 +79,21 @@ export default () => {
 
                 <Card style={{ width: '18rem' }}>
                     <Content>
-                        <SubTitle>{ question} </SubTitle>
+                        <SubTitle>{ question ? question : "친구가 여행계획을 세워왔어요! 당신은 여행을 갈건가요??"} </SubTitle>
                         <ButtonGroup className="mb_20">
-                            {answer1 && <Button variant="secondary"
+                            <Button variant="secondary"
                                     className="btn reg_left_btn"
                                     style={{marginRight:"7px"}}
                             >
-                                {answer1}
-                            </Button>}
+                                {answer1 ? answer1 : "네!"}
+                            </Button>
 
-                            {answer2 && <Button variant="secondary"
+                            <Button variant="secondary"
                                     className="btn reg_right_btn"
+                                    
                             >
-                                {answer2}
-                            </Button>}
+                                {answer2 ? answer2 : "아녀!"}
+                            </Button>
                         </ButtonGroup>
                     </Content>
                 </Card>
@@ -140,15 +141,12 @@ const Title = styled.div`
     align-items:center;
 `
 const SubTitle = styled.div`
-    font-size: 20px;
-    margin-top:10px;
-    margin-bottom:10px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
+    font-size: 18px;
+    margin-top:20px;
+    margin-bottom:20px;
+    max-width: 80%;
 `
 const Content = styled.div`
-    // font-size: 20pt;
     display: flex;
     justify-content:center;
     align-items:center;
@@ -160,5 +158,6 @@ const ButtonGroup = styled.div`
     justify-content:center;
     align-items:center;
     flex-direction:row;
+    margin-bottom:20px;
     
 `

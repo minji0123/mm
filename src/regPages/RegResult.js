@@ -118,6 +118,7 @@ export default () => {
                     >
                         이전
                     </Button>
+                    
                     <Button variant="light"
                             className="btn"
                             onClick={() => handleClickButton('/regtest')}
