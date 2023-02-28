@@ -21,19 +21,19 @@ export default () => {
             setAnswer2(event.target.value);
         }
     }
+    
     console.log(question1);
     // 일단 하드코딩을 해야되나...
-    // 문구 배열에 저장해놓고 8개 돌려버리면 되지 않을까...?
     // 8개나 되는데 이거를 다 이벤트로 넣어야 되는게 맞나...? 어차피 useState 를 사용하긴 해야되느데...
-    // 실패?ㅠㅠㅠ
-    // 그럼... 저거 target 쓰지말고 다음 버튼을 누를 때 
+    // id 값은 저렇게 일단 세팅 해놓구
+    // useState 는 배열에다가 밀어넣는 방식으로...
 
     return(
         <>
             <p>이제 진짜 질문과 답변을 입력해보세요</p>
             <p>총 8개의 질답을 입력해야해요</p>
 
-            <div  style={{ width: '1000px' }} >
+            <div  style={{ width:'100%', maxWidth: '1000px' }} >
 
             <Content>
                 {/* ei */}

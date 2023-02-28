@@ -1,191 +1,224 @@
 
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
-
-import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
 
 
 export default () => {
-    const [question,setQuestion] = useState("");
-    const [desc,setDesc] = useState("");
-    const [content,setContent] = useState("");
-    const [mainImg,setMainImg] = useState("");
+    const [question1,setQuestion1] = useState("");
+    const [answer1,setAnswer1] = useState("");
+    const [answer2,setAnswer2] = useState("");
 
-    // const [realQ, setRealQ] = useState();
-    
+    const printDatas = ["EI","SN","TF","JP"];
+    const 임시 = " 질문을 입력해주세요";
+    const 임시1 = " 답변을 입력해주세요";
 
-
-    const navigate = useNavigate();
-    
     const handleData = (event) => {
-        if (event.target.id === 'first') {
-            setQuestion(event.target.value);
-        }else if (event.target.id === 'second') {
-            setDesc(event.target.value);
-        }else if (event.target.id === 'third') {
-            setContent(event.target.value);
+        if (event.target.id === 'question1') {
+            setQuestion1(event.target.value);
+        }else if (event.target.id === 'answer1') {
+            setAnswer1(event.target.value);
+        }else if (event.target.id === 'answer2') {
+            setAnswer2(event.target.value);
         }
-
     }
-
-    const setPreviewImg = (event) => {
-
-        var reader = new FileReader();
-
-        reader.onload = function(event) {
-            setMainImg(event.target.result);
-        };
-
-        reader.readAsDataURL(event.target.files[0]);
-    }
-
-    const handleClickButton = (link) => {
-        navigate(link);
-    }
+    console.log(question1);
+    
+    // 일단 하드코딩을 해야되나...
+    // 문구 배열에 저장해놓고 8개 돌려버리면 되지 않을까...?
+    // 8개나 되는데 이거를 다 이벤트로 넣어야 되는게 맞나...? 어차피 useState 를 사용하긴 해야되느데...
+    // 실패?ㅠㅠㅠ
+    // 그럼... 저거 target 쓰지말고 다음 버튼을 누를 때 
 
     return(
-        <Wrapper>
+        <>
+            <p>이제 진짜 질문과 답변을 입력해보세요</p>
+            <p>총 8개의 질답을 입력해야해요</p>
+
+            <div  style={{ width: '1000px' }} >
+
             <Content>
-                <Title>결과화면 만들기</Title>
+                {/* ei */}
+                <div>
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[0]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[0].slice(0,1)+ 임시1}
 
-                <p>예시입니당</p>
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[0].slice(1)+ 임시1}
+                    />
+                </div>
+                {/* sn */}
+                <div >
+                    <MyTextarea type="text"
+                        id="question2" value={question1} onChange={handleData}
+                        placeholder={printDatas[1]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[1].slice(0,1)+ 임시1}
 
-                <div style={{ width: '18rem' }}>
-
-                    <div className="mb-3">
-
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first" value={question} onChange={handleData}
-                                placeholder="예시 제목이에요"
-                        />
-
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second" value={desc} onChange={handleData}
-                                placeholder="예시 결과에요"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" value={content} onChange={handleData}
-                                placeholder="예시 설명란이에요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        onChange={setPreviewImg}/>
-
-                    </div>
-
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[1].slice(1)+ 임시1}
+                    />
                 </div>
 
+                {/* tf */}
+                <div >
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[2]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[2].slice(0,1)+ 임시1}
 
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[2].slice(1)+ 임시1}
+                    />
+                </div>
 
+                {/* jp */}
+                <div>
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[3]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[3].slice(0,1)+ 임시1}
 
-                <p></p>
-                <p>이렇게 보일거에요</p>
-                <p>↓ ↓ ↓</p>
-
-                <Card style={{ width: '18rem' }}>
-                    <Header>{ question ?question :"나만의 겨울 휴양지는?"  }</Header>
-
-                    <Content>
-                        <Title> 결과보기 </Title>
-                        <LogoImage>
-                            <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
-                        </LogoImage>
-                        
-                        <Desc> { desc? desc : "등산"} 입니다.</Desc>
-                        <More>{ content? content:"친구들과 함께 겨울 산을 올라보세요!" }</More>
-
-                    </Content>
-                </Card>
-
-                {/* <p>❕ </p> */}
-                <p></p>
-
-
-                <ButtonGroup className="mt_20">
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/regtest')}
-                    >
-                        이전
-                    </Button>
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/regtest')}
-
-                    >
-                        다음
-                    </Button>
-
-                    
-                </ButtonGroup>
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[3].slice(1)+ 임시1}
+                    />
+                </div>
 
             </Content>
-            
-        </Wrapper>
+
+            <Content style={{marginTop:"40px" }}>
+                <div >
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[0]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[0].slice(0,1)+ 임시1}
+
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[0].slice(1)+ 임시1}
+                    />
+                </div>
+
+                <div >
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[1]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[1].slice(0,1)+ 임시1}
+
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[1].slice(1)+ 임시1}
+                    />
+                </div>
+
+                <div>
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[2]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[2].slice(0,1)+ 임시1}
+
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[2].slice(1)+ 임시1}
+                    />
+                </div>
+
+                <div>
+                    <MyTextarea type="text"
+                        id="question1" value={question1} onChange={handleData}
+                        placeholder={printDatas[3]+ 임시}
+                    />
+                    <MyInput type="text"
+                        id="answer1" value={answer1} onChange={handleData}
+                        placeholder={printDatas[3].slice(0,1)+ 임시1}
+
+                    />
+                    <MyInput type="text"
+                        id="answer2" value={answer2} onChange={handleData}
+                        placeholder={printDatas[3].slice(1)+ 임시1}
+                    />
+                </div>
+                </Content>
+            </div>
+
+        </>
     )
 }
-
-const Wrapper = styled.div`
-    height: 100vh;
-    width:100%;
-    font-family: "Jua";
-    padding:25px;
-
+const MyInput = styled.input`
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    width: 200px;
 `
-const Header = styled.div`
-    font-size: 20pt;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-`
-const Title = styled.div`
-    font-size: 30px;
-    margin-top:40px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-`
-const SubTitle = styled.div`
-    font-size: 18px;
-    margin-top:40px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-`
-const LogoImage = styled.div`
-    margin-top:10px;
-
+const MyTextarea = styled.textarea`
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    margin-bottom: 4px;
+    width: 200px;
 `
 const Content = styled.div`
     display: flex;
     justify-content:center;
     align-items:center;
-    flex-direction:column;
 
 `
-const Desc = styled.div`
-    font-size: 12pt;
-    margin-top:20px;
-    margin-bottom:20px;
-`
-const More = styled.p`
-    font-size: 12pt;
-    margin-bottom:20px;
-`
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:row;
+
+{/* {repeatDiv()} */}
+{/* {mapDatas.map((a,i)=>{
+    return(
+        <div key={i} className="col-3 mb-3">
+            <input type="text"
+                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                        marginBottom:"4px",width:"200px"}}
+                id={a} value={question} onChange={handleData}
+                placeholder={printDatas[i]+ 임시}
+            />
+            <input type="text"
+                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                        marginBottom:"4px",width:"200px"}}
+                id={a} value={answer1} onChange={handleData}
+                placeholder={printDatas[i].slice(0,1)+ 임시1}
+
+            />
+            <input type="text"
+                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                        marginBottom:"4px",width:"200px"}}
+                id={a} value={answer2} onChange={handleData}
+                placeholder={printDatas[i].slice(1)+ 임시1}
+            />
+        </div>
+    )
     
-`
+})} */}
