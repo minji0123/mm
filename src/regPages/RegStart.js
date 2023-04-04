@@ -20,10 +20,15 @@ export default () => {
 
                  <Button variant="secondary"
                             className='btn'
-                            style={{fontSize: "20px", fontFamily: "Jua" }}
+                            style={{fontSize: "20px", fontFamily: "Jua", marginTop:"30px" }}
                             onClick={handleClickButton}
-                            >Start</Button>
+                            >MBTI 테스트 만들기</Button>
 
+                 <Button variant="secondary"
+                            className='btn'
+                            style={{fontSize: "20px", fontFamily: "Jua", marginTop:"30px" }}
+                            // onClick={handleClickButton}
+                            >심리테스트 만들기</Button>
 
             </Content>
         </Wrapper>

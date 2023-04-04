@@ -46,24 +46,24 @@ export default () => {
 
                     <div className="mb-3">
 
-                        <input  type="text"
+                        <textarea  type="text"
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px"}}
                                 id="first" value={question} onChange={handleData}
-                                placeholder="예시질문이에요"
+                                placeholder="친구가 여행계획을 세워왔어요! 당신은 여행을 갈건가요??"
                         />
                         <input  type="text"
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px",
                                     }}
                                 id="second" value={answer1} onChange={handleData}
-                                placeholder="예시답변이에요"
+                                placeholder="네!!"
                         />
                         <input  type="text"
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px"}}
                                 id="third" value={answer2} onChange={handleData}
-                                placeholder="예시답변이에요"
+                                placeholder="아녀!!"
                         />
 
                     </div>

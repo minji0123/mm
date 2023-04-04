@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
 import { Button } from 'react-bootstrap';
+import RegResultInput from './RegResultInput';
 
 
 export default () => {
@@ -61,21 +62,21 @@ export default () => {
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px"}}
                                 id="first" value={question} onChange={handleData}
-                                placeholder="예시 제목이에요"
+                                placeholder="나만의 겨울 휴양지는?"
                         />
 
                         <input  type="text"
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px"}}
                                 id="second" value={desc} onChange={handleData}
-                                placeholder="예시 결과에요"
+                                placeholder="등산"
                         />
                         <textarea  type="text"
                                 style={{border: "solid 1px lightgray", borderRadius: "5px",
                                         marginBottom:"4px",width:"290px",
                                     }}
                                 id="third" value={content} onChange={handleData}
-                                placeholder="예시 설명란이에요"
+                                placeholder="친구들과 함께 겨울 산을 올라보세요!"
                         />
                         <input type="file" id="image" accept="image/*" 
                         style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
@@ -110,7 +111,7 @@ export default () => {
                 {/* <p>❕ </p> */}
                 <p></p>
 
-
+                <RegResultInput/>
                 <ButtonGroup className="mt_20">
                     <Button variant="light"
                             className="btn"

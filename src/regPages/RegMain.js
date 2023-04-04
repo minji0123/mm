@@ -62,13 +62,17 @@ export default () => {
                             style={{border: "solid 1px lightgray", borderRadius: "5px",
                                     marginBottom:"4px",width:"290px"}}
                             id="first" value={title} onChange={handleData}
-                            placeholder="테스트 제목을 입력해주세요"
+                            placeholder="나만의 겨울 휴양지 테스트"
 
                     />
 
                     <input type="file" id="image" accept="image/*" 
                         style={{border: "solid 1px lightgray", borderRadius: "5px"}}
                         onChange={setPreviewImg}/>
+                    {/* <input type="file" id="file" accept="image/*" 
+                    style={{display: 'none'}}
+                    onChange={setPreviewImg}/> */}
+                    {/* <label for="file" class="input-plus">+</label> */}
 
                     </InputGroup>
                 </div>
