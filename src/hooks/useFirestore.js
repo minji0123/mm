@@ -48,14 +48,15 @@ export const useFirestore = (transaction) => {
     // response요청에 대한 firestore 의 응답 저장
     // 저장되는 데이터: 저장 성공 또는 요청한 문서 데이터(객체)
     const [response, dispatch] = useReducer(storeReducer, initState);
-    const [imgUrl,setImgUrl] = useState([]);
+    
     // colRef : 만들 컬랙션의 참조 (컬랙션 이름)
     // 원하는 컬렉션의 참조를 인자로 보내주면 파이어스토어가 자동으로 해당 컬렉션을 생성해줌 
     const colRef = collection(appFireStore, transaction);
 
-
-      // 컬렉션에 문서를 저장(이미지 저장 시)
-      const addDocument = async (doc,pic) => {
+    /*===============================================
+    // 컬렉션에 문서를 저장(Main 저장 시 _ 이미지 저장 포함됨)
+    *===================================================*/
+    const addDocument = async (doc,pic) => {
 
         // 시간 저장(order by 용)
         const createdTime = timestamp.fromDate(new Date());
@@ -63,19 +64,15 @@ export const useFirestore = (transaction) => {
 
         // 유일키 저장
         const createdUqe = GetUniqueNum();
-
         // 이미지 업로드 경로 저장
         const storageRef = ref(storage, 'images/'+pic.name );
         const uploadTask = uploadBytesResumable(storageRef, pic);
 
-
         dispatch({ type: "isPending" });
         try {
+            console.log('??');
 
-            /*===============================================
-             * 이미지 저장
-             *===================================================*/
-
+            // 이미지 저장
             uploadTask.on('state_changed', 
             (snapshot) => {
                 null
@@ -87,9 +84,8 @@ export const useFirestore = (transaction) => {
               getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 
                 console.log('업로드된 경로는', downloadURL);
-                /*===============================================
-                * 데이터 저장
-                *===================================================*/
+
+                // 데이터 저장
                 // docRef : 참조(컬랙션 이름)
                 // addDoc : 컬렉션에 문서를 추가
                 const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL});
@@ -107,7 +103,9 @@ export const useFirestore = (transaction) => {
 
     }
 
-    // 컬렉션에 문서를 저장(댓글 저장)
+    /*===============================================
+    // 컬렉션에 문서를 저장(test 저장 시_이미지 저장 없음)
+    *===================================================*/
     const addComment = async (doc) => {
 
         // 시간 저장(order by 용)
@@ -121,17 +119,14 @@ export const useFirestore = (transaction) => {
         dispatch({ type: "isPending" });
         try {
 
-                /*===============================================
-                * 데이터 저장
-                *===================================================*/
-                // docRef : 참조(컬랙션 이름)
-                // addDoc : 컬렉션에 문서를 추가
-                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe});
-                console.log(docRef);
+            // 데이터 저장
+            // docRef : 참조(컬랙션 이름)
+            // addDoc : 컬렉션에 문서를 추가
+            const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe});
+            console.log(docRef);
 
-                dispatch({ type: 'addDoc', payload: docRef });
-                console.log('저장완료');               
-
+            dispatch({ type: 'addDoc', payload: docRef });
+            console.log('저장완료');               
 
         } catch (error) {
             dispatch({ type: 'error', payload: error.message });

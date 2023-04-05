@@ -4,7 +4,6 @@ import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 
 //style
 import styled from 'styled-components';
-// import {KakaoShareBtn} from "../utils/KakaoShareBtn"
 import { Button } from 'react-bootstrap';
 
 //data
@@ -80,7 +79,6 @@ export default function Result(){
                             style={{fontSize: "20px"}}
                             onClick={() => navigate("/")}
                     >테스트 다시하기</Button>
-                    {/* <KakaoShareBtn data={resultData}/> */}
                     
                 </ButtonGroup>
 

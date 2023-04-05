@@ -1,3 +1,4 @@
+/* eslint-disable*/
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -70,9 +71,6 @@ export default () => {
 
                 </div>
 
-
-
-
                 <p></p>
                 <p>이렇게 보일거에요</p>
                 <p>↓ ↓ ↓</p>
@@ -103,7 +101,7 @@ export default () => {
 
                 <RegTestInput/>
 
-                <ButtonGroup className="mt_20">
+                {/* <ButtonGroup className="mt_20">
                     <Button variant="light"
                             className="btn"
                             onClick={() => handleClickButton('/regmain')}
@@ -117,9 +115,7 @@ export default () => {
                     >
                         다음
                     </Button>
-
-                    
-                </ButtonGroup>
+                </ButtonGroup> */}
 
             </Content>
             

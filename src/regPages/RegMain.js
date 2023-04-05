@@ -1,3 +1,4 @@
+/* eslint-disable*/
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -12,11 +13,19 @@ import { useFirestore } from '../hooks/useFirestore';
 
 export default () => {
 
-    const [title,setTitle] = useState("");
+    const [mainTitle,setTitle] = useState("");
     const [mainImg,setMainImg] = useState("");
+    const [pic, setPic] = useState("");
 
     const navigate = useNavigate();
     
+    
+    /**************************************************************
+     * 글 저장
+     **************************************************************/
+    // 컬랙션 이름 파라미터로 넣어주기
+    const { addDocument, response } = useFirestore("MainData");
+
     // controlled component
     const handleData = (event) => {
         if (event.target.id === 'first') {
@@ -34,23 +43,21 @@ export default () => {
         };
 
         reader.readAsDataURL(event.target.files[0]);
+        setPic(event.target.files[0]);
+
     }
 
     // navigation 이벤트
     const handleClickButton = (link) => {
         navigate(link);
+        // addDocument({mainTitle },pic);// uid:작성한 유저 id
+
     }
 
 
 
-    /**************************************************************
-     * 글 저장
-     **************************************************************/
-    // 컬랙션 이름 파라미터로 넣어주기
-    const { addComment, response } = useFirestore("comment");
 
     return(
-
         <Wrapper>
             <Content>
                 <Title>메인화면 만들기</Title>
@@ -61,7 +68,7 @@ export default () => {
                     <input  type="text"
                             style={{border: "solid 1px lightgray", borderRadius: "5px",
                                     marginBottom:"4px",width:"290px"}}
-                            id="first" value={title} onChange={handleData}
+                            id="first" value={mainTitle} onChange={handleData}
                             placeholder="나만의 겨울 휴양지 테스트"
 
                     />
@@ -82,7 +89,7 @@ export default () => {
                 <p>↓ ↓ ↓</p>
                 <Card style={{ width: '18rem' }}>
                     <Content>
-                        <SubTitle>{title ? title : "나만의 겨울 휴양지 테스트"}  </SubTitle>
+                        <SubTitle>{mainTitle ? mainTitle : "나만의 겨울 휴양지 테스트"}  </SubTitle>
                         <LogoImage>
                             <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
                         </LogoImage>
