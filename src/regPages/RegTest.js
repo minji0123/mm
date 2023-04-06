@@ -101,21 +101,6 @@ export default () => {
 
                 <RegTestInput/>
 
-                {/* <ButtonGroup className="mt_20">
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/regmain')}
-                    >
-                        이전
-                    </Button>
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/regresult')}
-
-                    >
-                        다음
-                    </Button>
-                </ButtonGroup> */}
 
             </Content>
             
