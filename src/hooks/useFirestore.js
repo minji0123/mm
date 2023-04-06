@@ -3,7 +3,7 @@
 // regPages> RegTest 페이지 cud
 import { useReducer,useState } from "react"
 import { appFireStore, timestamp, storage } from "../firebase/config"
-import { addDoc,updateDoc, deleteDoc,doc, collection } from "firebase/firestore"
+import { addDoc,setDoc,updateDoc, deleteDoc,doc, collection } from "firebase/firestore"
 import { ref, uploadBytesResumable,getDownloadURL } from "firebase/storage";
 import  {GetCurDayTime ,GetUniqueNum }  from "../utils/DateUtil.js"
 
@@ -52,6 +52,8 @@ export const useFirestore = (transaction) => {
     // colRef : 만들 컬랙션의 참조 (컬랙션 이름)
     // 원하는 컬렉션의 참조를 인자로 보내주면 파이어스토어가 자동으로 해당 컬렉션을 생성해줌 
     const colRef = collection(appFireStore, transaction);
+    
+    const docName = doc(appFireStore, transaction, 'test');
 
     /*===============================================
     // 컬렉션에 문서를 저장(Main 저장 시 _ 이미지 저장 포함됨)
@@ -107,7 +109,7 @@ export const useFirestore = (transaction) => {
     // 컬렉션에 문서를 저장(test 저장 시_이미지 저장 없음)
     *===================================================*/
     const addComment = async (doc) => {
-
+        console.log(doc);
         // 시간 저장(order by 용)
         const createdTime = timestamp.fromDate(new Date());
         const createdDate = GetCurDayTime('/',':');
@@ -133,6 +135,54 @@ export const useFirestore = (transaction) => {
         }
 
     }
+
+    /*===============================================
+    // 문서에 이미지 저장 + 저장경로 obj 에 추가
+    *===================================================*/
+    const addDocumentObjImg = async (doc) => {
+        
+
+        doc.question.map((a,i)=>{
+
+
+            // 이미지 업로드 경로 저장
+            const storageRef = ref(storage, 'images/'+a.img.name );
+            const uploadTask = uploadBytesResumable(storageRef, a.img);
+
+            delete a.img;
+
+            console.log('storageRef',storageRef);
+            console.log('uploadTask',uploadTask);
+
+            try {
+                uploadTask.on('state_changed', 
+                (snapshot) => {
+                    null
+                }, 
+                (error) => {
+                    console.error('실패사유는', error);
+                }, 
+                () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    a.imgUrl = downloadURL;
+                    console.log('a',a);
+
+                });
+                }
+            );
+            } catch (error) {
+                dispatch({ type: 'error', payload: error.message });
+            }
+        })
+        console.log('doc',doc);
+
+        setTimeout(()=>{
+            addComment(doc);
+        },1000)
+
+    }
+
+
 
     // 컬렉션에서 문서를 삭제
     const deleteDocument = async (id) => {
@@ -165,6 +215,6 @@ export const useFirestore = (transaction) => {
             dispatch({ type: 'error', payload: error.message });
         }
     }
-    return { addDocument,addComment, deleteDocument, editDocument, response }
+    return { addDocument,addComment,addDocumentObjImg, deleteDocument, editDocument, response }
 
 }

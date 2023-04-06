@@ -1,12 +1,9 @@
 /*eslint-disable */
 
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-
+import { useState } from 'react';
 
 import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
 import RegResultInput from './RegResultInput';
 
 
@@ -16,12 +13,6 @@ export default () => {
     const [content,setContent] = useState("");
     const [mainImg,setMainImg] = useState("");
 
-    // const [realQ, setRealQ] = useState();
-    
-
-
-    const navigate = useNavigate();
-    
     const handleData = (event) => {
         if (event.target.id === 'first') {
             setQuestion(event.target.value);
@@ -42,10 +33,6 @@ export default () => {
         };
 
         reader.readAsDataURL(event.target.files[0]);
-    }
-
-    const handleClickButton = (link) => {
-        navigate(link);
     }
 
     return(
@@ -88,8 +75,6 @@ export default () => {
                 </div>
 
 
-
-
                 <p></p>
                 <p>이렇게 보일거에요</p>
                 <p>↓ ↓ ↓</p>
@@ -113,24 +98,7 @@ export default () => {
                 <p></p>
 
                 <RegResultInput/>
-                <ButtonGroup className="mt_20">
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/regtest')}
-                    >
-                        이전
-                    </Button>
-                    
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/regtest')}
 
-                    >
-                        다음
-                    </Button>
-
-                    
-                </ButtonGroup>
 
             </Content>
             
@@ -187,11 +155,4 @@ const More = styled.div`
     font-size: 12pt;
     margin-bottom:20px;
     max-width: 80%;
-`
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:row;
-    
 `
