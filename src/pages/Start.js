@@ -36,11 +36,11 @@ export default function Start(){
                             style={{fontSize: "20px", fontFamily: "Jua" , marginTop: "30px"}}
                             onClick={handleClickButton}
                             >Start</Button>
-                <Button variant="secondary"
+                {/* <Button variant="secondary"
                 className='btn'
                 style={{fontSize: "20px", fontFamily: "Jua" , marginTop: "30px"}}
                 onClick={ () => {navigate('/regst')}}
-                >임시...</Button>
+                >임시...</Button> */}
                 </Content>
             </Wrapper>
         </>

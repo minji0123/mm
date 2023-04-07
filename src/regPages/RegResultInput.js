@@ -72,8 +72,8 @@ export default () => {
 
     const handleClickButton = (link) => {
 
-        question.push(data1);
-        question.push(data2);
+        // question.push(data1);
+        // question.push(data2);
         // question.push(data3);
         // question.push(data4);
         // question.push(data5);
@@ -91,8 +91,13 @@ export default () => {
         
 
         // addDocumentObjImg({ question });
-        // navigate(link);
         // console.log(question);
+
+        if(link === '/regtest'){
+                navigate(link);
+        }else{
+                alert('준비중이양...💨');
+        }
 
     }
 
@@ -579,7 +584,7 @@ export default () => {
                     
                     <Button variant="light"
                             className="btn"
-                            onClick={() => handleClickButton('/regtest')}
+                            onClick={() => handleClickButton('/')}
 
                     >
                         다음

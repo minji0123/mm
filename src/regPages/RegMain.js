@@ -115,7 +115,7 @@ export default () => {
                 <ButtonGroup className="mt_20">
                     <Button variant="light"
                             className="btn"
-                            onClick={() => handleClickButton('/regst')}
+                            onClick={() => handleClickButton('/')}
                     >
                         이전
                     </Button>

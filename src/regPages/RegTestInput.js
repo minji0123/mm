@@ -30,14 +30,14 @@ export default () => {
 
     const handleClickButton = (link) => {
         if(link === '/regmain'){
-        // navigate(link);
+        navigate(link);
 
         }else if(link === '/regresult'){
             // 데이터가 비어있으면 return false
             // console.log(data1,data2,data3,data4,data5,data6,data7,data8);
 
-            question.push(data1);
-            question.push(data2);
+            // question.push(data1);
+            // question.push(data2);
             // question.push(data3);
             // question.push(data4);
             // question.push(data5);
@@ -45,12 +45,12 @@ export default () => {
             // question.push(data7);
             // question.push(data8);
 
-            nullCheckDatas(question);
+            // nullCheckDatas(question);
 
-            console.log(question);
+            // console.log(question);
 
             // addComment({question});
-            // navigate(link);
+            navigate(link);
         }else{
             //오류
         }
