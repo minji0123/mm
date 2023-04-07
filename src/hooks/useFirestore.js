@@ -109,7 +109,6 @@ export const useFirestore = (transaction) => {
     // 컬렉션에 문서를 저장(test 저장 시_이미지 저장 없음)
     *===================================================*/
     const addComment = async (doc) => {
-        console.log(doc);
         // 시간 저장(order by 용)
         const createdTime = timestamp.fromDate(new Date());
         const createdDate = GetCurDayTime('/',':');
@@ -141,9 +140,7 @@ export const useFirestore = (transaction) => {
     *===================================================*/
     const addDocumentObjImg = async (doc) => {
         
-
         doc.question.map((a,i)=>{
-
 
             // 이미지 업로드 경로 저장
             const storageRef = ref(storage, 'images/'+a.img.name );
@@ -178,7 +175,9 @@ export const useFirestore = (transaction) => {
 
         setTimeout(()=>{
             addComment(doc);
-        },1000)
+        },5000)
+        
+        // await addComment(doc);
 
     }
 

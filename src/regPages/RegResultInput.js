@@ -90,7 +90,7 @@ export default () => {
         // question.push(data16);
         
 
-        addDocumentObjImg({ question });
+        // addDocumentObjImg({ question });
         // navigate(link);
         // console.log(question);
 

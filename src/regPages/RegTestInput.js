@@ -4,89 +4,21 @@ import { useReducer, useState } from 'react';
 import styled from 'styled-components';
 import { useFirestore } from '../hooks/useFirestore';
 import { useNavigate } from 'react-router-dom';
-
+import { nullCheck, nullCheckDatas } from '../utils/StringUtil.js'
 import { Button } from 'react-bootstrap';
 
 
 export default () => {
     let question = [];
 
-    const [data,setData] = useState([
-        { id:1, content:"",answer1:"", answer2:"", type:"EI"},
-        { id:2, content:"",answer1:"", answer2:"", type:"JP"},
-        { id:3, content:"",answer1:"", answer2:"", type:"SN"},
-        { id:4, content:"",answer1:"", answer2:"", type:"TF"},
-        { id:5, content:"",answer1:"", answer2:"", type:"SN"},
-        { id:6, content:"",answer1:"", answer2:"", type:"TF"},
-        { id:7, content:"",answer1:"", answer2:"", type:"EI"},
-        { id:8, content:"",answer1:"", answer2:"", type:"JP"}
-    ]);
-
-    const [data1,setData1] = useState({
-        id:1
-        ,content:""
-        ,answer1:""
-        ,answer2:""
-        ,type:"EI"
-    });
-
-    const [data2,setData2] = useState({
-        id:2
-        ,content:""
-        ,answer1:""
-        ,answer2:""
-        ,type:"JP"
-    });
-
-    const [data3,setData3] = useState({
-        id:3
-        ,content:""
-        ,answer1:""
-        ,answer2:""
-        ,type:"SN"
-    });
-
-    const [data4,setData4] = useState({
-        id:4
-        ,content:""
-        ,answer1:""
-        ,answer2:""
-        ,type:"TF"
-    });
-
-    const [data5,setData5] = useState({
-        id:5
-        ,content:""
-        ,answer1:""
-        ,answer2:""
-        ,type:"SN"
-    });
-
-    const [data6,setData6] = useState({
-        id:6
-        ,content:""
-        ,answer1:""
-        ,answer2:""
-        ,type:"TF"
-    });
-
-    const [data7,setData7] = useState({
-        id:7
-        ,content:""
-        ,answer1:""
-        ,answer2:""
-        ,type:"EI"
-    });
-
-    const [data8,setData8] = useState({
-        id:8
-        ,content:""
-        ,answer1:""
-        ,answer2:""
-        ,type:"JP"
-    });
-
-
+    const [data1,setData1] = useState({id:1,content:"",answer1:"",answer2:"",type:"EI"});
+    const [data2,setData2] = useState({id:2,content:"",answer1:"",answer2:"",type:"JP"});
+    const [data3,setData3] = useState({id:3,content:"",answer1:"",answer2:"",type:"SN"});
+    const [data4,setData4] = useState({id:4,content:"",answer1:"",answer2:"",type:"TF"});
+    const [data5,setData5] = useState({id:5,content:"",answer1:"",answer2:"",type:"SN"});
+    const [data6,setData6] = useState({id:6,content:"",answer1:"",answer2:"",type:"TF"});
+    const [data7,setData7] = useState({id:7,content:"",answer1:"",answer2:"",type:"EI"});
+    const [data8,setData8] = useState({id:8,content:"",answer1:"",answer2:"",type:"JP"});
 
     const { addComment, response } = useFirestore("TestData");
     const navigate = useNavigate();
@@ -95,29 +27,41 @@ export default () => {
     const 임시 = " 질문을 입력해주세요";
     const 임시1 = " 답변을 입력해주세요";
 
-    // console.log(data1);
 
-    const handleClickButton1 = (link) => {
+    const handleClickButton = (link) => {
+        if(link === '/regmain'){
+        // navigate(link);
 
-        question.push(data1);
-        question.push(data2);
-        question.push(data3);
-        question.push(data4);
-        question.push(data5);
-        question.push(data6);
-        question.push(data7);
-        question.push(data8);
-        // console.log(question);
+        }else if(link === '/regresult'){
+            // 데이터가 비어있으면 return false
+            // console.log(data1,data2,data3,data4,data5,data6,data7,data8);
 
-        // addComment({question});// uid:작성한 유저 id
-        // addComment({questionSample});// uid:작성한 유저 id
+            question.push(data1);
+            question.push(data2);
+            // question.push(data3);
+            // question.push(data4);
+            // question.push(data5);
+            // question.push(data6);
+            // question.push(data7);
+            // question.push(data8);
 
-        navigate(link);
+            nullCheckDatas(question);
+
+            console.log(question);
+
+            // addComment({question});
+            // navigate(link);
+        }else{
+            //오류
+        }
+        
+        
+        
+
 
     }
 
     const handleData = (event,i) => {
-
         switch (i){
             case '1':
                 if (event.target.id === `question${i}`) {
@@ -135,6 +79,7 @@ export default () => {
                         return { ...prevState, answer2: event.target.value }
                     })
                 }
+                break;
             case '2':
                 if (event.target.id === `question${i}`) {
                     setData2((prevState)=>{
@@ -151,6 +96,8 @@ export default () => {
                         return { ...prevState, answer2: event.target.value }
                     })
                 }
+                break;
+
             case '3':
                 if (event.target.id === `question${i}`) {
                     setData3((prevState)=>{
@@ -167,6 +114,8 @@ export default () => {
                         return { ...prevState, answer2: event.target.value }
                     })
                 }
+                break;
+
             case '4':
                 if (event.target.id === `question${i}`) {
                     setData4((prevState)=>{
@@ -183,6 +132,8 @@ export default () => {
                         return { ...prevState, answer2: event.target.value }
                     })
                 }
+                break;
+
             case '5':
                 if (event.target.id === `question${i}`) {
                     setData5((prevState)=>{
@@ -199,6 +150,8 @@ export default () => {
                         return { ...prevState, answer2: event.target.value }
                     })
                 }
+                break;
+
             case '6':
                 if (event.target.id === `question${i}`) {
                     setData6((prevState)=>{
@@ -215,6 +168,8 @@ export default () => {
                         return { ...prevState, answer2: event.target.value }
                     })
                 }
+                break;
+
             case '7':
                 if (event.target.id === `question${i}`) {
                     setData7((prevState)=>{
@@ -231,6 +186,8 @@ export default () => {
                         return { ...prevState, answer2: event.target.value }
                     })
                 }
+                break;
+
             case '8':
                 if (event.target.id === `question${i}`) {
                     setData8((prevState)=>{
@@ -247,6 +204,8 @@ export default () => {
                         return { ...prevState, answer2: event.target.value }
                     })
                 }
+                break;
+
 
         }        
 
@@ -332,32 +291,36 @@ export default () => {
             <Content>
                 <SubContent>
                 <MyTextarea type="text"
-                    id="question1" 
+                    id="question3" 
                     placeholder={printDatas[1]+ 임시}
+                    onChange={(event)=>{handleData(event,'3')}}
                 />
                 <MyInput type="text"
-                    id="answer1" 
+                    id="answera3" 
                     placeholder={printDatas[1].slice(0,1)+ 임시1}
-
+                    onChange={(event)=>{handleData(event,'3')}}
                 />
                 <MyInput type="text"
-                    id="answer2" 
+                    id="answerb3" 
                     placeholder={printDatas[1].slice(1)+ 임시1}
+                    onChange={(event)=>{handleData(event,'3')}}
                 />
                 </SubContent>
                 <SubContent>
                 <MyTextarea type="text"
-                    id="question1" 
+                    id="question5" 
                     placeholder={printDatas[1]+ 임시}
+                    onChange={(event)=>{handleData(event,'5')}}
                 />
                 <MyInput type="text"
-                    id="answer1" 
+                    id="answera5" 
                     placeholder={printDatas[1].slice(0,1)+ 임시1}
-
+                    onChange={(event)=>{handleData(event,'5')}}
                 />
                 <MyInput type="text"
-                    id="answer2" 
+                    id="answerb5" 
                     placeholder={printDatas[1].slice(1)+ 임시1}
+                    onChange={(event)=>{handleData(event,'5')}}
                 />
                 </SubContent>
             </Content>
@@ -366,32 +329,36 @@ export default () => {
           <Content>
                 <SubContent>
                 <MyTextarea type="text"
-                    id="question1" 
+                    id="question4" 
                     placeholder={printDatas[2]+ 임시}
+                    onChange={(event)=>{handleData(event,'4')}}
                 />
                 <MyInput type="text"
-                    id="answer1" 
+                    id="answera4" 
                     placeholder={printDatas[2].slice(0,1)+ 임시1}
-
+                    onChange={(event)=>{handleData(event,'4')}}
                 />
                 <MyInput type="text"
-                    id="answer2" 
+                    id="answerb4" 
                     placeholder={printDatas[2].slice(1)+ 임시1}
+                    onChange={(event)=>{handleData(event,'4')}}
                 />
                 </SubContent>
                 <SubContent>
                 <MyTextarea type="text"
-                    id="question1" 
+                    id="question6" 
                     placeholder={printDatas[2]+ 임시}
+                    onChange={(event)=>{handleData(event,'6')}}
                 />
                 <MyInput type="text"
-                    id="answer1" 
+                    id="answera6" 
                     placeholder={printDatas[2].slice(0,1)+ 임시1}
-
+                    onChange={(event)=>{handleData(event,'6')}}
                 />
                 <MyInput type="text"
-                    id="answer2" 
+                    id="answerb6" 
                     placeholder={printDatas[2].slice(1)+ 임시1}
+                    onChange={(event)=>{handleData(event,'6')}}
                 />
                 </SubContent>
             </Content>
@@ -399,34 +366,42 @@ export default () => {
           {/* jp */}
           <Content>
                 <SubContent>
-                <MyTextarea type="text"
-                    id="question1" 
-                    placeholder={printDatas[3]+ 임시}
-                />
-                <MyInput type="text"
-                    id="answer1" 
-                    placeholder={printDatas[3].slice(0,1)+ 임시1}
-
-                />
-                <MyInput type="text"
-                    id="answer2" 
-                    placeholder={printDatas[3].slice(1)+ 임시1}
-                />
+                    <MyTextarea type="text"
+                        id="question2" 
+                        placeholder={printDatas[3]+ 임시}
+                        onChange={(event)=>{handleData(event,'2')}}
+                    />
+                    <MyInput type="text"
+                        id="answera2" 
+                        placeholder={printDatas[3].slice(0,1)+ 임시1}
+                        onChange={(event)=>{handleData(event,'2')}}
+                    />
+                    <MyInput type="text"
+                        id="answera2" 
+                        placeholder={printDatas[3].slice(1)+ 임시1}
+                        onChange={(event)=>{handleData(event,'2')}}
+                    />
                 </SubContent>
                 <SubContent>
-                <MyTextarea type="text"
-                    id="question1" 
-                    placeholder={printDatas[3]+ 임시}
-                />
-                <MyInput type="text"
-                    id="answer1" 
-                    placeholder={printDatas[3].slice(0,1)+ 임시1}
+                    <MyTextarea type="text"
+                        id="question8" 
+                        placeholder={printDatas[3]+ 임시}
+                        onChange={(event)=>{handleData(event,'8')}}
 
-                />
-                <MyInput type="text"
-                    id="answer2" 
-                    placeholder={printDatas[3].slice(1)+ 임시1}
-                />
+                    />
+                    <MyInput type="text"
+                        id="answera8" 
+                        placeholder={printDatas[3].slice(0,1)+ 임시1}
+                        onChange={(event)=>{handleData(event,'8')}}
+
+
+                    />
+                    <MyInput type="text"
+                        id="answera8" 
+                        placeholder={printDatas[3].slice(1)+ 임시1}
+                        onChange={(event)=>{handleData(event,'8')}}
+
+                    />
                 </SubContent>
             </Content>
             </div>
@@ -440,7 +415,7 @@ export default () => {
                 </Button>
                 <Button variant="light"
                         className="btn"
-                        onClick={() => handleClickButton1('/regresult')}
+                        onClick={() => handleClickButton('/regresult')}
 
                 >
                     다음

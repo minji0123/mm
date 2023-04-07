@@ -14,17 +14,18 @@ function App() {
       <BrowserRouter>
         <Routes>
           {/* 테스트하는 경로 */}
-          <Route path = '/' element={<Start/>}></Route>
+          <Route path = '/start' element={<Start/>}></Route>
           <Route path = '/test' element={<Test/>}></Route>
           {/* <Route path='/result/:id' element={<Result/>}/> */}
           <Route path='/result' element={<Result/>}/>
           
           {/* 테스트 제작하는 경로 
             따로 버튼안만들고 분리해서 갈거임...*/}
-          <Route path='/regst' element={<RegStart/>}/>
+          <Route path='/' element={<RegStart/>}/>
           <Route path='/regmain' element={<RegMain/>}/>
           <Route path='/regtest' element={<RegTest/>}/>
           <Route path='/regresult' element={<RegResult/>}/>
+
         </Routes>
       </BrowserRouter>
     </div>
