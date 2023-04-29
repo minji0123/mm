@@ -1,8 +1,9 @@
-import ListGroup from 'react-bootstrap/ListGroup';
 import { useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
 import TestList from './TestList';
+
+//my style
+import './regstyle.sass';
+import '../marginpadding.sass';
 
 export default () => {
     
@@ -16,68 +17,33 @@ export default () => {
     }
 
     return(
-        <Wrapper>
-            <Content>
+        <>
+            <div className='regpage pt80 pb80'>
+                <div className='regpage-wrap'>
+                    <h1 className='main-title'>TestMaker Factory</h1>
+                    <p>나만의 테스트 만들기</p>
+                    <button 
+                        className='grey-btn mt40'
+                        onClick={handleClickButton}
+                    >
+                        MBTI 테스트 메이커
+                    </button>
+                    <button 
+                        className='brown-btn mt12'
+                        onClick={handleClickButton2}
+                    >
+                        심리 테스트 만들기
+                    </button>
+                </div>
+            </div>
+            <div className='regpage-bottom pt80 pb80'>
+                <div className='bottom-wrap'>
+                <h3>🤍 테스트 해보기 🤍</h3>
+                <TestList/>
+                </div>
 
-                <Title>TestMaker</Title>
-                <SubTitle>나만의 테스트 사이트 만들기</SubTitle>
+            </div>
 
-                 <Button variant="secondary"
-                            className='btn'
-                            style={{fontSize: "20px", fontFamily: "Jua", marginTop:"30px" }}
-                            onClick={handleClickButton}
-                            >MBTI 테스트 만들기</Button>
-
-                 <Button variant="secondary"
-                            className='btn'
-                            style={{fontSize: "20px", fontFamily: "Jua", marginTop:"30px" }}
-                            onClick={handleClickButton2}
-                            >심리테스트 만들기</Button>
-
-
-                <ListWrapper>
-                    <h3>🔽 테스트 해보기 🔽</h3>
-                    <TestList/>
-                </ListWrapper>
-
-            </Content>
-
-        </Wrapper>
+        </>
     )
 }
-
-const Wrapper = styled.div`
-    height: 100vh;
-    width:100%;
-    font-family: "Jua";
-    padding:25px;
-
-`
-const Title = styled.div`
-    font-size: 30pt;
-    margin-top:40px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-`
-const SubTitle = styled.div`
-    font-size: 20pt;
-    margin-top:20px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-`
-const Content = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-`
-const ListWrapper = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    margin-top:200px;
-`

@@ -2,12 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from "react-hook-form";
 
-
-import Card from 'react-bootstrap/Card';
-import InputGroup from 'react-bootstrap/InputGroup';
-import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+//my style
+import './regstyle.sass';
+import '../marginpadding.sass';
+import Previmg from '../assets/img/0.jpg';
 
 import { useFirestore } from '../hooks/useFirestore';
 
@@ -58,121 +58,80 @@ export default () => {
         //     alert('테스트 사진을 넣어주세요😮');
         // }
 
-        // addDocument({mainTitle },pic);
+        addDocument({mainTitle },pic);
 
         navigate(link);
     }
 
 
-
-
     return(
-        <Wrapper>
-            <Content>
-                <Title>메인화면 만들기</Title>
+        <>
+        <div className='regmain pt80 pb80'>
+            <div className='regpage-wrap'>
 
-                <div style={{ width: '18rem' }}>
-                    <InputGroup className="mb-3">
+                {/* input start */}
+                <p className='main-title'>테스트 메인화면 만들기</p>
+                <p></p>
+                <input  type="text"
+                        className='pl18 pt18'
+                        id="first" value={mainTitle} onChange={handleData}
+                        placeholder="나만의 겨울 휴양지 테스트"
 
-                    <input  type="text"
-                            style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                    marginBottom:"4px",width:"290px"}}
-                            id="first" value={mainTitle} onChange={handleData}
-                            placeholder="나만의 겨울 휴양지 테스트"
-
-                    />
-
-                    <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px"}}
-                        onChange={setPreviewImg}/>
-                    {/* <input type="file" id="file" accept="image/*" 
-                    style={{display: 'none'}}
+                />
+                {/* <input type="file" id="image" accept="image/*" 
+                    style={{border: "solid 1px lightgray", borderRadius: "5px"}}
                     onChange={setPreviewImg}/> */}
-                    {/* <label for="file" class="input-plus">+</label> */}
 
-                    </InputGroup>
-                </div>
+                <input type="file" id="file" accept="image/*" 
+                style={{display: 'none'}}
+                onChange={setPreviewImg}/>
+                <label for="file" class="input-plus mt8">
+                    + add picture
+                </label>
+                {/* input end */}
 
                 <p></p>
                 <p>이렇게 보일거에요</p>
                 <p>↓ ↓ ↓</p>
-                <Card style={{ width: '18rem' }}>
-                    <Content>
-                        <SubTitle>{mainTitle ? mainTitle : "나만의 겨울 휴양지 테스트"}  </SubTitle>
-                        <LogoImage>
-                            <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
-                        </LogoImage>
 
-                        <Button variant="secondary"
-                                className='btn'
-                                style={{fontSize: "10px", fontFamily: "Jua" , marginTop: "30px", marginBottom: "30px"}}
-                                >Start</Button>
-                    </Content>
-                </Card>
+                
 
-                <p>❕ 1:1 비율 사진을 사용하면 좋아요</p>
+                {/* 미리보기 */}
+                <div className='prev-box'>
+                    <div className='box-wrap'>
+                        <p>{mainTitle ? mainTitle : "나만의 겨울 휴양지 테스트"} </p>
+                        {mainImg 
+                        ? 
+                        <img alt="메인사진" src={mainImg}></img>
+                        : 
+                        <img alt="메인사진?" src={Previmg}></img>
+                        
+                        }
 
-                <ButtonGroup className="mt_20">
-                    <Button variant="light"
-                            className="btn"
+                        <button className='brown-btn mt20' >start</button>
+                    </div>
+                </div>
+
+
+
+                <p className='warn pt8'>❕ 1:1 비율 사진을 사용하면 좋아요</p>
+                <p className='warn'>❕ 제목은 20글자를 넘을 수 없어요</p>
+
+                <div className='btn-group mt40'>
+                    <button
                             onClick={() => handleClickButton('/')}
-                    >
-                        이전
-                    </Button>
-
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/regtest')}
-
-                    >
-                        다음
-                    </Button>
-
                     
-                </ButtonGroup>
+                    >이전</button>
+                    <button className='ml3'
+                            onClick={() => handleClickButton('/regtest')}
+                    
+                    >다음</button>
+                </div>
 
-            </Content>
+            </div>
             
-        </Wrapper>
+        </div>
+        </>
     )
 }
 
-const Wrapper = styled.div`
-    height: 100vh;
-    width:100%;
-    font-family: "Jua";
-    padding:25px;
-
-`
-const Title = styled.div`
-    font-size: 30px;
-    margin-top:40px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-
-`
-const SubTitle = styled.div`
-    font-size: 18px;
-    margin-top:40px;
-    max-width: 80%;
-
-`
-const Content = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-`
-const LogoImage = styled.div`
-    margin-top:10px;
-
-`
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:row;
-    
-`

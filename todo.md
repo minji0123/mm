@@ -1,30 +1,26 @@
-## 메모..
+## todo list
 
-배포를 firebase 로 하는게 나을까 netlify 로 하는게 나을까....
+1. useform 사용법 알아오기
+2. 디자인 수정( 부트스트랩 + styled component 폐기)
 
-firebase vs netlify
+
+1. useform 사용법 알아오기
+https://tech.osci.kr/2023/01/02/introduce-react-hook-form/
+https://www.daleseo.com/react-hook-form/
 
 
-firebase
-장점
-    나중에 계획한 프로젝트를 하기 쉬움
-단점
-    안해봐서 뭔가 오류날거같음
-    firebase 랑 수익화랑 동시에 할 수가 있나??
-netlify 
-장점
-    해봐서 금방 할 거 같음
-단점
-    나중에 계획한 프로젝트 하기 어려움... 어렵나?
-    어려울거같아
+npm i react-hook-form
 
-일단 firebase 로 배포해놓고
-나중에 axios 로 데이터 받아오는거만 바꾸면 되잖아..
-근데 그럼 블로그 글이 완전 바껴야되는데...
 
-ㄴㄴㄴ
-netlify 로 배포하고
-이거를 ver1 으로 하기
 
-firebase 로 배포하고
-그거를 ver2로 하기
+2. 디자인 수정 -> 이거먼저ㄱㄱ
+
+
+부트스트랩 + styled component 폐기
+sass 사용
+
+npm i sass
+
+
+
+버튼1
