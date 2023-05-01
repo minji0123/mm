@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import { nullCheck, nullCheckDatas } from '../utils/StringUtil.js'
 import { Button } from 'react-bootstrap';
 
+//my style
+import './regstyle.sass';
+import '../marginpadding.sass';
 
 export default () => {
     let question = [];
@@ -234,179 +237,184 @@ export default () => {
 
     return(
         <>
-            <p>이제 진짜 질문과 답변을 입력해보세요</p>
-            <p>총 8개의 질답을 입력해야해요</p>
-            <div  style={{ width:'100%', maxWidth: '1000px' }} >
-
-            {/* ei */}
-            <Content>
-
-                <SubContent>
-                    <MyTextarea type="text"
-                        id="question1" 
-                        placeholder={printDatas[0]+ 임시}
-                        onChange={(event)=>{handleData(event,'1')}}
-
-                    />
-                    <MyInput type="text"
-                        id="answera1" 
-                        placeholder={printDatas[0].slice(0,1)+ 임시1}
-                        onChange={(event)=>{handleData(event,'1')}}
-
-
-                    />
-                    <MyInput type="text"
-                        id="answerb1" 
-                        placeholder={printDatas[0].slice(1)+ 임시1}
-                        onChange={(event)=>{handleData(event,'1')}}
-
-
-                    />
-                </SubContent>
-
-                <SubContent>
-                    <MyTextarea type="text"
-                        id="question7" 
-                        placeholder={printDatas[0]+ 임시}
-                        onChange={(event)=>{handleData(event,'7')}}
-
-                    />
-                    <MyInput type="text"
-                        id="answera7" 
-                        placeholder={printDatas[0].slice(0,1)+ 임시1}
-                        onChange={(event)=>{handleData(event,'7')}}
-
-                    />
-                    <MyInput type="text"
-                        id="answerb7" 
-                        placeholder={printDatas[0].slice(1)+ 임시1}
-                        onChange={(event)=>{handleData(event,'7')}}
-
-                    />
-                </SubContent>
+            <section className='testInput-group'>
+                <p>8개의 질답을 입력해주세요🙂</p>
                 
-            </Content>
+                {/* ei */}
+                <div className='group-wrap mt40'>
+
+                    <div className='group1'>
+                        <p>{printDatas[0]+ 임시}</p>
+                        <textarea type="text"
+                            id="question1" 
+                            placeholder={printDatas[0]+ 임시}
+                            onChange={(event)=>{handleData(event,'1')}}
+
+                        />
+                        <p className='mt10'>{printDatas[0].slice(0,1)+ 임시1}</p>
+                        <input type="text"
+                            id="answera1" 
+                            placeholder={printDatas[0].slice(0,1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'1')}}
+
+
+                        />
+                        <p>{printDatas[0].slice(1)+ 임시1}</p>
+                        <input type="text"
+                            id="answerb1" 
+                            placeholder={printDatas[0].slice(1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'1')}}
+                        />
+                    </div>
+
+                    <div className='group2'>
+                    <p>{printDatas[0]+ 임시}</p>
+                        
+                        <textarea type="text"
+                            id="question7" 
+                            placeholder={printDatas[0]+ 임시}
+                            onChange={(event)=>{handleData(event,'7')}}
+
+                        />
+                        <p className='mt10'>{printDatas[0].slice(0,1)+ 임시1}</p>
+
+                        <input type="text"
+                            id="answera7" 
+                            placeholder={printDatas[0].slice(0,1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'7')}}
+
+                        />
+                        <p>{printDatas[0].slice(1)+ 임시1}</p>
+
+                        <input type="text"
+                            id="answerb7" 
+                            placeholder={printDatas[0].slice(1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'7')}}
+
+                        />
+                    </div>
+                </div>
+
 
             {/* sn */}
-            <Content>
+            {/* <Content>
                 <SubContent>
-                <MyTextarea type="text"
+                <textarea type="text"
                     id="question3" 
                     placeholder={printDatas[1]+ 임시}
                     onChange={(event)=>{handleData(event,'3')}}
                 />
-                <MyInput type="text"
+                <input type="text"
                     id="answera3" 
                     placeholder={printDatas[1].slice(0,1)+ 임시1}
                     onChange={(event)=>{handleData(event,'3')}}
                 />
-                <MyInput type="text"
+                <input type="text"
                     id="answerb3" 
                     placeholder={printDatas[1].slice(1)+ 임시1}
                     onChange={(event)=>{handleData(event,'3')}}
                 />
                 </SubContent>
                 <SubContent>
-                <MyTextarea type="text"
+                <textarea type="text"
                     id="question5" 
                     placeholder={printDatas[1]+ 임시}
                     onChange={(event)=>{handleData(event,'5')}}
                 />
-                <MyInput type="text"
+                <input type="text"
                     id="answera5" 
                     placeholder={printDatas[1].slice(0,1)+ 임시1}
                     onChange={(event)=>{handleData(event,'5')}}
                 />
-                <MyInput type="text"
+                <input type="text"
                     id="answerb5" 
                     placeholder={printDatas[1].slice(1)+ 임시1}
                     onChange={(event)=>{handleData(event,'5')}}
                 />
                 </SubContent>
-            </Content>
+            </Content> */}
 
           {/* tf */}
-          <Content>
+          {/* <Content>
                 <SubContent>
-                <MyTextarea type="text"
+                <textarea type="text"
                     id="question4" 
                     placeholder={printDatas[2]+ 임시}
                     onChange={(event)=>{handleData(event,'4')}}
                 />
-                <MyInput type="text"
+                <input type="text"
                     id="answera4" 
                     placeholder={printDatas[2].slice(0,1)+ 임시1}
                     onChange={(event)=>{handleData(event,'4')}}
                 />
-                <MyInput type="text"
+                <input type="text"
                     id="answerb4" 
                     placeholder={printDatas[2].slice(1)+ 임시1}
                     onChange={(event)=>{handleData(event,'4')}}
                 />
                 </SubContent>
                 <SubContent>
-                <MyTextarea type="text"
+                <textarea type="text"
                     id="question6" 
                     placeholder={printDatas[2]+ 임시}
                     onChange={(event)=>{handleData(event,'6')}}
                 />
-                <MyInput type="text"
+                <input type="text"
                     id="answera6" 
                     placeholder={printDatas[2].slice(0,1)+ 임시1}
                     onChange={(event)=>{handleData(event,'6')}}
                 />
-                <MyInput type="text"
+                <input type="text"
                     id="answerb6" 
                     placeholder={printDatas[2].slice(1)+ 임시1}
                     onChange={(event)=>{handleData(event,'6')}}
                 />
                 </SubContent>
-            </Content>
+            </Content> */}
 
           {/* jp */}
-          <Content>
+          {/* <Content>
                 <SubContent>
-                    <MyTextarea type="text"
+                    <textarea type="text"
                         id="question2" 
                         placeholder={printDatas[3]+ 임시}
                         onChange={(event)=>{handleData(event,'2')}}
                     />
-                    <MyInput type="text"
+                    <input type="text"
                         id="answera2" 
                         placeholder={printDatas[3].slice(0,1)+ 임시1}
                         onChange={(event)=>{handleData(event,'2')}}
                     />
-                    <MyInput type="text"
+                    <input type="text"
                         id="answera2" 
                         placeholder={printDatas[3].slice(1)+ 임시1}
                         onChange={(event)=>{handleData(event,'2')}}
                     />
                 </SubContent>
                 <SubContent>
-                    <MyTextarea type="text"
+                    <textarea type="text"
                         id="question8" 
                         placeholder={printDatas[3]+ 임시}
                         onChange={(event)=>{handleData(event,'8')}}
 
                     />
-                    <MyInput type="text"
+                    <input type="text"
                         id="answera8" 
                         placeholder={printDatas[3].slice(0,1)+ 임시1}
                         onChange={(event)=>{handleData(event,'8')}}
 
 
                     />
-                    <MyInput type="text"
+                    <input type="text"
                         id="answera8" 
                         placeholder={printDatas[3].slice(1)+ 임시1}
                         onChange={(event)=>{handleData(event,'8')}}
 
                     />
                 </SubContent>
-            </Content>
-            </div>
+            </Content> */}
                    
-            <ButtonGroup className="mt_20">
+            {/* <ButtonGroup className="mt_20">
                 <Button variant="light"
                         className="btn"
                         onClick={() => handleClickButton('/regmain')}
@@ -420,36 +428,8 @@ export default () => {
                 >
                     다음
                 </Button>
-            </ButtonGroup>
+            </ButtonGroup> */}
+            </section>
         </>
     )
 }
-const MyInput = styled.input`
-    border: solid 1px lightgray;
-    border-radius: 5px;
-    margin-bottom: 4px;
-    width: 200px;
-`
-const MyTextarea = styled.textarea`
-    border: solid 1px lightgray;
-    border-radius: 5px;
-    margin-bottom: 4px;
-    width: 200px;
-`
-const Content = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    margin-top:30px;
-`
-const SubContent = styled.div`
-    width: 18rem;
-`
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:row;
-    margin-bottom:20px;
-    
-`

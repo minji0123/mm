@@ -4,141 +4,51 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-import Card from 'react-bootstrap/Card';
-import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+//my style
+import './regstyle.sass';
+import '../marginpadding.sass';
+
 
 import RegTestInput from './RegTestInput';
+import RegModal from './RegModals';
 
 export default () => {
-    const [question,setQuestion] = useState("");
-    const [answer1,setAnswer1] = useState("");
-    const [answer2,setAnswer2] = useState("");
+    const [modalSwitch,setModalSwitch] = useState(true);
+    const [data, setData] = useState(true);
 
-    // const [realQ, setRealQ] = useState();
-    
-
+    const closeModal = () =>{
+        console.log('뭐야!' ,modalSwitch);
+        setModalSwitch(!modalSwitch);
+    }
 
     const navigate = useNavigate();
-    
-    const handleData = (event) => {
-        if (event.target.id === 'first') {
-            setQuestion(event.target.value);
-        }else if (event.target.id === 'second') {
-            setAnswer1(event.target.value);
-        }else if (event.target.id === 'third') {
-            setAnswer2(event.target.value);
-        }
 
-    }
 
-    const handleClickButton = (link) => {
-        navigate(link);
-    }
+    useEffect(()=>{
+        setModalSwitch(data);
+    },[data])
+
+
 
     return(
-        <Wrapper>
-            <Content>
-                <Title>테스트화면 만들기</Title>
+        <>
+            <div className='regtest pt80 pb80'>
+                <div className='regtest-wrap'>
+                    <p className='main-title'>테스트화면 만들기</p>
 
-                <p>예시입니당</p>
+                    <p className='pointer'
+                        onClick={closeModal}
+                    >예시입니당 클릭!</p>
+                        {modalSwitch && <RegModal setData={setData} />}
 
-                <div style={{ width: '18rem' }}>
+                    {/* <p>❕ </p> */}
 
-                    <div className="mb-3">
+                    <RegTestInput/>
 
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first" value={question} onChange={handleData}
-                                placeholder="친구가 여행계획을 세워왔어요! 당신은 여행을 갈건가요??"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="second" value={answer1} onChange={handleData}
-                                placeholder="네!!"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="third" value={answer2} onChange={handleData}
-                                placeholder="아녀!!"
-                        />
-
-                    </div>
 
                 </div>
-
-                <p></p>
-                <p>이렇게 보일거에요</p>
-                <p>↓ ↓ ↓</p>
-
-                <Card style={{ width: '18rem' }}>
-                    <Content>
-                        <SubTitle>{ question ? question : "친구가 여행계획을 세워왔어요! 당신은 여행을 갈건가요??"} </SubTitle>
-                        <ButtonGroup className="mb_20">
-                            <Button variant="secondary"
-                                    className="btn reg_left_btn"
-                                    style={{marginRight:"7px"}}
-                            >
-                                {answer1 ? answer1 : "네!"}
-                            </Button>
-
-                            <Button variant="secondary"
-                                    className="btn reg_right_btn"
-                                    
-                            >
-                                {answer2 ? answer2 : "아녀!"}
-                            </Button>
-                        </ButtonGroup>
-                    </Content>
-                </Card>
-
-                {/* <p>❕ </p> */}
-                <p></p>
-
-                <RegTestInput/>
-
-
-            </Content>
-            
-        </Wrapper>
+                
+            </div>
+        </>
     )
 }
-
-const Wrapper = styled.div`
-    height: 100vh;
-    width:100%;
-    font-family: "Jua";
-    padding:25px;
-`
-const Title = styled.div`
-    font-size: 30px;
-    margin-top:40px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-`
-const SubTitle = styled.div`
-    font-size: 18px;
-    margin-top:20px;
-    margin-bottom:20px;
-    max-width: 80%;
-`
-const Content = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-`
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:row;
-    margin-bottom:20px;
-    
-`
