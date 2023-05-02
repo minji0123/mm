@@ -9,6 +9,8 @@ import { Button } from 'react-bootstrap';
 
 //my style
 import './regstyle.sass';
+import '../margin.sass';
+import '../padding.sass';
 import '../marginpadding.sass';
 
 export default () => {
@@ -57,10 +59,6 @@ export default () => {
         }else{
             //오류
         }
-        
-        
-        
-
 
     }
 
@@ -238,8 +236,8 @@ export default () => {
     return(
         <>
             <section className='testInput-group'>
-                <p>8개의 질답을 입력해주세요🙂</p>
                 
+                <p>8개의 질답을 입력해주세요🙂</p>
                 {/* ei */}
                 <div className='group-wrap mt40'>
 
@@ -294,125 +292,165 @@ export default () => {
                         />
                     </div>
                 </div>
+                {/* sn */}
+                <div className='group-wrap mt40'>
+
+                    <div className='group1'>
+                        <p>{printDatas[1]+ 임시}</p>
+                        <textarea type="text"
+                            id="question1" 
+                            placeholder={printDatas[1]+ 임시}
+                            onChange={(event)=>{handleData(event,'1')}}
+
+                        />
+                        <p className='mt10'>{printDatas[1].slice(0,1)+ 임시1}</p>
+                        <input type="text"
+                            id="answera1" 
+                            placeholder={printDatas[1].slice(0,1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'1')}}
 
 
-            {/* sn */}
-            {/* <Content>
-                <SubContent>
-                <textarea type="text"
-                    id="question3" 
-                    placeholder={printDatas[1]+ 임시}
-                    onChange={(event)=>{handleData(event,'3')}}
-                />
-                <input type="text"
-                    id="answera3" 
-                    placeholder={printDatas[1].slice(0,1)+ 임시1}
-                    onChange={(event)=>{handleData(event,'3')}}
-                />
-                <input type="text"
-                    id="answerb3" 
-                    placeholder={printDatas[1].slice(1)+ 임시1}
-                    onChange={(event)=>{handleData(event,'3')}}
-                />
-                </SubContent>
-                <SubContent>
-                <textarea type="text"
-                    id="question5" 
-                    placeholder={printDatas[1]+ 임시}
-                    onChange={(event)=>{handleData(event,'5')}}
-                />
-                <input type="text"
-                    id="answera5" 
-                    placeholder={printDatas[1].slice(0,1)+ 임시1}
-                    onChange={(event)=>{handleData(event,'5')}}
-                />
-                <input type="text"
-                    id="answerb5" 
-                    placeholder={printDatas[1].slice(1)+ 임시1}
-                    onChange={(event)=>{handleData(event,'5')}}
-                />
-                </SubContent>
-            </Content> */}
+                        />
+                        <p>{printDatas[1].slice(1)+ 임시1}</p>
+                        <input type="text"
+                            id="answerb1" 
+                            placeholder={printDatas[1].slice(1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'1')}}
+                        />
+                    </div>
 
-          {/* tf */}
-          {/* <Content>
-                <SubContent>
-                <textarea type="text"
-                    id="question4" 
-                    placeholder={printDatas[2]+ 임시}
-                    onChange={(event)=>{handleData(event,'4')}}
-                />
-                <input type="text"
-                    id="answera4" 
-                    placeholder={printDatas[2].slice(0,1)+ 임시1}
-                    onChange={(event)=>{handleData(event,'4')}}
-                />
-                <input type="text"
-                    id="answerb4" 
-                    placeholder={printDatas[2].slice(1)+ 임시1}
-                    onChange={(event)=>{handleData(event,'4')}}
-                />
-                </SubContent>
-                <SubContent>
-                <textarea type="text"
-                    id="question6" 
-                    placeholder={printDatas[2]+ 임시}
-                    onChange={(event)=>{handleData(event,'6')}}
-                />
-                <input type="text"
-                    id="answera6" 
-                    placeholder={printDatas[2].slice(0,1)+ 임시1}
-                    onChange={(event)=>{handleData(event,'6')}}
-                />
-                <input type="text"
-                    id="answerb6" 
-                    placeholder={printDatas[2].slice(1)+ 임시1}
-                    onChange={(event)=>{handleData(event,'6')}}
-                />
-                </SubContent>
-            </Content> */}
+                    <div className='group2'>
+                    <p>{printDatas[1]+ 임시}</p>
+                        
+                        <textarea type="text"
+                            id="question7" 
+                            placeholder={printDatas[1]+ 임시}
+                            onChange={(event)=>{handleData(event,'7')}}
 
-          {/* jp */}
-          {/* <Content>
-                <SubContent>
-                    <textarea type="text"
-                        id="question2" 
-                        placeholder={printDatas[3]+ 임시}
-                        onChange={(event)=>{handleData(event,'2')}}
-                    />
-                    <input type="text"
-                        id="answera2" 
-                        placeholder={printDatas[3].slice(0,1)+ 임시1}
-                        onChange={(event)=>{handleData(event,'2')}}
-                    />
-                    <input type="text"
-                        id="answera2" 
-                        placeholder={printDatas[3].slice(1)+ 임시1}
-                        onChange={(event)=>{handleData(event,'2')}}
-                    />
-                </SubContent>
-                <SubContent>
-                    <textarea type="text"
-                        id="question8" 
-                        placeholder={printDatas[3]+ 임시}
-                        onChange={(event)=>{handleData(event,'8')}}
+                        />
+                        <p className='mt10'>{printDatas[1].slice(0,1)+ 임시1}</p>
 
-                    />
-                    <input type="text"
-                        id="answera8" 
-                        placeholder={printDatas[3].slice(0,1)+ 임시1}
-                        onChange={(event)=>{handleData(event,'8')}}
+                        <input type="text"
+                            id="answera7" 
+                            placeholder={printDatas[1].slice(0,1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'7')}}
+
+                        />
+                        <p>{printDatas[1].slice(1)+ 임시1}</p>
+
+                        <input type="text"
+                            id="answerb7" 
+                            placeholder={printDatas[1].slice(1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'7')}}
+
+                        />
+                    </div>
+                </div>
+                {/* tf */}
+                <div className='group-wrap mt40'>
+                    <div className='group1'>
+                        <p>{printDatas[2]+ 임시}</p>
+                        <textarea type="text"
+                            id="question1" 
+                            placeholder={printDatas[2]+ 임시}
+                            onChange={(event)=>{handleData(event,'1')}}
+
+                        />
+                        <p className='mt10'>{printDatas[2].slice(0,1)+ 임시1}</p>
+                        <input type="text"
+                            id="answera1" 
+                            placeholder={printDatas[2].slice(0,1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'1')}}
 
 
-                    />
-                    <input type="text"
-                        id="answera8" 
-                        placeholder={printDatas[3].slice(1)+ 임시1}
-                        onChange={(event)=>{handleData(event,'8')}}
+                        />
+                        <p>{printDatas[2].slice(1)+ 임시1}</p>
+                        <input type="text"
+                            id="answerb1" 
+                            placeholder={printDatas[2].slice(1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'1')}}
+                        />
+                    </div>
 
-                    />
-                </SubContent>
-            </Content> */}
+                    <div className='group2'>
+                    <p>{printDatas[2]+ 임시}</p>
+                        
+                        <textarea type="text"
+                            id="question7" 
+                            placeholder={printDatas[2]+ 임시}
+                            onChange={(event)=>{handleData(event,'7')}}
+
+                        />
+                        <p className='mt10'>{printDatas[2].slice(0,1)+ 임시1}</p>
+
+                        <input type="text"
+                            id="answera7" 
+                            placeholder={printDatas[2].slice(0,1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'7')}}
+
+                        />
+                        <p>{printDatas[2].slice(1)+ 임시1}</p>
+
+                        <input type="text"
+                            id="answerb7" 
+                            placeholder={printDatas[2].slice(1)+ 임시1}
+                            onChange={(event)=>{handleData(event,'7')}}
+
+                        />
+                    </div>
+                </div>
+                {/* jp */}
+                <div className='group-wrap mt40'>
+                            <div className='group1'>
+                                <p>{printDatas[3]+ 임시}</p>
+                                <textarea type="text"
+                                    id="question1" 
+                                    placeholder={printDatas[3]+ 임시}
+                                    onChange={(event)=>{handleData(event,'1')}}
+
+                                />
+                                <p className='mt10'>{printDatas[3].slice(0,1)+ 임시1}</p>
+                                <input type="text"
+                                    id="answera1" 
+                                    placeholder={printDatas[3].slice(0,1)+ 임시1}
+                                    onChange={(event)=>{handleData(event,'1')}}
+
+
+                                />
+                                <p>{printDatas[3].slice(1)+ 임시1}</p>
+                                <input type="text"
+                                    id="answerb1" 
+                                    placeholder={printDatas[3].slice(1)+ 임시1}
+                                    onChange={(event)=>{handleData(event,'1')}}
+                                />
+                            </div>
+
+                            <div className='group2'>
+                            <p>{printDatas[3]+ 임시}</p>
+                                
+                                <textarea type="text"
+                                    id="question7" 
+                                    placeholder={printDatas[3]+ 임시}
+                                    onChange={(event)=>{handleData(event,'7')}}
+
+                                />
+                                <p className='mt10'>{printDatas[3].slice(0,1)+ 임시1}</p>
+
+                                <input type="text"
+                                    id="answera7" 
+                                    placeholder={printDatas[3].slice(0,1)+ 임시1}
+                                    onChange={(event)=>{handleData(event,'7')}}
+
+                                />
+                                <p>{printDatas[3].slice(1)+ 임시1}</p>
+
+                                <input type="text"
+                                    id="answerb7" 
+                                    placeholder={printDatas[3].slice(1)+ 임시1}
+                                    onChange={(event)=>{handleData(event,'7')}}
+                                />
+                            </div>
+                        </div>
                    
             {/* <ButtonGroup className="mt_20">
                 <Button variant="light"
@@ -429,6 +467,17 @@ export default () => {
                     다음
                 </Button>
             </ButtonGroup> */}
+
+                <div className='btn-group mt40'>
+                    <button
+                        onClick={() => handleClickButton('/regmain')}
+                    >이전</button>
+                    <button className='ml3'
+                        onClick={() => handleClickButton('/regresult')}
+                    >다음</button>
+                </div>
+
+
             </section>
         </>
     )

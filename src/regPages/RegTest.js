@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 
 //my style
 import './regstyle.sass';
+import '../margin.sass';
+import '../padding.sass';
 import '../marginpadding.sass';
 
 
@@ -17,7 +19,6 @@ export default () => {
     const [data, setData] = useState(true);
 
     const closeModal = () =>{
-        console.log('뭐야!' ,modalSwitch);
         setModalSwitch(!modalSwitch);
     }
 
@@ -38,13 +39,12 @@ export default () => {
 
                     <p className='pointer'
                         onClick={closeModal}
-                    >예시입니당 클릭!</p>
+                    >예시를 보려면 요기를 클릭!</p>
                         {modalSwitch && <RegModal setData={setData} />}
 
                     {/* <p>❕ </p> */}
 
                     <RegTestInput/>
-
 
                 </div>
                 

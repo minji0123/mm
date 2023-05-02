@@ -2,10 +2,9 @@ import { useEffect, useState } from 'react';
 
 //my style
 import './regstyle.sass';
+import '../margin.sass';
+import '../padding.sass';
 import '../marginpadding.sass';
-import Card from 'react-bootstrap/Card';
-import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
 
 export default (props) => {
 
@@ -41,12 +40,13 @@ export default (props) => {
                 <div className='regmodals-wrap'>
 
                     <div className="regmodals-inputs">
-                        <div className='modal-close'>
+                        <div className='modal-close mb10'>
 
                             <p className='pointer'
                                 onClick={closeModal}
                             >x</p>
                         </div>
+                        <p className='mb10' style={{textAlign: "center", fontSize: "20px"}}>예시입니당!</p>
                         <textarea  type="text"
 
                                 id="first" value={question} onChange={handleData}
@@ -66,43 +66,20 @@ export default (props) => {
                     </div>
 
                     <p className='mt20'>이렇게 보일거에요</p>
-                    <p>↓ ↓ ↓</p>
+                    <p className='mb10'>↓ ↓ ↓</p>
 
                     <div className='example-card'>
                         <div className='card-wrap'>
                             <p>{ question ? question : "친구가 여행계획을 세워왔어요! 당신은 여행을 갈건가요??"}</p>
-                            <div className='btn-wrap'>
+                            <div className='btn-wrap mt20'>
                                 <button className='brown-btn-y mr5'>{answer1 ? answer1 : "네!"}</button>
                                 <button className='brown-btn-y ml5'>{answer2 ? answer2 : "아녀!"}</button>
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>}
         </>
     )
 
 }
-const SubTitle = styled.div`
-    font-size: 18px;
-    margin-top:20px;
-    margin-bottom:20px;
-    max-width: 80%;
-`
-const Content = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-`
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:row;
-    margin-bottom:20px;
-    
-`

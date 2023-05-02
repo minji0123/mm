@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 
 //my style
 import './regstyle.sass';
+import '../margin.sass';
+import '../padding.sass';
 import '../marginpadding.sass';
 import Previmg from '../assets/img/0.jpg';
 
@@ -71,9 +73,8 @@ export default () => {
 
                 {/* input start */}
                 <p className='main-title'>테스트 메인화면 만들기</p>
-                <p></p>
                 <input  type="text"
-                        className='pl18 pt18'
+                        className='pl18 pt18 mt10'
                         id="first" value={mainTitle} onChange={handleData}
                         placeholder="나만의 겨울 휴양지 테스트"
 
@@ -85,14 +86,13 @@ export default () => {
                 <input type="file" id="file" accept="image/*" 
                 style={{display: 'none'}}
                 onChange={setPreviewImg}/>
-                <label for="file" class="input-plus mt8">
+                <label for="file" className="input-plus mt8">
                     + add picture
                 </label>
                 {/* input end */}
 
-                <p></p>
-                <p>이렇게 보일거에요</p>
-                <p>↓ ↓ ↓</p>
+                <p className='mt30'>이렇게 보일거에요</p>
+                <p className='mb10'>↓ ↓ ↓</p>
 
                 
 
