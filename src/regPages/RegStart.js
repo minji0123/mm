@@ -6,9 +6,7 @@ import './regstyle.sass';
 import '../marginpadding.sass';
 
 export default () => {
-    
     const navigate = useNavigate();
-
     const handleClickButton = () => {
         navigate('/regmain');
     }
