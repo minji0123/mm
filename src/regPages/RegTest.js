@@ -33,6 +33,7 @@ export default () => {
 
     return(
         <>
+            {modalSwitch && <RegModal setData={setData} />}
             <div className='regtest pt80 pb80'>
                 <div className='regtest-wrap'>
                     <p className='main-title'>테스트화면 만들기</p>
@@ -40,9 +41,7 @@ export default () => {
                     <p className='pointer'
                         onClick={closeModal}
                     >예시를 보려면 요기를 클릭!</p>
-                        {modalSwitch && <RegModal setData={setData} />}
 
-                    {/* <p>❕ </p> */}
 
                     <RegTestInput/>
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 //my style
 import './regstyle.sass';
@@ -36,6 +36,7 @@ export default (props) => {
     return(
         <>
         {modalSwitch &&
+        <div className='regmodals-all'>
             <div className='regmodals'>
                 <div className='regmodals-wrap'>
 
@@ -48,7 +49,6 @@ export default (props) => {
                         </div>
                         <p className='mb10' style={{textAlign: "center", fontSize: "20px"}}>예시입니당!</p>
                         <textarea  type="text"
-
                                 id="first" value={question} onChange={handleData}
                                 placeholder="친구가 여행계획을 세워왔어요! 당신은 여행을 갈건가요??"
                         />
@@ -78,7 +78,9 @@ export default (props) => {
                         </div>
                     </div>
                 </div>
-            </div>}
+            </div>
+        </div>
+            }
         </>
     )
 

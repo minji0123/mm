@@ -7,27 +7,27 @@ import { Button } from 'react-bootstrap';
 import { useFirestore } from '../hooks/useFirestore';
 
 export default () => {
-    let question = [];
-    let pic = [];
-    
-    const navigate = useNavigate();
+        let question = [];
+        let pic = [];
 
-    const [data1,setData1] = useState({id:1, name:"", type:"ESFP", text:"", img:""});
-    const [data2,setData2] = useState({id:2, name:"", type:"ESTJ", text:"", img:""});
-    const [data3,setData3] = useState({id:3, name:"", type:"ENFJ", text:"", img:""});
-    const [data4,setData4] = useState({id:4, name:"", type:"ENTJ", text:"", img:""});
-    const [data5,setData5] = useState({id:5, name:"", type:"ESTP", text:"", img:""});
-    const [data6,setData6] = useState({id:6, name:"", type:"ESFJ", text:"", img:""});
-    const [data7,setData7] = useState({id:7, name:"", type:"ENFP", text:"", img:""});
-    const [data8,setData8] = useState({id:8, name:"", type:"ENTP", text:"", img:""});
-    const [data9,setData9] = useState({id:9, name:"", type:"INFJ", text:"", img:""});
-    const [data10,setData10] = useState({id:10, name:"", type:"ISTJ", text:"", img:""});
-    const [data11,setData11] = useState({id:11, name:"", type:"INTP", text:"", img:""});
-    const [data12,setData12] = useState({id:12, name:"", type:"ISFP", text:"", img:""});
-    const [data13,setData13] = useState({id:13, name:"", type:"ISTP", text:"", img:""});
-    const [data14,setData14] = useState({id:14, name:"", type:"ISFJ", text:"", img:""});
-    const [data15,setData15] = useState({id:15, name:"", type:"INFP", text:"", img:""});
-    const [data16,setData16] = useState({id:16, name:"", type:"INTJ", text:"", img:""});
+        const navigate = useNavigate();
+
+        const [data1,setData1] = useState({id:1, name:"", type:"ESFP", text:"", img:""});
+        const [data2,setData2] = useState({id:2, name:"", type:"ESTJ", text:"", img:""});
+        const [data3,setData3] = useState({id:3, name:"", type:"ENFJ", text:"", img:""});
+        const [data4,setData4] = useState({id:4, name:"", type:"ENTJ", text:"", img:""});
+        const [data5,setData5] = useState({id:5, name:"", type:"ESTP", text:"", img:""});
+        const [data6,setData6] = useState({id:6, name:"", type:"ESFJ", text:"", img:""});
+        const [data7,setData7] = useState({id:7, name:"", type:"ENFP", text:"", img:""});
+        const [data8,setData8] = useState({id:8, name:"", type:"ENTP", text:"", img:""});
+        const [data9,setData9] = useState({id:9, name:"", type:"INFJ", text:"", img:""});
+        const [data10,setData10] = useState({id:10, name:"", type:"ISTJ", text:"", img:""});
+        const [data11,setData11] = useState({id:11, name:"", type:"INTP", text:"", img:""});
+        const [data12,setData12] = useState({id:12, name:"", type:"ISFP", text:"", img:""});
+        const [data13,setData13] = useState({id:13, name:"", type:"ISTP", text:"", img:""});
+        const [data14,setData14] = useState({id:14, name:"", type:"ISFJ", text:"", img:""});
+        const [data15,setData15] = useState({id:15, name:"", type:"INFP", text:"", img:""});
+        const [data16,setData16] = useState({id:16, name:"", type:"INTJ", text:"", img:""});
 
 
     const handleData = (event,i) => {

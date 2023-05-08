@@ -143,11 +143,17 @@ p
 /************* regmodals *************/
 .pointer
     cursor: pointer
-
+.regmodals-all
+    position: absolute
+    background: rgba(1,1,1,0.7)
+    width: 100vw
+    height: 220vh
 .regmodals
     position: absolute
     background: #FFFFFF
     top: 135px
+    left: 50%
+    transform: translateX(-50%)
     .regmodals-wrap
         display: flex
         flex-direction: column
@@ -160,17 +166,21 @@ p
             display: flex
             justify-content: flex-end
             color: #969696
+            p
+                font-size: 20px
         textarea
             width: 300px
             padding: 15px
             background: #FFFFFF
             border: 1px solid #969696
+            font-size: 12px
         input
             width: 300px
             height: 45px
             padding: 15px
             background: #FFFFFF
             border: 1px solid #969696
+            font-size: 12px
             &:nth-child(1)
                 margin-top: 10px
                 margin-bottom: 10px
@@ -213,8 +223,10 @@ p
             margin-left: 10px
         textarea
             padding: 10px 18px 10px 18px
+            font-size: 12px
         input
             padding: 10px 18px 10px 18px
+            font-size: 12px
     .btn-group
         width: 290px
         button
