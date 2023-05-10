@@ -1,8 +1,6 @@
 p
     margin: 0
     font-size: 12px
-.pointer
-    cursor: pointer
 /************* regstart *************/
 .regpage
     width:100%
@@ -143,24 +141,25 @@ p
 
 
 /************* regmodals *************/
-
-.regmodalsr-all
+.pointer
+    cursor: pointer
+.regmodals-all
     position: absolute
     background: rgba(1,1,1,0.7)
     width: 100vw
     height: 220vh
-.regmodalsr
+.regmodals
     position: absolute
     background: #FFFFFF
     top: 135px
     left: 50%
     transform: translateX(-50%)
-    .regmodalsr-wrap
+    .regmodals-wrap
         display: flex
         flex-direction: column
         align-items: center
         padding: 30px 40px 30px 40px
-        .regmodalsr-inputs
+        .regmodals-inputs
             display: flex
             flex-direction: column
         .modal-close
@@ -173,14 +172,14 @@ p
             width: 300px
             padding: 15px
             background: #FFFFFF
-            border: 1px solid lightgray
+            border: 1px solid #969696
             font-size: 12px
         input
             width: 300px
             height: 45px
             padding: 15px
             background: #FFFFFF
-            border: 1px solid lightgray
+            border: 1px solid #969696
             font-size: 12px
             &:nth-child(1)
                 margin-top: 10px
@@ -256,65 +255,14 @@ p
             margin-top: 30px
             margin-left: 0px !important
 
+/************* regresult *************/
 
-/************* regmodals-result *************/
-
-
-.regmodalsr-all
-    position: absolute
-    background: rgba(1,1,1,0.7)
-    width: 100vw
-    height: 220vh
-.regmodalsr
-    position: absolute
-    background: #FFFFFF
-    top: 135px
-    left: 50%
-    transform: translateX(-50%)
-    .regmodalsr-wrap
+.regresult
+    width:100%
+    font-family: "Jua"
+    padding:25px
+    background: #F6F5F4
+    .regresult-wrap
         display: flex
         flex-direction: column
         align-items: center
-        padding: 30px 40px 30px 40px
-        .regmodalsr-inputs
-            display: flex
-            flex-direction: column
-        .modal-close
-            display: flex
-            justify-content: flex-end
-            color: #969696
-            p
-                font-size: 20px
-        textarea
-            width: 300px
-            padding: 15px
-            background: #FFFFFF
-            border: 1px solid lightgray
-            font-size: 12px
-        input
-            width: 300px
-            height: 45px
-            padding: 15px
-            background: #FFFFFF
-            border: 1px solid lightgray
-            font-size: 12px
-            &:nth-child(1)
-                margin-top: 10px
-                margin-bottom: 10px
-        .input-plus
-            width: 300px
-            height: 45px
-            background: #CDCCCA
-            text-align: center
-            padding-top: 10px
-            cursor: pointer
-        .example-card
-            width: 300px
-            border: 1px solid #969696
-            padding: 30px
-        .card-wrap
-            display: flex
-            flex-direction: column
-            .btn-wrap
-                display: flex
-                justify-content: center

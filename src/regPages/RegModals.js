@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import { useState } from 'react';
 
 //my style
@@ -31,8 +33,6 @@ export default (props) => {
         props.setData(false);
     }
 
-
-
     return(
         <>
         {modalSwitch &&
@@ -42,7 +42,6 @@ export default (props) => {
 
                     <div className="regmodals-inputs">
                         <div className='modal-close mb10'>
-
                             <p className='pointer'
                                 onClick={closeModal}
                             >x</p>
@@ -62,7 +61,6 @@ export default (props) => {
                                 id="third" value={answer2} onChange={handleData}
                                 placeholder="아녀!!"
                         />
-
                     </div>
 
                     <p className='mt20'>이렇게 보일거에요</p>

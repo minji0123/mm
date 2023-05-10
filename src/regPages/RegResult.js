@@ -1,108 +1,45 @@
-/*eslint-disable */
+/* eslint-disable */
 
-import { useState } from 'react';
+import { useEffect,useState } from 'react';
 
-import Card from 'react-bootstrap/Card';
 import styled from 'styled-components';
 import RegResultInput from './RegResultInput';
+import RegModalsResult from './RegModalsResult';
 
+//my style
+import './regstyle.sass';
+import '../margin.sass';
+import '../padding.sass';
+import '../marginpadding.sass';
 
 export default () => {
-    const [question,setQuestion] = useState("");
-    const [desc,setDesc] = useState("");
-    const [content,setContent] = useState("");
-    const [mainImg,setMainImg] = useState("");
+    const [modalSwitch,setModalSwitch] = useState(true);
+    const [data, setData] = useState(true);
 
-    const handleData = (event) => {
-        if (event.target.id === 'first') {
-            setQuestion(event.target.value);
-        }else if (event.target.id === 'second') {
-            setDesc(event.target.value);
-        }else if (event.target.id === 'third') {
-            setContent(event.target.value);
-        }
-
+    const closeModal = () =>{
+        setModalSwitch(!modalSwitch);
     }
 
-    const setPreviewImg = (event) => {
 
-        var reader = new FileReader();
-
-        reader.onload = function(event) {
-            setMainImg(event.target.result);
-        };
-
-        reader.readAsDataURL(event.target.files[0]);
-    }
+    useEffect(()=>{
+        setModalSwitch(data);
+    },[data])
 
     return(
-        <Wrapper>
-            <Content>
-                <Title>결과화면 만들기</Title>
-
-                <p>예시입니당</p>
-
-                <div style={{ width: '18rem' }}>
-
-                    <div className="mb-3">
-
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first" value={question} onChange={handleData}
-                                placeholder="나만의 겨울 휴양지는?"
-                        />
-
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second" value={desc} onChange={handleData}
-                                placeholder="등산"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" value={content} onChange={handleData}
-                                placeholder="친구들과 함께 겨울 산을 올라보세요!"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        onChange={setPreviewImg}/>
-
-                    </div>
-
-                </div>
-
-
-                <p></p>
-                <p>이렇게 보일거에요</p>
-                <p>↓ ↓ ↓</p>
-
-                <Card style={{ width: '18rem' }}>
-                    <SubTitle>{ question ?question :"나만의 겨울 휴양지는?"  }</SubTitle>
-
-                    <Content>
-                        <SubTitle> 결과보기 </SubTitle>
-                        <LogoImage>
-                            <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
-                        </LogoImage>
-                        
-                        <Desc> { desc? desc : "등산"} 입니다.</Desc>
-                        <More>{ content? content:"친구들과 함께 겨울 산을 올라보세요!" }</More>
-
-                    </Content>
-                </Card>
-
-                {/* <p>❕ </p> */}
-                <p></p>
-
+    <>
+            {modalSwitch && <RegModalsResult setData={setData} />}
+    
+        <div className='regresult pt80 pb60'>
+            <div className='regresult-wrap'>
+                <p>결과화면 만들기</p>
+                <p className='pointer'
+                        onClick={closeModal}
+                    >예시를 보려면 요기를 클릭!</p>
                 <RegResultInput/>
-
-
-            </Content>
+            </div>
             
-        </Wrapper>
+        </div>
+    </>
     )
 }
 
