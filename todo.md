@@ -21,6 +21,3 @@ sass 사용
 
 npm i sass
 
-
-
-버튼1

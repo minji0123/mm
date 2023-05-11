@@ -119,11 +119,21 @@ export default () => {
 
                 <div className='btn-group mt40'>
                     <button
-                            onClick={() => handleClickButton('/')}
+                            onClick={() => 
+                                {
+                                    handleClickButton('/')
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }
+                            }
                     
                     >이전</button>
                     <button className='ml3'
-                            onClick={() => handleClickButton('/regtest')}
+                            onClick={() => 
+                                {
+                                    handleClickButton('/regtest')
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }
+                            }
                     
                     >다음</button>
                 </div>

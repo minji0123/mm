@@ -1,4 +1,5 @@
 /*eslint-disable */
+
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
@@ -30,47 +31,47 @@ export default () => {
         const [data16,setData16] = useState({id:16, name:"", type:"INTJ", text:"", img:""});
 
 
-    const handleData = (event,i) => {
-        switch (i){
-                case '1':
-                    if (event.target.id === `name${i}`) {
-                        setData1((prevState)=>{
-                            return { ...prevState, name: event.target.value }
-                        })
-        
-                    }else if (event.target.id === `text${i}`) {
-                        setData1((prevState)=>{
-                            return { ...prevState, text: event.target.value }
-                        })
-        
-                    }else if (event.target.id === `img${i}`) {
-                        setData1((prevState)=>{
-                            return { ...prevState, img: event.target.files[0] }
-                        })
-                    }
-                    case '2':
+        const handleData = (event,i) => {
+                switch (i){
+                        case '1':
                         if (event.target.id === `name${i}`) {
-                            setData2((prevState)=>{
+                                setData1((prevState)=>{
                                 return { ...prevState, name: event.target.value }
-                            })
-            
+                                })
+                
                         }else if (event.target.id === `text${i}`) {
-                            setData2((prevState)=>{
+                                setData1((prevState)=>{
                                 return { ...prevState, text: event.target.value }
-                            })
-            
+                                })
+                
                         }else if (event.target.id === `img${i}`) {
-                            setData2((prevState)=>{
+                                setData1((prevState)=>{
                                 return { ...prevState, img: event.target.files[0] }
-                            })
+                                })
                         }
-            }    
-        
-    }
-//     console.log(data1);
-    const { addDocumentObjImg, response } = useFirestore("ResultData");
+                        case '2':
+                                if (event.target.id === `name${i}`) {
+                                setData2((prevState)=>{
+                                        return { ...prevState, name: event.target.value }
+                                })
+                
+                                }else if (event.target.id === `text${i}`) {
+                                setData2((prevState)=>{
+                                        return { ...prevState, text: event.target.value }
+                                })
+                
+                                }else if (event.target.id === `img${i}`) {
+                                setData2((prevState)=>{
+                                        return { ...prevState, img: event.target.files[0] }
+                                })
+                                }
+                }    
+                
+        }
+        //     console.log(data1);
+        const { addDocumentObjImg, response } = useFirestore("ResultData");
 
-    const handleClickButton = (link) => {
+        const handleClickButton = (link) => {
 
         // question.push(data1);
         // question.push(data2);
@@ -88,7 +89,7 @@ export default () => {
         // question.push(data14);
         // question.push(data15);
         // question.push(data16);
-        
+
 
         // addDocumentObjImg({ question });
         // console.log(question);
@@ -99,502 +100,514 @@ export default () => {
                 alert('준비중이양...💨');
         }
 
-    }
+}
 
 
-    return(
-        <>
-            <p>이제 진짜 결과 데이터를 입력해보세요</p>
-            <p>총 16개의 결과를 입력해야해요</p>
-            <div style={{ width: '1000px' }} >
-                <Content>
-                    {/* ESFP */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                disabled
-                                placeholder="ESFP"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="name1"
-                                placeholder="결과데이터를 입력해주세요"
-                                onChange={(event)=>{handleData(event,'1')}}
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="text1" 
-                                placeholder="설명을 입력해주세요"
-                                onChange={(event)=>{handleData(event,'1')}}
-                        />
-                        <input type="file" id="img1" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        onChange={(event)=>{handleData(event,'1')}}
+return(
+<>
+        <section>
+                <p>16개의 결과를 입력해주세요🙂</p>
 
-                        />
-                    </SubContent>
+                        <div className='first-group'>
+                                
+                                {/* ESFP */}
+                                <div className='esfp'>
+                                        <input  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px"}}
+                                                disabled
+                                                placeholder="ESFP"
+                                        />
+                                        <input  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px"}}
+                                                id="name1"
+                                                placeholder="결과데이터를 입력해주세요"
+                                                onChange={(event)=>{handleData(event,'1')}}
+                                        />
+                                        <textarea  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px",
+                                                }}
+                                                id="text1" 
+                                                placeholder="설명을 입력해주세요"
+                                                onChange={(event)=>{handleData(event,'1')}}
+                                        />
+                                        <input type="file" id="img1" accept="image/*" 
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                        onChange={(event)=>{handleData(event,'1')}}
 
-                    
-                    {/* ESTJ */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                disabled
-                                placeholder="ESTJ"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="name2"
-                                placeholder="결과데이터를 입력해주세요"
-                                onChange={(event)=>{handleData(event,'2')}}
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="text2" 
-                                placeholder="설명을 입력해주세요"
-                                onChange={(event)=>{handleData(event,'2')}}
-                        />
-                        <input type="file" id="img2" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        onChange={(event)=>{handleData(event,'2')}}
-                        />
-                    </SubContent>
-                </Content>
-                
-                <Content>
-                    {/* ENFJ */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ENFJ"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                    
-                    {/* ENTJ */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ENTJ"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
+                                        />
+                                </div>
 
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                </Content>
+                                {/* ESTJ */}
+                                <div className='estj'>
+                                        <input  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px"}}
+                                                disabled
+                                                placeholder="ESTJ"
+                                        />
+                                        <input  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px"}}
+                                                id="name2"
+                                                placeholder="결과데이터를 입력해주세요"
+                                                onChange={(event)=>{handleData(event,'2')}}
+                                        />
+                                        <textarea  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px",
+                                                }}
+                                                id="text2" 
+                                                placeholder="설명을 입력해주세요"
+                                                onChange={(event)=>{handleData(event,'2')}}
+                                        />
+                                        <input type="file" id="img2" accept="image/*" 
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                        onChange={(event)=>{handleData(event,'2')}}
+                                        />
+                                </div>
 
-                <Content>
-                    {/* ESTP */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ESTP"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                    
-                    {/* ESFJ */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ESFJ"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
+                                {/* ENFJ */}
+                                <div className='enfj'>
+                                        <input  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px"}}
+                                                id="first"
+                                                disabled
+                                                placeholder="ENFJ"
+                                        />
+                                        <input  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px"}}
+                                                id="second"
+                                                placeholder="결과데이터를 입력해주세요"
+                                        />
+                                        <textarea  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px",
+                                                }}
+                                                id="third" 
+                                                placeholder="설명을 입력해주세요"
+                                        />
+                                        <input type="file" id="image" accept="image/*" 
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                        />
+                                </div>
+                                
+                                {/* ENTJ */}
+                                <div className='entj'>
+                                        <input  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px"}}
+                                                id="first"
+                                                disabled
+                                                placeholder="ENTJ"
+                                        />
+                                        <input  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px"}}
+                                                id="second"
+                                                placeholder="결과데이터를 입력해주세요"
 
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                </Content>
+                                        />
+                                        <textarea  type="text"
+                                                style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                        marginBottom:"4px",width:"290px",
+                                                }}
+                                                id="third" 
+                                                placeholder="설명을 입력해주세요"
+                                        />
+                                        <input type="file" id="image" accept="image/*" 
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                        />
+                                </div>
 
-                <Content>
-                    {/* ENFP */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ENFP"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                    
-                    {/* ENTP */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ENTP"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                </Content>
+                        </div>
 
 
 
-                <Content>
-                    {/* INFJ */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="INFJ"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                    
-                    {/* ISTJ */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ISTJ"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                </Content>
 
 
-                <Content>
-                    {/* INTP */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="INTP"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                    
-                    {/* ISFP */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ISFP"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
+                        <Content>
+                        {/* ESTP */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="ESTP"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        
+                        {/* ESFJ */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="ESFJ"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
 
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                </Content>
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        </Content>
 
+                        <Content>
+                        {/* ENFP */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="ENFP"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        
+                        {/* ENTP */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="ENTP"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
 
-                <Content>
-                    {/* ISTP */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ISTP"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                    
-                    {/* ISFJ */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="ISFJ"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                </Content>
-
-
-                <Content>
-                    {/* INFP */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="INFP"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                    
-                    {/* INTJ */}
-                    <SubContent>
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="first"
-                                disabled
-                                placeholder="INTJ"
-                        />
-                        <input  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px"}}
-                                id="second"
-                                placeholder="결과데이터를 입력해주세요"
-
-                        />
-                        <textarea  type="text"
-                                style={{border: "solid 1px lightgray", borderRadius: "5px",
-                                        marginBottom:"4px",width:"290px",
-                                    }}
-                                id="third" 
-                                placeholder="설명을 입력해주세요"
-                        />
-                        <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        />
-                    </SubContent>
-                </Content>
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        </Content>
 
 
-                <ButtonGroup className="mt_20">
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/regtest')}
-                    >
-                        이전
-                    </Button>
-                    
-                    <Button variant="light"
-                            className="btn"
-                            onClick={() => handleClickButton('/')}
+                        <Content>
+                        {/* INFJ */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="INFJ"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        
+                        {/* ISTJ */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="ISTJ"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
 
-                    >
-                        다음
-                    </Button>
-                    
-                </ButtonGroup>
-            </div>
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        </Content>
 
-        </>
-    )
+
+                        <Content>
+                        {/* INTP */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="INTP"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        
+                        {/* ISFP */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="ISFP"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        </Content>
+
+
+                        <Content>
+                        {/* ISTP */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="ISTP"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        
+                        {/* ISFJ */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="ISFJ"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        </Content>
+
+
+                        <Content>
+                        {/* INFP */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="INFP"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        
+                        {/* INTJ */}
+                        <SubContent>
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="first"
+                                        disabled
+                                        placeholder="INTJ"
+                                />
+                                <input  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px"}}
+                                        id="second"
+                                        placeholder="결과데이터를 입력해주세요"
+
+                                />
+                                <textarea  type="text"
+                                        style={{border: "solid 1px lightgray", borderRadius: "5px",
+                                                marginBottom:"4px",width:"290px",
+                                        }}
+                                        id="third" 
+                                        placeholder="설명을 입력해주세요"
+                                />
+                                <input type="file" id="image" accept="image/*" 
+                                style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
+                                />
+                        </SubContent>
+                        </Content>
+
+
+                        <ButtonGroup className="mt_20">
+                        <Button variant="light"
+                                className="btn"
+                                onClick={() => 
+                                        {
+                                                handleClickButton('/regtest')
+                                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                        }
+                                }
+                        >
+                                이전
+                        </Button>
+                        
+                        <Button variant="light"
+                                className="btn"
+                                onClick={() => 
+                                        {
+                                                handleClickButton('/')
+                                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                        }
+                                }
+
+                        >
+                                다음
+                        </Button>
+                        
+                        </ButtonGroup>
+        </section>
+
+</>
+)
 }
 
 const Content = styled.div`

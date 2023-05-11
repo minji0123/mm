@@ -1,14 +1,13 @@
 /* eslint-disable */
 
 import { useState } from 'react';
-import styled from 'styled-components';
 
 //my style
 import './regstyle.sass';
-import './regstyler.sass';
 import '../margin.sass';
 import '../padding.sass';
 import '../marginpadding.sass';
+import Previmg from '../assets/img/4.jpg';
 
 export default (props) => {
 
@@ -67,21 +66,20 @@ export default (props) => {
                         <input  type="text"
                                 id="first" value={question} onChange={handleData}
                                 placeholder="나만의 겨울 휴양지는?"
+                                maxLength={30}
                                 />
                         <input  type="text"
                                 className='mt8'
+                                maxLength={10}
                                 id="second" value={desc} onChange={handleData}
                                 placeholder="등산"
                         />
                         <textarea  type="text"
                                 className='mt8'
+                                maxLength={30}
                                 id="third" value={content} onChange={handleData}
                                 placeholder="친구들과 함께 겨울 산을 올라보세요!"
                         />
-
-                        {/* <input type="file" id="image" accept="image/*" 
-                        style={{border: "solid 1px lightgray", borderRadius: "5px",  width: '18rem'}}
-                        onChange={setPreviewImg}/> */}
 
                         <input type="file" id="file" accept="image/*" 
                             style={{display: 'none'}}
@@ -97,16 +95,18 @@ export default (props) => {
 
                     <div className='example-cardr'>
                         <div className='cardr-wrap'>
-                            <p>{ question ? question : "나만의 겨울 휴양지는?"  }</p>
+                            <p className='cardr-title'>{ question ? question : "나만의 겨울 휴양지는?"  }</p>
+                            <p className='cardr-result'> 결과보기 </p>
+                            {mainImg 
+                            ? 
+                            <img alt="메인사진" src={mainImg} className='mt10' style={{maxWidth:"100px"}}></img>
+                            : 
+                            <img alt="메인사진" src={Previmg} className='mt10' style={{maxWidth:"100px"}}></img>
                             
-                            <Content>
-                                <SubTitle> 결과보기 </SubTitle>
-                                <LogoImage>
-                                    <img alt="메인사진" src={mainImg} style={{maxWidth:"100px"}}></img>
-                                </LogoImage>
-                                <Desc> { desc? desc : "등산"} 입니다.</Desc>
-                                <More>{ content? content:"친구들과 함께 겨울 산을 올라보세요!" }</More>
-                            </Content>
+                            }
+                            
+                            <p className='cardr-desc'> { desc? desc : "등산"} 입니다.</p>
+                            <p className='cardr-more'>{ content? content:"친구들과 함께 겨울 산을 올라보세요!" }</p>
 
                         </div>
                     </div>
@@ -122,33 +122,3 @@ export default (props) => {
     )
 
 }
-
-const SubTitle = styled.div`
-    font-size: 18px;
-    margin-top:20px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-`
-const LogoImage = styled.div`
-    margin-top:10px;
-`
-const Content = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-`
-const Desc = styled.div`
-    font-size: 12pt;
-    margin-top:20px;
-    margin-bottom:20px;
-    max-width: 80%;
-
-`
-const More = styled.div`
-    font-size: 12pt;
-    margin-bottom:20px;
-    max-width: 80%;
-`

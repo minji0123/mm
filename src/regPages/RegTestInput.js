@@ -451,29 +451,25 @@ export default () => {
                                 />
                             </div>
                         </div>
-                   
-            {/* <ButtonGroup className="mt_20">
-                <Button variant="light"
-                        className="btn"
-                        onClick={() => handleClickButton('/regmain')}
-                >
-                    이전
-                </Button>
-                <Button variant="light"
-                        className="btn"
-                        onClick={() => handleClickButton('/regresult')}
-
-                >
-                    다음
-                </Button>
-            </ButtonGroup> */}
 
                 <div className='btn-group mt40'>
                     <button
-                        onClick={() => handleClickButton('/regmain')}
+                        onClick={() => 
+                            {
+                                handleClickButton('/regmain')
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            }
+                    
+                    }
                     >이전</button>
                     <button className='ml3'
-                        onClick={() => handleClickButton('/regresult')}
+                        onClick={() => 
+                            {   
+                                handleClickButton('/regresult')
+                                window.scrollTo({ top: 0, behavior: "smooth" });
+                            }
+                        
+                        }
                     >다음</button>
                 </div>
 
