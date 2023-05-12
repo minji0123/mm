@@ -27,14 +27,14 @@ export default () => {
 
     return(
     <>
-            {/* {modalSwitch && <RegModalsResult setData={setData} />} */}
+            {modalSwitch && <RegModalsResult setData={setData} />}
     
         <div className='regresult pt80 pb60'>
             <div className='regresult-wrap'>
                 <p className='main-title'>결과화면 만들기</p>
                 <p className='pointer'
                         onClick={closeModal}
-                    >예시를 보려면 요기를 클릭!</p>
+                    >예시를 보려면 요기를 더블클릭!</p>
                 <RegResultInput/>
             </div>
             

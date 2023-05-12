@@ -40,7 +40,7 @@ export default () => {
 
                     <p className='pointer'
                         onClick={closeModal}
-                    >예시를 보려면 요기를 클릭!</p>
+                    >예시를 보려면 요기를 더블클릭!</p>
 
 
                     <RegTestInput/>

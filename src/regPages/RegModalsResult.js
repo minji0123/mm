@@ -48,7 +48,9 @@ export default (props) => {
 
 
     return(
-        <>
+        <div 
+        // onClick={() => setModalSwitch(false)}
+        >
         {modalSwitch &&
 
         <div className='regmodalsr-all'>
@@ -118,7 +120,7 @@ export default (props) => {
         </div>
 
             }
-        </>
+        </div>
     )
 
 }
