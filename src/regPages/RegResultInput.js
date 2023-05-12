@@ -302,7 +302,7 @@ return(
                                 
                                 <div className='resultinput-right'>
                                         {/* ESTJ */}
-                                <p className='sep-line mt10'>E 구간 --------------</p>
+                                <p className='sep-line mt10 plus-style'>E 구간 --------------</p>
 
                                         <div className='mbti-input estj'>
                                                 <input  type="text"
