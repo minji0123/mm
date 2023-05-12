@@ -70,6 +70,7 @@ p
 
 .regmain
     width:100%
+    height: 100vh
     font-family: "Jua"
     padding:25px
     background: #F6F5F4
@@ -204,70 +205,6 @@ p
     border: none
     font-family: "Jua"
 
-/************* regmodals *************/
-
-.regmodalsr-all
-    position: absolute
-    background: rgba(1,1,1,0.7)
-    width: 100vw
-    height: 220vh
-.regmodalsr
-    position: absolute
-    background: #FFFFFF
-    top: 135px
-    left: 50%
-    transform: translateX(-50%)
-    .regmodalsr-wrap
-        display: flex
-        flex-direction: column
-        align-items: center
-        padding: 30px 40px 30px 40px
-        .regmodalsr-inputs
-            display: flex
-            flex-direction: column
-        .modal-close
-            display: flex
-            justify-content: flex-end
-            color: #969696
-            p
-                font-size: 20px
-        textarea
-            width: 300px
-            padding: 15px
-            background: #FFFFFF
-            border: 1px solid lightgray
-            font-size: 12px
-        input
-            width: 300px
-            height: 45px
-            padding: 15px
-            background: #FFFFFF
-            border: 1px solid lightgray
-            font-size: 12px
-            &:nth-child(1)
-                margin-top: 10px
-                margin-bottom: 10px
-        .example-card
-            width: 300px
-            border: 1px solid #969696
-            padding: 30px
-        .card-wrap
-            display: flex
-            flex-direction: column
-            .btn-wrap
-                display: flex
-                justify-content: center
-.brown-btn-y
-    width: 100px
-    padding: 13px
-    background: #786052
-    font-size: 12px
-    line-height: 26px
-    color: #FFFFFF
-    border: none
-    font-family: "Jua"
-
-
 /************* RegTestInput *************/
 .testInput-group
     display: flex
@@ -287,9 +224,12 @@ p
         textarea
             padding: 10px 18px 10px 18px
             font-size: 12px
+            border: 0.5px solid #969696
         input
             padding: 10px 18px 10px 18px
             font-size: 12px
+            border: 0.5px solid #969696
+
     .btn-group
         width: 290px
         button
@@ -330,7 +270,7 @@ p
         flex-direction: column
         align-items: center
 
-/************* regmodals-result *************/
+/************* result regmodalsr *************/
 
 .regmodalsr-all
     position: absolute
@@ -361,14 +301,16 @@ p
                 width: 300px
                 padding: 15px
                 background: #FFFFFF
-                border: 1px solid lightgray
+                // border: 1px solid lightgray
+                border: 1px solid #969696
                 font-size: 12px
             input
                 width: 300px
                 height: 45px
                 padding: 15px
                 background: #FFFFFF
-                border: 1px solid lightgray
+                // border: 1px solid lightgray
+                border: 1px solid #969696
                 font-size: 12px
                 &:nth-child(1)
                     margin-top: 10px
@@ -409,4 +351,11 @@ p
                     font-size: 12pt
                     margin-bottom:20px
                     max-width: 80%
-                
+
+
+/************* result reginput *************/
+.resultinput-wrap
+    display: flex
+    flex-direction: column
+    align-items: center
+    .first-group

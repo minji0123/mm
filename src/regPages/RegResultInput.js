@@ -106,7 +106,9 @@ export default () => {
 return(
 <>
         <section>
-                <p>16개의 결과를 입력해주세요🙂</p>
+                <div className='resultinput-wrap'>
+
+                        <p>16개의 결과를 입력해주세요🙂</p>
 
                         <div className='first-group'>
                                 
@@ -604,6 +606,7 @@ return(
                         </Button>
                         
                         </ButtonGroup>
+                </div>
         </section>
 
 </>

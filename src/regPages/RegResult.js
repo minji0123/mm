@@ -27,7 +27,7 @@ export default () => {
 
     return(
     <>
-            {modalSwitch && <RegModalsResult setData={setData} />}
+            {/* {modalSwitch && <RegModalsResult setData={setData} />} */}
     
         <div className='regresult pt80 pb60'>
             <div className='regresult-wrap'>
