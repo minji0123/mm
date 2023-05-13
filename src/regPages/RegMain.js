@@ -60,7 +60,7 @@ export default () => {
         //     alert('테스트 사진을 넣어주세요😮');
         // }
 
-        addDocument({mainTitle },pic);
+        // addDocument({mainTitle },pic);
 
         navigate(link);
     }
@@ -86,7 +86,7 @@ export default () => {
                 <input type="file" id="file" accept="image/*" 
                 style={{display: 'none'}}
                 onChange={setPreviewImg}/>
-                <label for="file" className="input-plus mt8">
+                <label htmlFor="file" className="input-plus mt8">
                     + add picture
                 </label>
                 {/* input end */}

@@ -1,6 +1,6 @@
 /* eslint-disable */
 
-import { useState } from 'react';
+import { useState,useRef,useEffect } from 'react';
 
 //my style
 import './regstyle.sass';
@@ -33,12 +33,36 @@ export default (props) => {
         props.setData(false);
     }
 
+    // const targetRef = useRef("");  
+    const handleScroll = () => {
+        console.log("scrolling");
+        
+        if (window.scrollY > 0) {
+            if(modalSwitch){
+                // targetRef.current.style.position = "fixed";
+                setModalSwitch(false)
+            }
+        }
+    };
+
+    useEffect(() => {    
+        const timer = setInterval(() => {
+        window.addEventListener("scroll", handleScroll);
+        }, 100);
+        return () => {
+        clearInterval(timer);
+        window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+
     return(
         <div 
         // onClick={() => setModalSwitch(false)}
         >
         {modalSwitch &&
         <div className='regmodals-all'>
+             {/* <div ref={targetRef}>이벤트 발생위치</div> */}
             <div className='regmodals'>
                 <div className='regmodals-wrap'>
 

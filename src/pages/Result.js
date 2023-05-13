@@ -1,10 +1,14 @@
 import { useEffect,useState } from 'react';
-import axios from 'axios';
-import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 
 //style
 import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+
+//my style
+import './pages.sass';
+import '../margin.sass';
+import '../padding.sass';
+import '../marginpadding.sass';
 
 //data
 import {matchType} from "../utils/matchType.js";
@@ -35,110 +39,42 @@ export default function Result(){
 
     });
 
-    // const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-    // const URL = `${PROXY}/test/1/2.json`;
-    // const imgURL = `${PROXY}/test/1/2.json`;
 
-    // useEffect(()=>{
-    //     axios.get(URL)
-    //     .then((result)=>{
-    //         let realTit = result.data.result[0];
-    //         let realCont = result.data.result[matchType(mbti)];
-    //         setTitle(realTit);
-    //         setContent(realCont);
-    //     })
-    //     .catch(()=>{
-    //     })
-
-    //     axios.get(imgURL)
-    //     .then((result)=>{
-    //         const imageData = result.data.result[matchType(mbti)].img;
-    //         setMainImg(`https://teal-swan-1836fc.netlify.app/${imageData}`);
-    //     })
-    //     .catch(()=>{
-    //     })
-
-    // },[])
 
 
     return(
         <>
-            <Wrapper>
-                <Header>{title && title}</Header>
-                <Content>
+            <div className='result-style'>
+                <div className='result-wrap mt50'>
 
-                <Title > 결과보기 </Title>
-                <LogoImage>
+                    <p className='main-title mb40'>{title && title}</p>
+
+                    {/* <p className='page-result mt40'> 결과는??! </p> */}
+
                     <img alt="결과사진" src={mainImg} width={350} height={350}></img>
-                </LogoImage>
-                <Desc> {content && content.name} 입니다.</Desc>
-                <More>{content && content.text}</More>
-                <ButtonGroup>
-                    <Button variant="secondary"
-                            className='btn'
-                            style={{fontSize: "20px"}}
-                            onClick={() => navigate("/")}
-                    >테스트 다시하기</Button>
-                    
-                </ButtonGroup>
 
-                </Content>
-            </Wrapper>
+                    <p className='result-desc mt20 mb20'> {content && content.name} 입니다.</p>
+                    {/* <p className='result-more'>{content && content.text}</p> */}
+                    <p className='result-more'>임시데이터 입니다아아아아어ㅏ어아ㅓ아ㅓ아ㅓ아어ㅏ어아ㅓ이ㅏㅓㄴ이라ㅓㅇ니라ㅓㅇ
+                    아아아어ㅏ어아ㅓ아ㅓ아ㅓ아어ㅏ어아ㅓ이ㅏㅓㄴ이라ㅓㅇ니라ㅓㅇㄴ
+                    아아아어ㅏ어아ㅓ아ㅓ아ㅓ아어ㅏ어아ㅓ이ㅏㅓㄴ이라ㅓㅇ니라ㅓㅇㄴ
+                    ㄴ</p>
+
+                    <div className='btn-group mt40'>
+                        <button 
+                            className='brown-btn mr10'
+                            onClick={() => navigate("/start")}
+                        >테스트 다시하기</button>
+
+                        <button
+                            className='grey-btn ml10'
+                        > 카카오톡 공유하기 </button>
+                        
+                    </div>
+
+                </div>
+            </div>
         </>
     )
 }
 
-const Wrapper = styled.div`
-    height: 100vh;
-    width:100%;
-    font-family: "Jua";
-    padding:25px;
-
-`
-
-const Header = styled.div`
-    font-size: 30pt;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-`
-const Title = styled.div`
-    font-size: 20pt;
-    margin-top:40px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-
-`
-const LogoImage = styled.div`
-    margin-top:10px;
-
-`
-const Desc = styled.div`
-    font-size: 20pt;
-    margin-top:20px;
-    margin-bottom:20px;
-`
-const More = styled.div`
-    font-size: 18pt;
-    margin-top:20px;
-    margin-bottom:20px;
-    width: 350px;
-`
-
-const Content = styled.div`
-    font-size: 20pt;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-`
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:row;
-    margin-bottom:20px;
-
-`

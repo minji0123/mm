@@ -1,10 +1,11 @@
-import { useEffect, useState } from 'react';
-import axios from 'axios';
+import { useState } from 'react';
 import { useNavigate,createSearchParams } from "react-router-dom";
 
-//style
-import styled from 'styled-components';
-import { Button } from 'react-bootstrap';
+//my style
+import './pages.sass';
+import '../margin.sass';
+import '../padding.sass';
+import '../marginpadding.sass';
 
 //data
 import {matchType} from "../utils/matchType.js";
@@ -26,8 +27,9 @@ export default function Test(){
         {mType:"TF",score:0},
         {mType:"JP",score:0},
     ])
-
+    
     console.log(total,'total');
+    console.log(contents,'contents');
 
 
     const handleClickBtn = (no, type) => {
@@ -46,6 +48,7 @@ export default function Test(){
             setQNumber(qNumber+1);// 문제 번호+1
             setProgress((qNumber/contents.length)*100);// progress 바 수치+10
         }
+
         // 문제가 다 끝나면 결과 페이지로 이동
         else{
             // 최종 결과 계산
@@ -62,77 +65,42 @@ export default function Test(){
             navigate({
                 pathname: "/result",
                 search: `?${createSearchParams({// ~/resutl?mbti=ESTJ get 요청으로 데이터를 넘길 수 있음
-                  mbti: finalResult,
-                })}`,
-              });
+                mbti: finalResult,
+            })}`,
+            });
 
         }
         
     }
 
-    // useEffect(()=>{
-    //     /* ********************************
-    //         서버 데이터
-    //     *********************************/
-    //     const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-    //     const URL = `${PROXY}/test/1/1.json`;
-
-    //     axios.get(URL)
-    //     .then((result)=>{
-    //         let copy = result.data.question;
-    //         setContents(copy);
-    //     })
-    //     .catch(()=>{
-    //         console.log('실패...');
-    //     })
-
-    // },[])
-    // console.log(contents);
-
     return(
         <>
-            <Wrapper>
-                {/* <LinearProgress variant="determinate" value={progress} /> */}
-                <Title> {contents.length>0 && contents[qNumber].content} </Title>
-                <ButtonGroup className="mt_20">
-                    <Button variant="secondary"
-                        className="btn left_btn"
-                        onClick={() => handleClickBtn(1,contents[qNumber].type)}
-                    >
-                        {contents.length>0 && contents[qNumber].answer1}
-                    </Button>
-
-                    <Button variant="secondary"
+            <div className='page-style'>
+                <div className='page-wrap safe-size mt100'>
+                    {/* <LinearProgress variant="determinate" value={progress} /> */}
+                    <p className='page-content '> {contents.length>0 && contents[qNumber].content} </p>
                     
-                    className="btn right_btn"
-                    onClick={() => handleClickBtn(0,contents[qNumber].type)}
-                    >
-                        {contents.length>0 && contents[qNumber].answer2}
-                    </Button>
-                </ButtonGroup>
-            </Wrapper>
+                    <div className="btn-group mt100">
+
+                        <button 
+                            className="grey-btn mr10"
+                            onClick={() => handleClickBtn(1,contents[qNumber].type)}
+                        >
+                            {contents.length>0 && contents[qNumber].answer1}
+                        </button>
+
+                        <button 
+                            className="brown-btn ml10"
+                            onClick={() => handleClickBtn(0,contents[qNumber].type)}
+                        >
+                            {contents.length>0 && contents[qNumber].answer2}
+                        </button>
+
+                    </div>
+                </div>
+
+            </div>
         </>
     )
 }
 
-const Wrapper = styled.div`
-    height: 100vh;
-    width:100%;
-    font-family: "Jua";
-    padding:25px;
-
-`
-const ButtonGroup = styled.div`
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:row;
-`
-const Title = styled.div`
-    font-size: 20pt;
-    margin:40px 80px 40px 80px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-
-`

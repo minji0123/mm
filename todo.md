@@ -21,3 +21,29 @@ sass 사용
 
 npm i sass
 
+
+
+    // const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+    // const URL = `${PROXY}/test/1/2.json`;
+    // const imgURL = `${PROXY}/test/1/2.json`;
+
+    // useEffect(()=>{
+    //     axios.get(URL)
+    //     .then((result)=>{
+    //         let realTit = result.data.result[0];
+    //         let realCont = result.data.result[matchType(mbti)];
+    //         setTitle(realTit);
+    //         setContent(realCont);
+    //     })
+    //     .catch(()=>{
+    //     })
+
+    //     axios.get(imgURL)
+    //     .then((result)=>{
+    //         const imageData = result.data.result[matchType(mbti)].img;
+    //         setMainImg(`https://teal-swan-1836fc.netlify.app/${imageData}`);
+    //     })
+    //     .catch(()=>{
+    //     })
+
+    // },[])

@@ -1,11 +1,13 @@
 
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { Button } from 'react-bootstrap';
+import { useState } from 'react';
 
-//style
-import styled from 'styled-components';
+//my style
+import './pages.sass';
+import '../margin.sass';
+import '../padding.sass';
+import '../marginpadding.sass';
+
 //data
 import MainImg from '../assets/img/0.jpg'
 import MainData from '../assets/data/title.json'
@@ -24,55 +26,18 @@ export default function Start(){
 
     return(
         <>
-            <Wrapper>
-                <Content>
-                <Title> {title} </Title>
-                <LogoImage>
-                    <img alt="메인사진" src={mainImg} width={350} height={350}></img>
-                </LogoImage>
-
-                 <Button variant="secondary"
-                            className='btn'
-                            style={{fontSize: "20px", fontFamily: "Jua" , marginTop: "30px"}}
-                            onClick={handleClickButton}
-                            >Start</Button>
-                {/* <Button variant="secondary"
-                className='btn'
-                style={{fontSize: "20px", fontFamily: "Jua" , marginTop: "30px"}}
-                onClick={ () => {navigate('/regst')}}
-                >임시...</Button> */}
-                </Content>
-            </Wrapper>
+            <div className='page-style'>
+                <div className='page-wrap'>
+                <p className='main-title mt30'> {title} </p>
+                <img className='start-img mt30' src={mainImg} alt="메인사진" ></img>
+                
+                <button
+                    className='start-btn mt30'
+                    onClick={handleClickButton}
+                    >start</button>
+                </div>
+            </div>
         </>
     )
     
 }
-
-
-const Wrapper = styled.div`
-    height: 100vh;
-    width:100%;
-    font-family: "Jua";
-    padding:25px;
-
-`
-const Title = styled.div`
-    font-size: 30pt;
-    margin-top:40px;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-
-`
-const LogoImage = styled.div`
-    margin-top:10px;
-
-`
-const Content = styled.div`
-    font-size: 20pt;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-
-`
