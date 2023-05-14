@@ -13,8 +13,8 @@ import RegModalsResult from './RegModalsResult';
 
 
 export default () => {
-    const [modalSwitch,setModalSwitch] = useState(true);
-    const [data, setData] = useState(true);
+    const [modalSwitch,setModalSwitch] = useState(false);
+    const [data, setData] = useState(false);
 
     const closeModal = () =>{
         setModalSwitch(!modalSwitch);
@@ -30,7 +30,7 @@ export default () => {
             {modalSwitch && <RegModalsResult setData={setData} />}
     
         <div className='regresult pt80 pb60'>
-            <div className='regresult-wrap'>
+            <div className='regresult-wrap mt30 mb30'>
                 <p className='main-title'>결과화면 만들기</p>
                 <p className='pointer'
                         onClick={closeModal}

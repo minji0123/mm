@@ -1,7 +1,6 @@
 /* eslint-disable*/
 
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 
 //my style
@@ -15,14 +14,13 @@ import RegTestInput from './RegTestInput';
 import RegModal from './RegModals';
 
 export default () => {
-    const [modalSwitch,setModalSwitch] = useState(true);
-    const [data, setData] = useState(true);
+    const [modalSwitch,setModalSwitch] = useState(false);
+    const [data, setData] = useState(false);
 
     const closeModal = () =>{
         setModalSwitch(!modalSwitch);
     }
 
-    const navigate = useNavigate();
 
 
     useEffect(()=>{
@@ -35,7 +33,7 @@ export default () => {
         <>
             {modalSwitch && <RegModal setData={setData} />}
             <div className='regtest pt80 pb80'>
-                <div className='regtest-wrap'>
+                <div className='regtest-wrap  mt30 mb30'>
                     <p className='main-title'>테스트화면 만들기</p>
 
                     <p className='pointer'

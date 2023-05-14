@@ -51,7 +51,7 @@ export default function Result(){
 
                     {/* <p className='page-result mt40'> 결과는??! </p> */}
 
-                    <img alt="결과사진" src={mainImg} width={350} height={350}></img>
+                    <img alt="결과사진" className='start-img' src={mainImg} ></img>
 
                     <p className='result-desc mt20 mb20'> {content && content.name} 입니다.</p>
                     {/* <p className='result-more'>{content && content.text}</p> */}
@@ -62,12 +62,12 @@ export default function Result(){
 
                     <div className='btn-group mt40'>
                         <button 
-                            className='brown-btn mr10'
+                            className='brown-btn'
                             onClick={() => navigate("/start")}
                         >테스트 다시하기</button>
 
                         <button
-                            className='grey-btn ml10'
+                            className='grey-btn'
                         > 카카오톡 공유하기 </button>
                         
                     </div>

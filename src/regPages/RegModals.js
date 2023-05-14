@@ -39,7 +39,6 @@ export default (props) => {
         
         if (window.scrollY > 0) {
             if(modalSwitch){
-                // targetRef.current.style.position = "fixed";
                 setModalSwitch(false)
             }
         }
@@ -58,20 +57,18 @@ export default (props) => {
 
     return(
         <div 
-        // onClick={() => setModalSwitch(false)}
         >
         {modalSwitch &&
         <div className='regmodals-all'>
              {/* <div ref={targetRef}>이벤트 발생위치</div> */}
             <div className='regmodals'>
                 <div className='regmodals-wrap'>
-
+                    <div className='modal-close mb10'>
+                        <p className='pointer'
+                            onClick={closeModal}
+                        >x</p>
+                    </div>
                     <div className="regmodals-inputs">
-                        <div className='modal-close mb10'>
-                            <p className='pointer'
-                                onClick={closeModal}
-                            >x</p>
-                        </div>
                         <p className='mb10' style={{textAlign: "center", fontSize: "20px"}}>예시입니당!</p>
                         <textarea  type="text"
                                 id="first" value={question} onChange={handleData}
@@ -87,10 +84,10 @@ export default (props) => {
                                 id="third" value={answer2} onChange={handleData}
                                 placeholder="아녀!!"
                         />
-                    </div>
-
                     <p className='mt20'>이렇게 보일거에요</p>
                     <p className='mb10'>↓ ↓ ↓</p>
+                    </div>
+
 
                     <div className='example-card'>
                         <div className='card-wrap'>

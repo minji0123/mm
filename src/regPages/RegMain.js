@@ -60,7 +60,7 @@ export default () => {
         //     alert('테스트 사진을 넣어주세요😮');
         // }
 
-        // addDocument({mainTitle },pic);
+        addDocument({mainTitle },pic);
 
         navigate(link);
     }
@@ -69,7 +69,7 @@ export default () => {
     return(
         <>
         <div className='regmain pt80 pb80'>
-            <div className='regpage-wrap'>
+            <div className='regpage-wrap mt30 mb30'>
 
                 {/* input start */}
                 <p className='main-title'>테스트 메인화면 만들기</p>

@@ -45,27 +45,27 @@ export default (props) => {
         props.setData(false);
     }
 
-    // const targetRef = useRef("");  
-    const handleScroll = () => {
-        console.log("scrolling");
+    // const handleScroll = () => {
+    //     console.log("scrolling");
         
-        if (window.scrollY > 0) {
-            if(modalSwitch){
-                // targetRef.current.style.position = "fixed";
-                setModalSwitch(false)
-            }
-        }
-    };
+    //     if (window.scrollY > 0) {
+    //         if(modalSwitch){
+    //             setModalSwitch(false)
+    //         }
+    //     }
+    // };
 
-    useEffect(() => {    
-        const timer = setInterval(() => {
-        window.addEventListener("scroll", handleScroll);
-        }, 100);
-        return () => {
-        clearInterval(timer);
-        window.removeEventListener("scroll", handleScroll);
-        };
-    }, []);
+    // useEffect(() => {    
+    //     const timer = setInterval(() => {
+    //     window.addEventListener("scroll", handleScroll);
+    //     }, 100);
+
+    //     return () => {
+    //     clearInterval(timer);
+    //     window.removeEventListener("scroll", handleScroll);
+    //     };
+
+    // }, []);
 
     return(
         <div 
@@ -76,13 +76,13 @@ export default (props) => {
         <div className='regmodalsr-all'>
             <div className='regmodalsr'>
                 <div className='regmodalsr-wrap'>
+                    <div className='modal-close mb10'>
+                        <p className='pointer'
+                            onClick={closeModal}
+                        >x</p>
+                    </div>
 
                     <div className="regmodalsr-inputs">
-                        <div className='modal-close mb10'>
-                            <p className='pointer'
-                                onClick={closeModal}
-                            >x</p>
-                        </div>
                         <p className='mb10' style={{textAlign: "center", fontSize: "20px"}}>예시입니당!</p>
                         
                         <input  type="text"
@@ -109,11 +109,11 @@ export default (props) => {
                         <label htmlFor="file" className="input-plus mt8">
                             + add picture
                         </label>
+
+                        <p>이렇게 보일거에요</p>
+                        <p>↓ ↓ ↓</p>
                     </div>
 
-
-                    <p>이렇게 보일거에요</p>
-                    <p>↓ ↓ ↓</p>
 
                     <div className='example-cardr'>
                         <div className='cardr-wrap'>

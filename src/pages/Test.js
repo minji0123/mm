@@ -75,22 +75,22 @@ export default function Test(){
 
     return(
         <>
-            <div className='page-style'>
-                <div className='page-wrap safe-size mt100'>
+            <div className='page-style-test'>
+                <div className='page-wrap safe-size'>
                     {/* <LinearProgress variant="determinate" value={progress} /> */}
                     <p className='page-content '> {contents.length>0 && contents[qNumber].content} </p>
                     
                     <div className="btn-group mt100">
 
                         <button 
-                            className="grey-btn mr10"
+                            className="grey-btn"
                             onClick={() => handleClickBtn(1,contents[qNumber].type)}
                         >
                             {contents.length>0 && contents[qNumber].answer1}
                         </button>
 
                         <button 
-                            className="brown-btn ml10"
+                            className="brown-btn"
                             onClick={() => handleClickBtn(0,contents[qNumber].type)}
                         >
                             {contents.length>0 && contents[qNumber].answer2}

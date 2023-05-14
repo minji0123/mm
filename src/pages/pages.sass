@@ -11,7 +11,7 @@ p
     max-width: 500px
     margin: 0 auto
     position: relative
-/************* start, test *************/
+/************* start *************/
 .page-style
     width:100%
     font-family: "Jua"
@@ -60,6 +60,72 @@ p
             border: none
             font-family: "Jua"
 
+/************* test *************/
+.page-style-test
+    width:100%
+    font-family: "Jua"
+    padding: 30px
+    background: #FDFAF5
+    height: 100vh
+    .page-wrap
+        display: flex
+        flex-direction: column
+        align-items: center
+        margin-top: 100px
+        .start-img
+            width: 300px
+            height: 300px
+        .page-content
+            font-size: 28px
+    .start-btn
+        width: 230px
+        height: 60px
+        background: #786052
+        font-size: 20px
+        line-height: 26px
+        color: #FFFFFF
+        border: none
+        font-family: "Jua"
+    .btn-group
+        display: flex
+        justify-content:center
+        align-items:center
+        flex-direction:row
+        .grey-btn
+            width: 230px
+            height: 100px
+            border: 1px solid #BFBFBF
+            background: rgba(0,0,0,0)
+            font-size: 17px
+            line-height: 26px
+            color: #767676
+            font-family: "Jua"
+            margin-right: 10px
+        .brown-btn
+            width: 230px
+            height: 100px
+            background: #786052
+            font-size: 17px
+            line-height: 26px
+            color: #FFFFFF
+            border: none
+            font-family: "Jua"
+            margin-left: 10px
+
+@media screen and (max-width: 500px)
+    .page-style-test
+        .page-wrap
+            margin-top: 50px
+            .page-content
+                font-size: 22px
+            .btn-group
+                flex-direction: column
+                .grey-btn
+                    margin-right: 0px
+                .brown-btn
+                    margin-left: 0px
+                    margin-top: 10px
+
 
 /************* result *************/
 
@@ -99,6 +165,7 @@ p
                 line-height: 26px
                 color: #767676
                 font-family: "Jua"
+                margin-left: 10px
             .brown-btn
                 width: 230px
                 height: 60px
@@ -108,5 +175,16 @@ p
                 color: #FFFFFF
                 border: none
                 font-family: "Jua"
+                margin-right: 10px
 
-        
+@media screen and (max-width: 500px)
+    .result-style
+        .main-title
+            font-size: 25px !important
+        .btn-group
+            flex-direction: column
+            .grey-btn
+                margin-top: 10px
+                margin-left: 0px !important
+            .brown-btn
+                margin-right: 0px

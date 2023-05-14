@@ -5,6 +5,23 @@ p
 
 .pointer
     cursor: pointer
+
+.regpage-nav
+    width:100%
+    font-family: "Jua"
+    // padding:25px
+    padding-top: 10px
+    background: #E1DAD5
+    p
+        cursor: pointer
+        &:hover
+            font-size: 15px
+            color: #786052
+
+.regpage-wrap
+    display: flex
+    flex-direction: column
+    align-items: center
 /************* regstart *************/
 .regpage
     width:100%
@@ -154,17 +171,18 @@ p
 .regmodals
     position: absolute
     background: #FFFFFF
-    top: 135px
+    top: 2%
     left: 50%
     transform: translateX(-50%)
     .regmodals-wrap
         display: flex
         flex-direction: column
-        align-items: center
+        // align-items: center
         padding: 30px 40px 30px 40px
         .regmodals-inputs
             display: flex
             flex-direction: column
+            align-items: center
         .modal-close
             display: flex
             justify-content: flex-end
@@ -206,6 +224,19 @@ p
     color: #FFFFFF
     border: none
     font-family: "Jua"
+@media screen and (max-width: 500px)
+    .regmodals-all
+        .regmodals
+            .regmodals-wrap
+                padding: 20px
+            textarea
+                width: 250px
+            input
+                width: 250px
+            .example-card
+                width: 250px
+
+
 
 /************* RegTestInput *************/
 .testInput-group
@@ -261,6 +292,7 @@ p
             margin-left: 0px !important
 
 
+
 /************* regresult *************/
 .regresult
     width:100%
@@ -282,25 +314,25 @@ p
 .regmodalsr
     position: absolute
     background: #FFFFFF
-    top: 135px
+    top: 2%
     left: 50%
     transform: translateX(-50%)
     .regmodalsr-wrap
         display: flex
         flex-direction: column
-        align-items: center
+        // align-items: center
         padding: 30px 40px 30px 40px
         font-family: "Jua"
-
+        .modal-close
+            display: flex
+            justify-content: flex-end
+            color: #969696
         .regmodalsr-inputs
             display: flex
             flex-direction: column
-            .modal-close
-                display: flex
-                justify-content: flex-end
-                color: #969696
-                p
-                    font-size: 20px
+            align-items: center
+            p
+                font-size: 12px
             textarea
                 width: 300px
                 padding: 15px
@@ -356,6 +388,19 @@ p
                     margin-bottom:20px
                     max-width: 80%
 
+@media screen and (max-width: 500px)
+    .regmodalsr-all
+        .regmodalsr
+            .regmodalsr-wrap
+                padding: 20px
+                textarea
+                    width: 250px !important
+                input
+                    width: 250px !important
+                .input-plus
+                    width: 250px !important
+                .example-cardr
+                    width: 250px !important
 
 /************* result reginput *************/
 .mbti-input
