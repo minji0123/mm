@@ -40,8 +40,12 @@ function App() {
           <Route path='/regtest' element={<RegTest/>}/>
           <Route path='/regresult' element={<RegResult/>}/>
 
-        {/* 회원가입 경로 */}
-        <Route path='/newlogin' element={<NewLogin/>}/>
+        {/* 회원가입/로그인 경로 */}
+        <Route path='/newlogin' 
+        element={!user
+          ?<NewLogin />
+        :<Navigate replace={true} to="/" />}/> 
+
         <Route path='/newsignup' 
               element={!user
                 ?<NewSignup />

@@ -1,0 +1,28 @@
+p {
+  margin: 0;
+  font-size: 14px;
+  font-family: "Jua";
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.auth {
+  width: 100%;
+  font-family: "Jua";
+  padding: 25px;
+  height: 100vh;
+  background: #F7F3F0;
+}
+.auth .auth-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.auth .auth-wrap .auth-title {
+  text-align: ce;
+}
+.auth .auth-wrap .btn-wrap {
+  display: flex;
+  align-items: center;
+}/*# sourceMappingURL=auth.css.map */

@@ -1,10 +1,37 @@
 p {
   margin: 0;
   font-size: 12px;
+  font-family: "Jua";
 }
 
 .pointer {
   cursor: pointer;
+}
+
+.regpage-nav {
+  width: 100%;
+  font-family: "Jua";
+  background: #E1DAD5;
+}
+.regpage-nav p {
+  cursor: pointer;
+}
+.regpage-nav p:hover {
+  font-size: 15px;
+  color: #786052;
+}
+.regpage-nav .login-btn {
+  display: flex;
+  flex-direction: row;
+}
+.regpage-nav .login-btn p:nth-child(1) {
+  margin-right: 10px;
+}
+
+.regpage-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /************* regstart *************/
@@ -13,7 +40,7 @@ p {
   font-family: "Jua";
   padding: 25px;
   background: #E1DAD5;
-  height: 100vh;
+  height: 75vh;
 }
 
 .regpage-wrap {
@@ -79,6 +106,7 @@ p {
 /************* regmain *************/
 .regmain {
   width: 100%;
+  height: 100vh;
   font-family: "Jua";
   padding: 25px;
   background: #F6F5F4;
@@ -164,67 +192,71 @@ p {
 }
 
 /************* regmodals *************/
-.regmodalsr-all {
+.pointer {
+  cursor: pointer;
+}
+
+.regmodals-all {
   position: absolute;
   background: rgba(1, 1, 1, 0.7);
   width: 100vw;
   height: 220vh;
 }
 
-.regmodalsr {
+.regmodals {
   position: absolute;
   background: #FFFFFF;
-  top: 135px;
+  top: 2%;
   left: 50%;
   transform: translateX(-50%);
 }
-.regmodalsr .regmodalsr-wrap {
+.regmodals .regmodals-wrap {
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px 30px 40px;
+}
+.regmodals .regmodals-wrap .regmodals-inputs {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 30px 40px 30px 40px;
 }
-.regmodalsr .regmodalsr-wrap .regmodalsr-inputs {
-  display: flex;
-  flex-direction: column;
-}
-.regmodalsr .regmodalsr-wrap .modal-close {
+.regmodals .regmodals-wrap .modal-close {
   display: flex;
   justify-content: flex-end;
   color: #969696;
 }
-.regmodalsr .regmodalsr-wrap .modal-close p {
+.regmodals .regmodals-wrap .modal-close p {
   font-size: 20px;
 }
-.regmodalsr .regmodalsr-wrap textarea {
+.regmodals .regmodals-wrap textarea {
   width: 300px;
   padding: 15px;
   background: #FFFFFF;
-  border: 1px solid lightgray;
+  border: 1px solid #969696;
   font-size: 12px;
 }
-.regmodalsr .regmodalsr-wrap input {
+.regmodals .regmodals-wrap input {
   width: 300px;
   height: 45px;
   padding: 15px;
   background: #FFFFFF;
-  border: 1px solid lightgray;
+  border: 1px solid #969696;
   font-size: 12px;
 }
-.regmodalsr .regmodalsr-wrap input:nth-child(1) {
+.regmodals .regmodals-wrap input:nth-child(1) {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.regmodalsr .regmodalsr-wrap .example-card {
+.regmodals .regmodals-wrap .example-card {
   width: 300px;
   border: 1px solid #969696;
   padding: 30px;
 }
-.regmodalsr .regmodalsr-wrap .card-wrap {
+.regmodals .regmodals-wrap .example-card .card-wrap {
   display: flex;
   flex-direction: column;
 }
-.regmodalsr .regmodalsr-wrap .card-wrap .btn-wrap {
+.regmodals .regmodals-wrap .example-card .card-wrap .btn-wrap {
   display: flex;
   justify-content: center;
 }
@@ -240,6 +272,20 @@ p {
   font-family: "Jua";
 }
 
+@media screen and (max-width: 500px) {
+  .regmodals-all .regmodals .regmodals-wrap {
+    padding: 20px;
+  }
+  .regmodals-all .regmodals textarea {
+    width: 250px;
+  }
+  .regmodals-all .regmodals input {
+    width: 250px;
+  }
+  .regmodals-all .regmodals .example-card {
+    width: 250px;
+  }
+}
 /************* RegTestInput *************/
 .testInput-group {
   display: flex;
@@ -263,10 +309,12 @@ p {
 .testInput-group .group-wrap textarea {
   padding: 10px 18px 10px 18px;
   font-size: 12px;
+  border: 0.5px solid #969696;
 }
 .testInput-group .group-wrap input {
   padding: 10px 18px 10px 18px;
   font-size: 12px;
+  border: 0.5px solid #969696;
 }
 .testInput-group .btn-group {
   width: 290px;
@@ -302,7 +350,20 @@ p {
     margin-left: 0px !important;
   }
 }
-/************* regmodals-result *************/
+/************* regresult *************/
+.regresult {
+  width: 100%;
+  font-family: "Jua";
+  padding: 25px;
+  background: #F6F5F4;
+}
+.regresult .regresult-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/************* result regmodalsr *************/
 .regmodalsr-all {
   position: absolute;
   background: rgba(1, 1, 1, 0.7);
@@ -313,48 +374,49 @@ p {
 .regmodalsr {
   position: absolute;
   background: #FFFFFF;
-  top: 135px;
+  top: 2%;
   left: 50%;
   transform: translateX(-50%);
 }
 .regmodalsr .regmodalsr-wrap {
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding: 30px 40px 30px 40px;
-}
-.regmodalsr .regmodalsr-wrap .regmodalsr-inputs {
-  display: flex;
-  flex-direction: column;
+  font-family: "Jua";
 }
 .regmodalsr .regmodalsr-wrap .modal-close {
   display: flex;
   justify-content: flex-end;
   color: #969696;
 }
-.regmodalsr .regmodalsr-wrap .modal-close p {
-  font-size: 20px;
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.regmodalsr .regmodalsr-wrap textarea {
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs p {
+  font-size: 12px;
+}
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs textarea {
   width: 300px;
   padding: 15px;
   background: #FFFFFF;
-  border: 1px solid lightgray;
+  border: 1px solid #969696;
   font-size: 12px;
 }
-.regmodalsr .regmodalsr-wrap input {
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs input {
   width: 300px;
   height: 45px;
   padding: 15px;
   background: #FFFFFF;
-  border: 1px solid lightgray;
+  border: 1px solid #969696;
   font-size: 12px;
 }
-.regmodalsr .regmodalsr-wrap input:nth-child(1) {
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs input:nth-child(1) {
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.regmodalsr .regmodalsr-wrap .input-plus {
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs .input-plus {
   width: 300px;
   height: 45px;
   background: #CDCCCA;
@@ -362,16 +424,140 @@ p {
   padding-top: 10px;
   cursor: pointer;
 }
-.regmodalsr .regmodalsr-wrap .example-card {
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs .example-card {
   width: 300px;
   border: 1px solid #969696;
   padding: 30px;
 }
-.regmodalsr .regmodalsr-wrap .card-wrap {
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs .card-wrap {
   display: flex;
   flex-direction: column;
 }
-.regmodalsr .regmodalsr-wrap .card-wrap .btn-wrap {
+.regmodalsr .regmodalsr-wrap .regmodalsr-inputs .card-wrap .btn-wrap {
   display: flex;
   justify-content: center;
+}
+.regmodalsr .regmodalsr-wrap .example-cardr {
+  width: 300px;
+  border: 1px solid #969696;
+  padding: 30px;
+}
+.regmodalsr .regmodalsr-wrap .example-cardr .cardr-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.regmodalsr .regmodalsr-wrap .example-cardr .cardr-wrap .cardr-title {
+  font-size: 18px;
+}
+.regmodalsr .regmodalsr-wrap .example-cardr .cardr-wrap .cardr-desc {
+  font-size: 12pt;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  max-width: 80%;
+}
+.regmodalsr .regmodalsr-wrap .example-cardr .cardr-wrap .cardr-more {
+  font-size: 12pt;
+  margin-bottom: 20px;
+  max-width: 80%;
+}
+
+@media screen and (max-width: 500px) {
+  .regmodalsr-all .regmodalsr .regmodalsr-wrap {
+    padding: 20px;
+  }
+  .regmodalsr-all .regmodalsr .regmodalsr-wrap textarea {
+    width: 250px !important;
+  }
+  .regmodalsr-all .regmodalsr .regmodalsr-wrap input {
+    width: 250px !important;
+  }
+  .regmodalsr-all .regmodalsr .regmodalsr-wrap .input-plus {
+    width: 250px !important;
+  }
+  .regmodalsr-all .regmodalsr .regmodalsr-wrap .example-cardr {
+    width: 250px !important;
+  }
+}
+/************* result reginput *************/
+.mbti-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.resultinput-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.resultinput-wrap .border-top-custom {
+  border: 1px solid #786052;
+}
+.resultinput-wrap .mbti-input-wrap {
+  display: flex;
+  flex-direction: row;
+}
+.resultinput-wrap .mbti-input-wrap textarea {
+  padding: 10px 18px 10px 18px;
+  font-size: 12px;
+  border: 0.5px solid #969696;
+}
+.resultinput-wrap .mbti-input-wrap input {
+  padding: 10px 18px 10px 18px;
+  font-size: 12px;
+  border: 0.5px solid #969696;
+}
+.resultinput-wrap .mbti-input-wrap .resultinput-left {
+  margin-right: 10px;
+}
+.resultinput-wrap .mbti-input-wrap .resultinput-left .mbti-input {
+  margin-top: 20px;
+}
+.resultinput-wrap .mbti-input-wrap .resultinput-left .sep-line {
+  text-align: right;
+}
+.resultinput-wrap .mbti-input-wrap .resultinput-right {
+  margin-left: 10px;
+}
+.resultinput-wrap .mbti-input-wrap .resultinput-right .mbti-input {
+  margin-top: 20px;
+}
+.resultinput-wrap .mbti-input-wrap .resultinput-right .sep-line {
+  text-align: left;
+}
+.resultinput-wrap .btn-group {
+  width: 290px;
+}
+.resultinput-wrap .btn-group button {
+  width: 100%;
+}
+.resultinput-wrap .btn-group button:nth-child(1) {
+  height: 40px;
+  border: 1px solid #BFBFBF;
+  background: rgba(0, 0, 0, 0);
+  font-size: 17px;
+  line-height: 26px;
+  color: #767676;
+  font-family: "Jua";
+}
+.resultinput-wrap .btn-group button:nth-child(2) {
+  height: 40px;
+  background: #786052;
+  font-size: 17px;
+  line-height: 26px;
+  color: #FFFFFF;
+  border: none;
+}
+
+@media screen and (max-width: 600px) {
+  .mbti-input-wrap {
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  .resultinput-right {
+    margin-left: 0px !important;
+  }
+  .plus-style {
+    margin-top: 20px !important;
+  }
 }/*# sourceMappingURL=regstyle.css.map */

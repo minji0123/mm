@@ -3,6 +3,9 @@
 import { useNavigate } from 'react-router-dom';
 import TestList from './TestList';
 
+import { useAuthContext } from '../hooks/useAuthContext'
+import { useLogout } from '../hooks/useLogout';
+
 //my style
 import './regstyle.sass';
 import '../marginpadding.sass';
@@ -10,6 +13,10 @@ import '../margin.sass';
 import '../padding.sass';
 
 export default () => {
+    // isAuthReady 를 쓸 일이 있을까??
+    // const {isAuthReady, user } = useAuthContext();
+    const {user} = useAuthContext();
+    const {logout} = useLogout();
 
     const navigate = useNavigate();
 
@@ -25,21 +32,30 @@ export default () => {
 
     return(
         <>
-            <div className='regpage-nav'>
+            <div className='regpage-nav pt10'>
                 <div className='regpage-wrap'>
-                    <p 
-                        onClick= {() => {
-                            authControlButton('/newsignup')
-                        }}
-                    >입사하기</p>
-                    <p 
-                    onClick= {() => {
-                        authControlButton('/newlogin')
-                    }}
-                    >출근하기</p>
+                    {user?
+                        <>
+                        <div className='login-btn'>
+                            <p>반가워요 {user.displayName} 사원님! </p>
+                            <p onClick={logout}>퇴근하기</p>
+                        </div>
+                        </>
+                        :
+                        <>
+                            <p 
+                                onClick= {() => {
+                                    authControlButton('/newsignup')
+                                }}
+                            >입사하기</p>
+                            <p 
+                            onClick= {() => {
+                                authControlButton('/newlogin')
+                            }}
+                            >출근하기</p>
+                        </>
+                    }
 
-
-                    
                 </div>
             </div>
 
