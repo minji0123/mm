@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {BrowserRouter,Route,Routes} from 'react-router-dom';
+import {BrowserRouter,Navigate,Route,Routes} from 'react-router-dom';
 
 // 테스트 화면
 import Start from './pages/Start';
@@ -15,7 +15,14 @@ import RegResult from './regPages/RegResult';
 import NewLogin from './rauthPages/NewLogin'
 import NewSignup from './rauthPages/NewSignup'
 
+// 커스텀 훅
+import { useAuthContext } from './hooks/useAuthContext';
+
+
 function App() {
+
+  const {isAuthReady, user } = useAuthContext();
+
   return (
     <div>
       <BrowserRouter>
@@ -35,7 +42,11 @@ function App() {
 
         {/* 회원가입 경로 */}
         <Route path='/newlogin' element={<NewLogin/>}/>
-        <Route path='/newsignup' element={<NewSignup/>}/>
+        <Route path='/newsignup' 
+              element={!user
+                ?<NewSignup />
+              :<Navigate replace={true} to="/" />}/> 
+
 
         </Routes>
       </BrowserRouter>
