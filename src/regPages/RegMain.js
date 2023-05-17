@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
+import { useAuthContext } from '../hooks/useAuthContext'
 
 //my style
 import './regstyle.sass';
@@ -15,6 +16,7 @@ import { useFirestore } from '../hooks/useFirestore';
 
 export default () => {
 
+    const {isAuthReady, user } = useAuthContext();
     const [mainTitle,setTitle] = useState("");
     const [mainImg,setMainImg] = useState("");
     const [pic, setPic] = useState("");
@@ -51,18 +53,33 @@ export default () => {
 
     // navigation 이벤트
     const handleClickButton = (link) => {
-        // 데이터가 비어있으면 return false
-        // if(mainTitle.length === 0){
-        //     alert('테스트 제목을 입력해주세요🙂');
-        // }
+        // if(link === '/regtest'){
+        //     // 데이터가 비어있으면 return false
+        //     if(mainTitle.length === 0){
+        //         alert('테스트 제목을 입력해주세요🙂');
+        //         return false;
+    
+        //     }else if(pic.length === 0){
+        //         alert('테스트 사진을 넣어주세요😮');
+        //         return false;
+    
+        //     }else {
+        //         if(confirm("데이터가 저장됩니다. 진행하시겠습니까??")){
+        //             //예 버튼
+        //             addDocument({mainTitle },pic,user.displayName,user.uid );
+        //         }else{
+        //             // 아니오 버튼
+        //             return false;
+        //         }
+        //     }
         
-        // if(pic.length === 0){
-        //     alert('테스트 사진을 넣어주세요😮');
+        //     navigate(link);
+
+        // }else{
+        //     navigate(link);
         // }
-
-        addDocument({mainTitle },pic);
-
         navigate(link);
+
     }
 
 
@@ -70,7 +87,7 @@ export default () => {
         <>
         <div className='regmain pt80 pb80'>
             <div className='regpage-wrap mt30 mb30'>
-
+                {user ? <p>{user.displayName}</p> : <p>isAuthReady</p>}
                 {/* input start */}
                 <p className='main-title'>테스트 메인화면 만들기</p>
                 <input  type="text"

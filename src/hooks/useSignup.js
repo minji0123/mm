@@ -4,6 +4,7 @@ import { useState } from "react"
 import {appAuth} from '../firebase/config';
 import {createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { useAuthContext } from "./useAuthContext";
+import { useFirestore } from "./useFirestore";
 
 export const useSignup = () => {
     // 회원가입 시 에러가 발생했을 때 에러 정보를 저장함
@@ -14,6 +15,12 @@ export const useSignup = () => {
     
     // 인증과 관련된 훅
     const {dispatch} = useAuthContext();
+
+    /**************************************************************
+     * 회원 저장
+     **************************************************************/
+    // 컬렉션 이름 파라미터로 넣어주기, 저장소에 해당 이름의 컬렉션으로 저장됨
+    const { addUser, response } = useFirestore("UserData");
 
     // 회원가입
     const signup = (email, password, displayName) =>{
@@ -41,6 +48,12 @@ export const useSignup = () => {
                 setError(err.message);
                 setIsPending(false);
                 console.log(err.message);
+            }).finally(()=>{
+                let UID = user.uid;
+                console.log('왜안되는거같지??');
+                // 유저 최초 저장 시 컬렉션 생성
+                addUser({email, password, UID, displayName});
+
             })
 
         })

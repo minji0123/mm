@@ -42,23 +42,27 @@ const storeReducer = (state, action) => {
     }
 }
 
-// transaction: 우리가 데이터를 저장할 컬렉션(폴더)
+// transaction: 데이터를 저장할 컬렉션 이름
 export const useFirestore = (transaction) => {
 
-    // response요청에 대한 firestore 의 응답 저장
+    // response 요청에 대한 firestore 의 응답 저장
     // 저장되는 데이터: 저장 성공 또는 요청한 문서 데이터(객체)
     const [response, dispatch] = useReducer(storeReducer, initState);
     
-    // colRef : 만들 컬랙션의 참조 (컬랙션 이름)
-    // 원하는 컬렉션의 참조를 인자로 보내주면 파이어스토어가 자동으로 해당 컬렉션을 생성해줌 
+    // ------------------
+    // 컬랙션 이름 짓기 
+    // colRef : 파이어스토어가 컬랙션 이름 랜덤으로 지어줌
+    // docName : 컬랙션 이름 짓기 
+    // 밑에서 둘 중 원하는거 쓰면 됨
+    // ------------------
     const colRef = collection(appFireStore, transaction);
-    
     const docName = doc(appFireStore, transaction, 'test');
+
 
     /*===============================================
     // 컬렉션에 문서를 저장(Main 저장 시 _ 이미지 저장 포함됨)
     *===================================================*/
-    const addDocument = async (doc,pic) => {
+    const addDocument = async (doc,pic,user="",uuid="") => {
 
         // 시간 저장(order by 용)
         const createdTime = timestamp.fromDate(new Date());
@@ -66,6 +70,7 @@ export const useFirestore = (transaction) => {
 
         // 유일키 저장
         const createdUqe = GetUniqueNum();
+
         // 이미지 업로드 경로 저장
         const storageRef = ref(storage, 'images/'+pic.name );
         const uploadTask = uploadBytesResumable(storageRef, pic);
@@ -83,22 +88,20 @@ export const useFirestore = (transaction) => {
                 console.error('실패사유는', error);
             }, 
             () => {
-              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                 
                 console.log('업로드된 경로는', downloadURL);
 
                 // 데이터 저장
                 // docRef : 참조(컬랙션 이름)
                 // addDoc : 컬렉션에 문서를 추가
-                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL});
+                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL, user, uuid});
                 console.log(docRef);
 
                 dispatch({ type: 'addDoc', payload: docRef });
                 console.log('저장완료');               
-              });
-            }
-          );
-
+                });
+            });
         } catch (error) {
             dispatch({ type: 'error', payload: error.message });
         }
@@ -108,7 +111,7 @@ export const useFirestore = (transaction) => {
     /*===============================================
     // 컬렉션에 문서를 저장(test 저장 시_이미지 저장 없음)
     *===================================================*/
-    const addComment = async (doc) => {
+    const addComment = async (doc,user="",uuid="") => {
         // 시간 저장(order by 용)
         const createdTime = timestamp.fromDate(new Date());
         const createdDate = GetCurDayTime('/',':');
@@ -123,7 +126,7 @@ export const useFirestore = (transaction) => {
             // 데이터 저장
             // docRef : 참조(컬랙션 이름)
             // addDoc : 컬렉션에 문서를 추가
-            const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe});
+            const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe,user,uuid});
             console.log(docRef);
 
             dispatch({ type: 'addDoc', payload: docRef });
@@ -214,6 +217,40 @@ export const useFirestore = (transaction) => {
             dispatch({ type: 'error', payload: error.message });
         }
     }
-    return { addDocument,addComment,addDocumentObjImg, deleteDocument, editDocument, response }
+
+    // 유저 최초 저장
+    const addUser = async (doc) => {
+
+        // 시간 저장(order by 용)
+        const createdTime = timestamp.fromDate(new Date());
+        const createdDate = GetCurDayTime('/',':');
+
+        // 유일키 저장
+        const createdUqe = GetUniqueNum();
+
+
+        dispatch({ type: "isPending" });
+        try {
+
+                /*===============================================
+                * 데이터 저장
+                *===================================================*/
+                // docRef : 참조(컬랙션 이름)
+                // addDoc : 컬렉션에 문서를 추가
+                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe});
+                console.log(docRef);
+
+                dispatch({ type: 'addDoc', payload: docRef });
+                console.log('저장완료');               
+
+
+        } catch (error) {
+            dispatch({ type: 'error', payload: error.message });
+        }
+
+    }
+
+
+    return { addDocument,addComment,addDocumentObjImg, deleteDocument, editDocument, addUser,response }
 
 }

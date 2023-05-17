@@ -14,8 +14,9 @@ import '../padding.sass';
 
 export default () => {
     // isAuthReady 를 쓸 일이 있을까??
-    // const {isAuthReady, user } = useAuthContext();
-    const {user} = useAuthContext();
+    const {isAuthReady, user } = useAuthContext();
+    console.log(user);
+    // const {user} = useAuthContext();
     const {logout} = useLogout();
 
     const navigate = useNavigate();
@@ -34,7 +35,7 @@ export default () => {
         <>
             <div className='regpage-nav pt10'>
                 <div className='regpage-wrap'>
-                    {user?
+                    {isAuthReady?
                         <>
                         <div className='login-btn'>
                             <p>반가워요 {user.displayName} 사원님! </p>
