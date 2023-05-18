@@ -35,7 +35,7 @@ export default () => {
         <>
             <div className='regpage-nav pt10'>
                 <div className='regpage-wrap'>
-                    {isAuthReady?
+                    {user?
                         <>
                         <div className='login-btn'>
                             <p>반가워요 {user.displayName} 사원님! </p>
