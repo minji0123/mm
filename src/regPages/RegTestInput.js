@@ -84,7 +84,7 @@ export default () => {
 
                         if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
                             // 여기서는 콜백함수 써야징
-                            // setDatatoObj(data, addComment);
+                            setDatatoObj(data, addComment);
                         }else{
                             return false;
                         }
@@ -412,7 +412,7 @@ export default () => {
                 </div>
 
                 <div className='btn-group mt40'>
-                    <button
+                    <button  type="button"
                         onClick={() => 
                             {
                                 handleClickButton('/regmain')

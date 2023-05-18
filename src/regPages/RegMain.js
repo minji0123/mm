@@ -53,32 +53,32 @@ export default () => {
 
     // navigation 이벤트
     const handleClickButton = (link) => {
-        // if(link === '/regtest'){
-        //     // 데이터가 비어있으면 return false
-        //     if(mainTitle.length === 0){
-        //         alert('테스트 제목을 입력해주세요🙂');
-        //         return false;
+        if(link === '/regtest'){
+            // 데이터가 비어있으면 return false
+            if(mainTitle.length === 0){
+                alert('테스트 제목을 입력해주세요🙂');
+                return false;
     
-        //     }else if(pic.length === 0){
-        //         alert('테스트 사진을 넣어주세요😮');
-        //         return false;
+            }else if(pic.length === 0){
+                alert('테스트 사진을 넣어주세요😮');
+                return false;
     
-        //     }else {
-        //         if(confirm("데이터가 저장됩니다. 진행하시겠습니까??")){
-        //             //예 버튼
-        //             addDocument({mainTitle },pic,user.displayName,user.uid );
-        //         }else{
-        //             // 아니오 버튼
-        //             return false;
-        //         }
-        //     }
+            }else {
+                if(confirm("데이터가 저장됩니다. 진행하시겠습니까??")){
+                    //예 버튼
+                    addDocument({mainTitle },pic,user.displayName,user.uid );
+                }else{
+                    // 아니오 버튼
+                    return false;
+                }
+            }
         
-        //     navigate(link);
+            navigate(link);
 
-        // }else{
-        //     navigate(link);
-        // }
-        navigate(link);
+        }else{
+            navigate(link);
+        }
+        // navigate(link);
 
     }
 
