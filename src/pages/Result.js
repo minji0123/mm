@@ -1,9 +1,6 @@
 import { useEffect,useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 
-//style
-import styled from 'styled-components';
-
 //my style
 import './pages.sass';
 import '../margin.sass';
@@ -14,7 +11,7 @@ import '../marginpadding.sass';
 import {matchType} from "../utils/matchType.js";
 import ResultData from '../assets/data/2.json'
 import MainImg from '../assets/img/4.jpg'
-
+import KakaoShareBtn from '../kakao/KakaoShareBtn';
 
 export default function Result(){
     let [title,setTitle] = useState("");
@@ -66,9 +63,7 @@ export default function Result(){
                             onClick={() => navigate("/start")}
                         >테스트 다시하기</button>
 
-                        <button
-                            className='grey-btn'
-                        > 카카오톡 공유하기 </button>
+                    <KakaoShareBtn/>
                         
                     </div>
 

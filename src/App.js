@@ -1,4 +1,3 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter,Navigate,Route,Routes} from 'react-router-dom';
 
 // 테스트 화면
