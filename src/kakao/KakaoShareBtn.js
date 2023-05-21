@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 const { Kakao } = window;
 
-export default () =>{
+export default (props) =>{
     const url = "https://mm-test-maker.web.app/"
     const resultUrl = window.location.href;
 
@@ -13,6 +13,7 @@ export default () =>{
         Kakao.cleanup();
         Kakao.init('c4661b44316c9830107365a6c35a3d7c');
         console.log(Kakao.isInitialized());
+        console.log(props.title);
     },[]);
 
     const shareKakao = () =>{
@@ -20,10 +21,10 @@ export default () =>{
         Kakao.Share.sendDefault({
             objectType: 'feed',
             content: {
-                title: '오늘의 디저트',
-                description: '아메리카노, 빵, 케익',
+                title: props.title,
+                description: props.content,
                 imageUrl:
-                'https://mud-kage.kakao.com/dn/NTmhS/btqfEUdFAUf/FjKzkZsnoeE4o19klTOVI1/openlink_640x640s.jpg',
+                props.imageUrl,
                 link: {
                     mobileWebUrl: url,
                 },
@@ -38,7 +39,7 @@ export default () =>{
                 ],
             });
     }
-      
+    
     return(
         <>
             <button 

@@ -63,7 +63,11 @@ export default function Result(){
                             onClick={() => navigate("/start")}
                         >테스트 다시하기</button>
 
-                    <KakaoShareBtn/>
+                        <KakaoShareBtn
+                            title={title}
+                            img={mainImg}
+                            content={content.name}
+                        />
                         
                     </div>
 
