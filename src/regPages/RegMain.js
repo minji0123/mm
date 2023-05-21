@@ -22,6 +22,7 @@ export default () => {
     const [pic, setPic] = useState("");
 
     const navigate = useNavigate();
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
     
     
     /**************************************************************
@@ -29,13 +30,6 @@ export default () => {
      **************************************************************/
     // 컬랙션 이름 파라미터로 넣어주기
     const { addDocument, response } = useFirestore("MainData");
-
-    // controlled component
-    const handleData = (event) => {
-        if (event.target.id === 'first') {
-            setTitle(event.target.value);
-        }
-    }
 
     // 이미지 미리보기
     const setPreviewImg = (event) => {
@@ -53,60 +47,59 @@ export default () => {
 
     // navigation 이벤트
     const handleClickButton = (link) => {
-        if(link === '/regtest'){
-            // 데이터가 비어있으면 return false
-            if(mainTitle.length === 0){
-                alert('테스트 제목을 입력해주세요🙂');
-                return false;
-    
-            }else if(pic.length === 0){
-                alert('테스트 사진을 넣어주세요😮');
-                return false;
-    
-            }else {
-                if(confirm("데이터가 저장됩니다. 진행하시겠습니까??")){
-                    //예 버튼
-                    addDocument({mainTitle },pic,user.displayName,user.uid );
-                }else{
-                    // 아니오 버튼
-                    return false;
-                }
-            }
-        
-            navigate(link);
+        navigate(link);
+    }
 
-        }else{
-            navigate(link);
-        }
-        // navigate(link);
+    const sendDataObj = (data,func) =>{
+
+        console.log(data);
+
+        let mainTitle = data.mainTitle;
+        let pic = data.pic;
+
+        func({mainTitle },pic,user.displayName,user.uid );
+        navigate('/regtest');
 
     }
 
-
     return(
         <>
+        <form
+            onSubmit={
+                handleSubmit( (data) =>{
+                        if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
+                            sendDataObj(data,addDocument);
+                        }else{
+                            return false;
+                        }
+                })
+            }
+            >
         <div className='regmain pt80 pb80'>
             <div className='regpage-wrap mt30 mb30'>
                 {user ? <p>{user.displayName}</p> : <p>isAuthReady</p>}
                 {/* input start */}
+
                 <p className='main-title'>테스트 메인화면 만들기</p>
-                <input  type="text"
-                        className='pl18 pt18 mt10'
-                        id="first" value={mainTitle} onChange={handleData}
-                        placeholder="나만의 겨울 휴양지 테스트"
 
-                />
-                {/* <input type="file" id="image" accept="image/*" 
-                    style={{border: "solid 1px lightgray", borderRadius: "5px"}}
-                    onChange={setPreviewImg}/> */}
+                    <input  type="text"
+                            className='pl18 pt18 mt10'
+                            id="mainTitle" 
+                            name='mainTitle'
+                            {...register("mainTitle")}
+                            placeholder="나만의 겨울 휴양지 테스트"
+                            required
 
-                <input type="file" id="file" accept="image/*" 
-                style={{display: 'none'}}
-                onChange={setPreviewImg}/>
-                <label htmlFor="file" className="input-plus mt8">
-                    + add picture
-                </label>
-                {/* input end */}
+                    />
+                    <input type="file" id="pic" accept="image/*" required
+                    {...register("pic")}
+                    style={{display: 'none'}}
+                    onChange={setPreviewImg}/>
+                    <label htmlFor="pic" className="input-plus mt8">
+                        + add picture
+                    </label>
+                    {/* input end */}
+
 
                 <p className='mt30'>이렇게 보일거에요</p>
                 <p className='mb10'>↓ ↓ ↓</p>
@@ -121,7 +114,8 @@ export default () => {
                         ? 
                         <img alt="메인사진" src={mainImg}></img>
                         : 
-                        <img alt="메인사진?" src={Previmg}></img>
+                        // <img alt="메인사진?" src={Previmg}></img>
+                        <p className='warn-txt'>이미지를 넣어주세요</p>
                         
                         }
 
@@ -145,19 +139,13 @@ export default () => {
                     
                     >이전</button>
                     <button className='ml3'
-                            onClick={() => 
-                                {
-                                    handleClickButton('/regtest')
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
-                                }
-                            }
-                    
-                    >다음</button>
+                    type='submit'>다음</button>
                 </div>
 
             </div>
             
         </div>
+        </form>
         </>
     )
 }

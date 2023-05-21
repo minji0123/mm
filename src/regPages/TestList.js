@@ -1,5 +1,3 @@
-import Card from 'react-bootstrap/Card';
-import { Button } from 'react-bootstrap';
 import MainImg from '../assets/img/0.jpg'
 import { useNavigate } from 'react-router-dom';
 

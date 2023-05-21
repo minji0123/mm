@@ -1,6 +1,6 @@
 /* eslint-disable*/
 
-import { useReducer, useState } from 'react';
+import { useEffect, useReducer, useState } from 'react';
 import { useFirestore } from '../hooks/useFirestore';
 import { useNavigate } from 'react-router-dom';
 import { nullCheck, nullCheckDatas } from '../utils/StringUtil.js'
@@ -16,26 +16,29 @@ import '../marginpadding.sass';
 export default () => {
     // isAuthReady 를 쓸 일이 있을까??
     const {isAuthReady, user } = useAuthContext();
-    console.log(user);
-
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-
-    let question = [];
-
     const { addComment, response } = useFirestore("TestData");
     const navigate = useNavigate();
 
+    useEffect(()=>{
+        console.log('유저정보',user);
+    },[])
+
+
+    let question = [];
     const printDatas = ["EI","SN","TF","JP"];
     const 임시 = " 질문을 입력해주세요";
     const 임시1 = " 답변을 입력해주세요";
-
+    const [showHide, setShowHide] = useState(false);
+    const inputSwitch = () =>{
+        console.log(showHide?'보여랏':'안보여랏');
+        setShowHide(!showHide)
+    }
 
     const handleClickButton = (link) => {
         if(link === '/regmain'){
         navigate(link);
-
         }
-
     }
 
     const setDatatoObj = (data,func) => {
@@ -72,18 +75,25 @@ export default () => {
         navigate('/regresult');
 
     }
+
     return(
         <>
             <section className='testInput-group'>
                 
                 <p>12 개의 질답을 입력해주세요🙂</p>
 
-                <form onSubmit={
+                <p 
+                onClick={()=>{
+                    inputSwitch()
+                }}
+                >더 입력하기</p>
+                <form 
+                style={{display:"flex", flexDirection:"column", alignItems: "center"}}
+                onSubmit={
                     
                     handleSubmit( (data) =>{
 
                         if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
-                            // 여기서는 콜백함수 써야징
                             setDatatoObj(data, addComment);
                         }else{
                             return false;

@@ -25,7 +25,6 @@ export default () => {
 
         const navigate = useNavigate();
 
-        const [data1,setData1] = useState({id:1, name:"", type:"ESFP", text:"", img:""});
 
         const { addDocumentObjImg, response } = useFirestore("ResultData");
 
