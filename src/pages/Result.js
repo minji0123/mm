@@ -65,7 +65,7 @@ export default function Result(){
 
                         <KakaoShareBtn
                             title={title}
-                            img={mainImg}
+                            img={MainImg}
                             content={content.name}
                         />
                         

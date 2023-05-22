@@ -24,7 +24,7 @@ export default (props) =>{
                 title: props.title,
                 description: props.content,
                 imageUrl:
-                props.imageUrl,
+                props.img,
                 link: {
                     mobileWebUrl: url,
                 },
