@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import { useAuthContext } from '../hooks/useAuthContext'
+import  AdminBtn  from '../admin/AdminBtn'
 
 //my style
 import './regstyle.sass';
@@ -24,6 +25,9 @@ export default () => {
     const navigate = useNavigate();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     
+    useEffect(() => {
+        console.log('유저정보',user);
+    },[])
     
     /**************************************************************
      * 글 저장
@@ -64,14 +68,18 @@ export default () => {
 
     return(
         <>
+            {user?.displayName === "admin" ? <AdminBtn link='/regtest'/> : '' }
+
         <form
             onSubmit={
                 handleSubmit( (data) =>{
-                        if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
-                            sendDataObj(data,addDocument);
-                        }else{
-                            return false;
-                        }
+                    
+                    if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
+                        sendDataObj(data,addDocument);
+                    }else{
+                        return false;
+                    }
+                    
                 })
             }
             >

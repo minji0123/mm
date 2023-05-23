@@ -32,6 +32,7 @@ export default () => {
     return(
         <>
             {modalSwitch && <RegModal setData={setData} />}
+            
             <div className='regtest pt80 pb80'>
                 <div className='regtest-wrap  mt30 mb30'>
                     <p className='main-title'>테스트화면 만들기</p>
