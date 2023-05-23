@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { nullCheck, nullCheckDatas } from '../utils/StringUtil.js'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useForm } from "react-hook-form";
+import  AdminBtn  from '../admin/AdminBtn'
 
 //my style
 import './regstyle.sass';
@@ -29,7 +30,7 @@ export default () => {
     const printDatas = ["EI","SN","TF","JP"];
     const 임시 = " 질문을 입력해주세요";
     const 임시1 = " 답변을 입력해주세요";
-    const [showHide, setShowHide] = useState(false);
+    const [showHide, setShowHide] = useState(true);
     const inputSwitch = () =>{
         console.log(showHide?'보여랏':'안보여랏');
         setShowHide(!showHide)
@@ -78,6 +79,8 @@ export default () => {
 
     return(
         <>
+            {user?.displayName === "admin" ? <AdminBtn link='/regresult'/> : '' }
+
             <section className='testInput-group'>
                 
                 <p>12 개의 질답을 입력해주세요🙂</p>
@@ -86,18 +89,20 @@ export default () => {
                 onClick={()=>{
                     inputSwitch()
                 }}
+                className='pointer'
                 >더 입력하기</p>
                 <form 
                 style={{display:"flex", flexDirection:"column", alignItems: "center"}}
                 onSubmit={
                     
                     handleSubmit( (data) =>{
-
+                        
                         if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
                             setDatatoObj(data, addComment);
                         }else{
                             return false;
                         }
+                        
                     })
                 }>
                 {/* ei */}
@@ -154,7 +159,9 @@ export default () => {
                             />
                         </div>
                         {/* 9 */}
-                        <div className='group2'>
+                        {
+                            !showHide && 
+                            <div className='group2'>
                             <textarea type="text"
                                 id="question9" 
                                 name="question9" 
@@ -177,7 +184,9 @@ export default () => {
                                 placeholder={printDatas[0].slice(1)+ 임시1}
                                 required
                             />
-                        </div>
+                            </div>
+                        }
+
                     </div>
                 </div>
 
@@ -234,7 +243,9 @@ export default () => {
                             />
                         </div>
                         {/* 10 */}
-                        <div className='group2'>
+                        {
+                            !showHide && 
+                            <div className='group2'>
                             <textarea type="text"
                                 id="question10" 
                                 name="question10" 
@@ -256,7 +267,9 @@ export default () => {
                                 placeholder={printDatas[1].slice(1)+ 임시1}
                                 required
                             />
-                        </div>
+                            </div>
+                        }
+
                     </div>
                 </div>
 
@@ -313,7 +326,9 @@ export default () => {
                             />
                         </div>
                         {/* 11 */}
-                        <div className='group2'>
+                        {
+                            !showHide && 
+                            <div className='group2'>
                             <textarea type="text"
                                 id="question11" 
                                 name="question11" 
@@ -335,7 +350,9 @@ export default () => {
                                 placeholder={printDatas[2].slice(1)+ 임시1}
                                 required
                             />
-                        </div>
+                            </div>
+                        }
+
                     </div>
                 </div>
 
@@ -395,7 +412,9 @@ export default () => {
                             />
                         </div>
                         {/* 12 */}
-                        <div className='group2'>
+                        {
+                            !showHide && 
+                            <div className='group2'>
                             <textarea type="text"
                                 id="question12" 
                                 name="question12" 
@@ -418,6 +437,8 @@ export default () => {
                                 placeholder={printDatas[3].slice(1)+ 임시1}
                             />
                         </div>
+                        }
+                        
                     </div>
                 </div>
 
