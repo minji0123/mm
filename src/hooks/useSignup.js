@@ -50,9 +50,10 @@ export const useSignup = () => {
                 console.log(err.message);
             }).finally(()=>{
                 let UID = user.uid;
+                let grade = 'basic'
                 console.log('왜안되는거같지??');
                 // 유저 최초 저장 시 컬렉션 생성
-                addUser({email, password, UID, displayName});
+                addUser({email, password, UID, displayName,grade});
 
             })
 
