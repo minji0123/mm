@@ -15,7 +15,8 @@ import '../padding.sass';
 export default () => {
     // isAuthReady 를 쓸 일이 있을까??
     const {isAuthReady, user } = useAuthContext();
-    console.log(user);
+
+    
     // const {user} = useAuthContext();
     const {logout} = useLogout();
 
