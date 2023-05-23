@@ -209,7 +209,7 @@ return(
                                                         name='ENFP2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ENFP2")}
-                                                        requiredvvv
+                                                        required
                                                 />
                                                 <input type="file" id="ENFP3" accept="image/*" 
                                                 {...register("ENFP3")}
@@ -540,24 +540,26 @@ return(
                         </div>
 
                         <div className='btn-group mt40'>
-                                <button  type="button"
-                                        onClick={() => 
-                                                {
-                                                        handleClickButton('/regtest')
-                                                        window.scrollTo({ top: 0, behavior: "smooth" });
-                                                }
-                                }
-                                >이전</button>
+                                <div>
+                                        <button  type="button"
+                                                onClick={() => 
+                                                        {
+                                                                handleClickButton('/regtest')
+                                                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                                        }
+                                        }
+                                        >이전</button>
 
-                                <button className='ml3'
-                                        type='submit'
-                                        // onClick={() => 
-                                        //         {
-                                        //                 handleClickButton('/')
-                                        //                 window.scrollTo({ top: 0, behavior: "smooth" });
-                                        //         }
-                                        // }
-                                >다음</button>
+                                        <button className='ml3'
+                                                type='submit'
+                                                // onClick={() => 
+                                                //         {
+                                                //                 handleClickButton('/')
+                                                //                 window.scrollTo({ top: 0, behavior: "smooth" });
+                                                //         }
+                                                // }
+                                        >다음</button>
+                                </div>
                         </div>
                 </form>
                 </div>

@@ -7,7 +7,7 @@ p
     cursor: pointer
 
 .regpage-nav
-    width:100%
+    // width:100%
     font-family: "Jua"
     // padding:25px
     background: #E1DAD5
@@ -33,7 +33,7 @@ p
 
 /************* regstart *************/
 .regpage
-    width:100%
+    // width:100%
     font-family: "Jua"
     padding:25px
     background: #E1DAD5
@@ -69,7 +69,7 @@ p
 
 
 .regpage-bottom
-    width:100%
+    // width:100%
     font-family: "Jua"
     padding:25px
     background: #FDFAF5
@@ -97,25 +97,28 @@ p
 /************* regmain *************/
 
 .regmain
-    width:100%
+    // width:100%
     height: 100vh
     font-family: "Jua"
     padding:25px
     background: #F6F5F4
     input
-        width: 250px
+        width: 100%
+        max-width: 235px
         height: 45px
         background: #FFFFFF
         border: 1px solid #CDCCCA
     .input-plus
-        width: 250px
-        height: 45px
+        width: 100%
+        max-width: 235px
+        padding-top: 10px
+        padding-bottom: 10px
         background: #CDCCCA
         text-align: center
-        padding-top: 10px
         cursor: pointer
     .prev-box
-        width: 290px
+        width: 100%
+        max-width: 235px
         background: #FFFFFF
         border: 1px solid #CDCCCA
         padding: 20px
@@ -143,6 +146,7 @@ p
         margin: 0
     .btn-group
         width: 290px
+        display: flex
         button
             width: 100%
             &:nth-child(1)
@@ -173,8 +177,7 @@ p
         align-items: center
 
 /************* regmodals *************/
-.pointer
-    cursor: pointer
+
 .regmodals-all
     position: absolute
     background: rgba(1,1,1,0.7)
@@ -284,6 +287,7 @@ p
 
     .btn-group
         width: 290px
+        display: flex
         button
             width: 100%
             &:nth-child(1)
@@ -314,7 +318,7 @@ p
 
 /************* regresult *************/
 .regresult
-    width:100%
+    // width:100%
     font-family: "Jua"
     padding:25px
     background: #F6F5F4
@@ -458,23 +462,27 @@ p
                 text-align: left
     .btn-group
         width: 290px
-        button
-            width: 100%
-            &:nth-child(1)
-                height: 40px
-                border: 1px solid #BFBFBF
-                background: rgba(0,0,0,0)
-                font-size: 17px
-                line-height: 26px
-                color: #767676
-                font-family: "Jua"
-            &:nth-child(2)
-                height: 40px
-                background: #786052
-                font-size: 17px
-                line-height: 26px
-                color: #FFFFFF
-                border: none
+        margin: 0 auto
+        div
+            display: flex
+            margin-top: 40px
+            button
+                width: 100%
+                &:nth-child(1)
+                    height: 40px
+                    border: 1px solid #BFBFBF
+                    background: rgba(0,0,0,0)
+                    font-size: 17px
+                    line-height: 26px
+                    color: #767676
+                    font-family: "Jua"
+                &:nth-child(2)
+                    height: 40px
+                    background: #786052
+                    font-size: 17px
+                    line-height: 26px
+                    color: #FFFFFF
+                    border: none
 
 @media screen and (max-width: 600px)
     .mbti-input-wrap
