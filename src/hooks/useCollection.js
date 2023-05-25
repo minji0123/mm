@@ -11,7 +11,6 @@ export const useCollection = (transaction) => {
     // documents 데이터 관리, error 관리
     const [documents, setDocuments] = useState(null);
     const [error, setError] = useState(null);
-
     // 💛 collection에 변화가 생길때마다 실행
     useEffect(() => {
         let q;
@@ -30,7 +29,6 @@ export const useCollection = (transaction) => {
                     // document 데이터랑 id 값 push 해주기
                     result.push({ ...doc.data(), id: doc.id });
                 })
-
                 setDocuments(result);
                 setError(null);
             },
