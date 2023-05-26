@@ -75,9 +75,11 @@ export const useFirestore = (transaction) => {
         const storageRef = ref(storage, 'images/'+pic.name );
         const uploadTask = uploadBytesResumable(storageRef, pic);
 
+        // 230526 추가 글 pk
+        const contUID = user + createdUqe;
+
         dispatch({ type: "isPending" });
         try {
-            console.log('??');
 
             // 이미지 저장
             uploadTask.on('state_changed', 
@@ -95,7 +97,7 @@ export const useFirestore = (transaction) => {
                 // 데이터 저장
                 // docRef : 참조(컬랙션 이름)
                 // addDoc : 컬렉션에 문서를 추가
-                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL, user, uuid});
+                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL, user, uuid, contUID});
                 console.log(docRef);
 
                 dispatch({ type: 'addDoc', payload: docRef });
@@ -210,6 +212,7 @@ export const useFirestore = (transaction) => {
 
             // docRef : 참조(컬랙션 이름)
             // updateDoc : 컬렉션에 있는 문서 수정
+            // 230526 궁금 => 키 값이 없어도 수정이 되는거신가?!!
             const docRef = await updateDoc(doc(colRef,id),{ ...documents, createdTime,createdDate});
             dispatch({ type: 'editDoc', payload: docRef });
 

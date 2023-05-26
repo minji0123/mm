@@ -2,14 +2,13 @@
 
 import MainImg from '../assets/img/0.jpg'
 import { useNavigate } from 'react-router-dom';
-import { useCollection } from '../hooks/useCollection';
 
 //my style
 import './regstyle.sass';
 import '../marginpadding.sass';
 import { useEffect } from 'react';
 
-export default () => {
+export default ({mbtiDatas}) => {
     const navigate = useNavigate();
 
     const handleClickButton = () => {
@@ -18,7 +17,6 @@ export default () => {
 
     }
 
-    const {documents,error} = useCollection("MainData");
 
     // console.log('dddd',documents);
 
@@ -35,8 +33,8 @@ export default () => {
                 <h2 className='pt10 pb10'>나만의 겨울 휴양지 테스트</h2>
             </div>
                 {
-                    documents &&
-                    documents.map((a,i)=>{
+                    mbtiDatas &&
+                    mbtiDatas.map((a,i)=>{
                         return(
                             <div 
                                 key={i}

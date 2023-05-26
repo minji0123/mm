@@ -42,7 +42,7 @@ export default () => {
                     >예시를 보려면 요기를 더블클릭!</p>
 
 
-                    <RegTestInput/>
+                    <RegTestInput  />
 
                 </div>
                 

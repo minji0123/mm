@@ -5,6 +5,7 @@ import TestList from './TestList';
 
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useLogout } from '../hooks/useLogout';
+import { useCollection } from '../hooks/useCollection';
 
 //my style
 import './regstyle.sass';
@@ -15,6 +16,7 @@ import '../padding.sass';
 export default () => {
     // isAuthReady 를 쓸 일이 있을까??
     const {isAuthReady, user } = useAuthContext();
+    const {documents,error} = useCollection("MainData");
 
     
     // const {user} = useAuthContext();
@@ -87,7 +89,9 @@ export default () => {
             <div className='regpage-bottom pt80 pb80'>
                 <div className='bottom-wrap'>
                     <h3 className='mt30 mb30'>🤍 테스트 해보기 🤍</h3>
-                    <TestList/>
+
+                    {/* TestList 재사용을 위해 부모 컴포넌트에서 데이터를 넘겨준다. */}
+                    <TestList mbtiDatas={documents}/>
                 </div>
             </div>
 

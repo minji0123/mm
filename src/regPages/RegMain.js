@@ -99,7 +99,7 @@ export default () => {
                             required
 
                     />
-                    <input type="file" id="pic" accept="image/*" required
+                    <input type="file" id="pic" accept="image/*"
                     {...register("pic")}
                     style={{display: 'none'}}
                     onChange={setPreviewImg}/>
