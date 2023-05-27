@@ -14,6 +14,8 @@ export default (props) => {
     const handleClickButton = (link) => {
         console.log(link);
         navigate(link);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+
     }
 
     return(

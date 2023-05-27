@@ -1,6 +1,8 @@
 /* eslint-disable*/
 
 import { useEffect, useState } from 'react';
+import { useCollectionDtl } from '../hooks/useCollectionDtl'
+import { useAuthContext } from '../hooks/useAuthContext'
 
 
 //my style
@@ -16,18 +18,17 @@ import RegModal from './RegModals';
 export default () => {
     const [modalSwitch,setModalSwitch] = useState(false);
     const [data, setData] = useState(false);
+    const {isAuthReady, user } = useAuthContext();
+    const {documents,error} = useCollectionDtl("MainData",["user","==",'admin'],"uqe");
+    // console.log(documents&& documents[0]);
 
     const closeModal = () =>{
         setModalSwitch(!modalSwitch);
     }
 
-
-
     useEffect(()=>{
         setModalSwitch(data);
     },[data])
-
-
 
     return(
         <>
@@ -42,7 +43,9 @@ export default () => {
                     >예시를 보려면 요기를 더블클릭!</p>
 
 
-                    <RegTestInput  />
+                    <RegTestInput
+                    datas={documents} 
+                    />
 
                 </div>
                 

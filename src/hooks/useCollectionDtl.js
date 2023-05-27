@@ -1,7 +1,6 @@
 /* eslint-disable*/
 
-// 컬렉션에 접근하여 데이터를 불러오는 기능을 위한 훅
-// 메인화면 외에 사용
+// where + orderby
 import { appFireStore } from "../firebase/config"
 import { useEffect, useState } from "react"
 import { onSnapshot,collection,query,where,orderBy } from "firebase/firestore";
@@ -15,10 +14,10 @@ export const useCollectionDtl = (transaction, myQuery, order="") => { // myQuery
     // 💛 collection에 변화가 생길때마다 실행
     useEffect(() => {
         let q;
-        if(order.length>0){
+        if(order === "uqe"){
+            q = query(collection(appFireStore, transaction),where(...myQuery),orderBy("createdUqe","desc"));
+        }else if (order === "time"){
             q = query(collection(appFireStore, transaction),where(...myQuery),orderBy("createdTime","desc"));
-        }else{
-            q = query(collection(appFireStore, transaction),where(...myQuery));
         }
 
         // onSnapshot: 가장 최근 컬랙션의 내용 반환 

@@ -1,6 +1,7 @@
 
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 //my style
 import './pages.sass';
@@ -23,6 +24,9 @@ export default function Start(){
         navigate('/Test');
     }
 
+    // 상세 페이지 만들듯이 해야하나??
+    let {id} = useParams();
+    
 
     return(
         <>

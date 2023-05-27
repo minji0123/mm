@@ -20,7 +20,7 @@ export default () => {
     const {isAuthReady, user } = useAuthContext();
     const [mainTitle,setTitle] = useState("");
     const [mainImg,setMainImg] = useState("");
-    const [pic, setPic] = useState("");
+    const [picInfo, setPic] = useState("");
 
     const navigate = useNavigate();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -46,6 +46,7 @@ export default () => {
 
         reader.readAsDataURL(event.target.files[0]);
         setPic(event.target.files[0]);
+        console.log(event.target.files[0]);
 
     }
 
@@ -57,12 +58,14 @@ export default () => {
     const sendDataObj = (data,func) =>{
 
         console.log(data);
+        console.log('sdsds',picInfo);
 
         let mainTitle = data.mainTitle;
-        let pic = data.pic;
+        let pic = picInfo;
 
         func({mainTitle },pic,user.displayName,user.uid );
         navigate('/regtest');
+        window.scrollTo({ top: 0, behavior: "smooth" });
 
     }
 
@@ -89,13 +92,12 @@ export default () => {
                 {/* input start */}
 
                 <p className='main-title'>테스트 메인화면 만들기</p>
-
                     <input  type="text"
                             className='pl18 pt18 mt10'
                             id="mainTitle" 
                             name='mainTitle'
                             {...register("mainTitle")}
-                            placeholder="나만의 겨울 휴양지 테스트"
+                            placeholder="테스트 제목을 입력해주세요"
                             required
 
                     />
@@ -117,12 +119,11 @@ export default () => {
                 {/* 미리보기 */}
                 <div className='prev-box'>
                     <div className='box-wrap'>
-                        <p>{mainTitle ? mainTitle : "나만의 겨울 휴양지 테스트"} </p>
+                        <p>{mainTitle ? mainTitle : "테스트 제목을 입력해주세요"} </p>
                         {mainImg 
                         ? 
                         <img alt="메인사진" src={mainImg}></img>
                         : 
-                        // <img alt="메인사진?" src={Previmg}></img>
                         <p className='warn-txt'>이미지를 넣어주세요</p>
                         
                         }

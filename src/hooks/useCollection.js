@@ -1,10 +1,9 @@
 /* eslint-disable*/
 
-// 컬렉션에 접근하여 데이터를 불러오는 기능을 위한 훅
-// 메인화면에서 사용
+// orderby 만
 import { appFireStore } from "../firebase/config"
 import { useEffect, useState } from "react"
-import { onSnapshot,collection,query,where, orderBy } from "firebase/firestore";
+import { onSnapshot,collection,query, orderBy } from "firebase/firestore";
 
 export const useCollection = (transaction) => {
 

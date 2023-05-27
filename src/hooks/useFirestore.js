@@ -77,6 +77,8 @@ export const useFirestore = (transaction) => {
 
         // 230526 추가 글 pk
         const contUID = user + createdUqe;
+        const TestData = [];
+        const ResultData = [];
 
         dispatch({ type: "isPending" });
         try {
@@ -97,7 +99,7 @@ export const useFirestore = (transaction) => {
                 // 데이터 저장
                 // docRef : 참조(컬랙션 이름)
                 // addDoc : 컬렉션에 문서를 추가
-                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL, user, uuid, contUID});
+                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL, user, uuid, contUID,TestData,ResultData});
                 console.log(docRef);
 
                 dispatch({ type: 'addDoc', payload: docRef });
@@ -113,7 +115,7 @@ export const useFirestore = (transaction) => {
     /*===============================================
     // 컬렉션에 문서를 저장(test 저장 시_이미지 저장 없음)
     *===================================================*/
-    const addComment = async (doc,user="",uuid="") => {
+    const addComment = async (doc,user="",uuid="",contUID="") => {
         // 시간 저장(order by 용)
         const createdTime = timestamp.fromDate(new Date());
         const createdDate = GetCurDayTime('/',':');
@@ -121,14 +123,14 @@ export const useFirestore = (transaction) => {
         // 유일키 저장
         const createdUqe = GetUniqueNum();
 
-
         dispatch({ type: "isPending" });
         try {
+            console.log('dhlsdfdsaa');
 
             // 데이터 저장
             // docRef : 참조(컬랙션 이름)
             // addDoc : 컬렉션에 문서를 추가
-            const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe,user,uuid});
+            const docRef = addDoc(colRef,{ ...doc, contUID, createdTime, createdDate,createdUqe,user,uuid});
             console.log(docRef);
 
             dispatch({ type: 'addDoc', payload: docRef });
@@ -143,9 +145,10 @@ export const useFirestore = (transaction) => {
     /*===============================================
     // 문서에 이미지 저장 + 저장경로 obj 에 추가
     *===================================================*/
-    const addDocumentObjImg = async (doc) => {
+    const addDocumentObjImg = async (doc,user="",uuid="",contUID="") => {
         
         doc.question.map((a,i)=>{
+            console.log(a,'gggg');
 
             // 이미지 업로드 경로 저장
             const storageRef = ref(storage, 'images/'+a.img.name );
@@ -179,8 +182,8 @@ export const useFirestore = (transaction) => {
         console.log('doc',doc);
 
         setTimeout(()=>{
-            addComment(doc);
-        },5000)
+            addComment(doc,user,uuid,contUID);
+        },10000)
         
         // await addComment(doc);
 
