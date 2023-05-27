@@ -18,6 +18,8 @@ export const useCollectionDtl = (transaction, myQuery, order="") => { // myQuery
             q = query(collection(appFireStore, transaction),where(...myQuery),orderBy("createdUqe","desc"));
         }else if (order === "time"){
             q = query(collection(appFireStore, transaction),where(...myQuery),orderBy("createdTime","desc"));
+        }else{
+            q = query(collection(appFireStore, transaction),where(...myQuery));
         }
 
         // onSnapshot: 가장 최근 컬랙션의 내용 반환 

@@ -1,5 +1,6 @@
 import { useEffect,useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams,useParams } from 'react-router-dom';
+import { useCollectionDtl } from '../hooks/useCollectionDtl';
 
 //my style
 import './pages.sass';
@@ -13,6 +14,7 @@ import ResultData from '../assets/data/2.json'
 import MainImg from '../assets/img/4.jpg'
 import KakaoShareBtn from '../kakao/KakaoShareBtn';
 
+
 export default function Result(){
     let [title,setTitle] = useState("");
     let [mainImg,setMainImg] = useState("");
@@ -25,13 +27,17 @@ export default function Result(){
 
     console.log('ddd',ResultData);
 
+    let {id} = useParams();
+    // const {documents,error} = useCollectionDtl("ResultData",["contUID","==",id]);
+    // console.log(documents);
+
+
     useEffect(() => {
         console.log(mbti);
         let realTit = ResultData.result[0];
         let realCont = ResultData.result[matchType(mbti)];
         setTitle(realTit);
         setContent(realCont);
-
         setMainImg(MainImg);
 
     });

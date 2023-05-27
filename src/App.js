@@ -29,7 +29,9 @@ function App() {
 
           {/* 테스트 하는 경로 */}
           {/* <Route path = '/start' element={<Start/>}></Route> */}
-          <Route path = '/test' element={<Test/>}></Route>
+          <Route path='/start/:id' element={<Start/>} /> 
+          {/* <Route path = '/test' element={<Test/>} /> */}
+          <Route path = '/test/:id' element={<Test/>} />
           {/* <Route path='/result/:id' element={<Result/>}/> */}
           <Route path='/result' element={<Result/>}/>
           
@@ -50,10 +52,6 @@ function App() {
                 ?<NewSignup />
               :<Navigate replace={true} to="/" />}/> 
 
-            {/* edit 페이지 */}
-            <Route path='/start/:id' element={<Start/>}> 
-
-            </Route>
 
         </Routes>
       </BrowserRouter>

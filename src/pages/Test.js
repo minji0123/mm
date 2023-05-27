@@ -1,5 +1,6 @@
-import { useState } from 'react';
-import { useNavigate,createSearchParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useNavigate,createSearchParams,useParams } from "react-router-dom";
+import { useCollectionDtl } from '../hooks/useCollectionDtl';
 
 //my style
 import './pages.sass';
@@ -18,6 +19,23 @@ export default function Test(){
     const [qNumber, setQNumber] = useState(0);
     const [progress, setProgress] = useState(0);
     const [mId,setMId] = useState(0);
+    const [questions, setQuestions] = useState([]);
+
+    let {id} = useParams();
+    const {documents,error} = useCollectionDtl("TestData",["contUID","==",id]);
+    // console.log(documents);
+    // console.log('sdfsd',contents);
+
+
+    useEffect(()=>{
+        if(documents){
+            documents.map((data,i) => {
+                setQuestions(data.question);
+            })
+        }
+    },[documents]);
+// console.log('ssss',questions);
+
     /* ********************************
         Test 계산 로직
     *********************************/
@@ -58,10 +76,10 @@ export default function Test(){
             * contents.length : 총 문제 개수
             * qNumber + 1 : 현재 풀고 있는 문제 번호
         *********************************/
-        if(contents.length !== qNumber + 1){
+        if(questions.length !== qNumber + 1){
             // 문제가 아직 안끝났으면 이어나감
             setQNumber(qNumber+1);// 문제 번호+1
-            setProgress((qNumber/contents.length)*100);// progress 바 수치+10
+            setProgress((qNumber/questions.length)*100);// progress 바 수치+10
         }else{
             // 문제가 다 끝나면 결과 페이지로 이동
             // 최종 결과 계산
@@ -88,31 +106,35 @@ export default function Test(){
 
     return(
         <>
+        { questions &&
+        
             <div className='page-style-test'>
                 <div className='page-wrap safe-size'>
                     {/* <LinearProgress variant="determinate" value={progress} /> */}
-                    <p className='page-content '> {contents.length>0 && contents[qNumber].content} </p>
+                    <p className='page-content '> {questions.length>0 && questions[qNumber].content} </p>
                     
                     <div className="btn-group mt100">
 
                         <button 
                             className="grey-btn"
-                            onClick={() => handleClickBtn(1,contents[qNumber].type)}
+                            onClick={() => handleClickBtn(1,questions[qNumber].type)}
                         >
-                            {contents && contents[qNumber].answer1}
+                            {questions.length>0  && questions[qNumber].answer1}
                         </button>
 
                         <button 
                             className="brown-btn"
-                            onClick={() => handleClickBtn(0,contents[qNumber].type)}
+                            onClick={() => handleClickBtn(0,questions[qNumber].type)}
                         >
-                            {contents.length>0 && contents[qNumber].answer2}
+                            {questions.length>0 && questions[qNumber].answer2}
                         </button>
 
                     </div>
                 </div>
 
             </div>
+        }
+
         </>
     )
 }

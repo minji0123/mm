@@ -65,10 +65,10 @@ export default (props) => {
         // 여기는 필수
         let data1 = {id:1, content: data.question1, answer1 :data.answera1, answer2: data.answerb1, type:"EI"}
         let data2 = {id:2, content: data.question2, answer1 :data.answera2, answer2: data.answerb2, type:"SN"}
-        let data3 = {id:3, content: data.question3, answer1 :data.answera7, answer2: data.answerb3, type:"TF"}
-        let data4 = {id:4, content: data.question4, answer1 :data.answera7, answer2: data.answerb4, type:"JP"}
-        let data5 = {id:5, content: data.question5, answer1 :data.answera7, answer2: data.answerb5, type:"JP"}
-        let data6 = {id:6, content: data.question6, answer1 :data.answera7, answer2: data.answerb6, type:"TF"}
+        let data3 = {id:3, content: data.question3, answer1 :data.answera3, answer2: data.answerb3, type:"TF"}
+        let data4 = {id:4, content: data.question4, answer1 :data.answera4, answer2: data.answerb4, type:"JP"}
+        let data5 = {id:5, content: data.question5, answer1 :data.answera5, answer2: data.answerb5, type:"JP"}
+        let data6 = {id:6, content: data.question6, answer1 :data.answera6, answer2: data.answerb6, type:"TF"}
         let data7 = {id:7, content: data.question7, answer1 :data.answera7, answer2: data.answerb7, type:"SN"}
         let data8 = {id:8, content: data.question8, answer1 :data.answera8, answer2: data.answerb8, type:"EI"}
 

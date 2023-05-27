@@ -23,12 +23,11 @@ export default ({mbtiDatas}) => {
     }
 
     let ClickToMoveDetail = (id) => {
-        navigate(`/detail/${id}`)
+        navigate(`/start/${id}`)
     }
 
     return(
         <>
-
             <div className='main-testlist pb50'>
             <div 
                 onClick={()=>{
