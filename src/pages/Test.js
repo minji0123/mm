@@ -24,7 +24,7 @@ export default function Test(){
     let {id} = useParams();
     const {documents,error} = useCollectionDtl("TestData",["contUID","==",id]);
     // console.log(documents);
-    // console.log('sdfsd',contents);
+    console.log('sdfsd',progress);
 
 
     useEffect(()=>{
@@ -110,6 +110,8 @@ export default function Test(){
         { questions &&
         
             <div className='page-style-test'>
+
+                <progress id="progress" value={progress+10} min="0" max="100"></progress>
                 <div className='page-wrap safe-size'>
                     {/* <LinearProgress variant="determinate" value={progress} /> */}
                     <p className='page-content '> {questions.length>0 && questions[qNumber].content} </p>

@@ -11,9 +11,27 @@ p
     max-width: 500px
     margin: 0 auto
     position: relative
+
+#progress 
+    width:100%
+    appearance: none
+
+#progress::-webkit-progress-bar 
+
+    background:#f0f0f0
+    border-radius:10px
+    box-shadow: inset 3px 3px 10px #ccc
+
+#progress::-webkit-progress-value 
+    border-radius:10px
+    background: #E3D5CA
+    background: -webkit-linear-gradient(to right, #EDEDE9, #E3D5CA)
+    background: linear-gradient(to right, #EDEDE9, #E3D5CA)
+
+
+
 /************* start *************/
 .page-style
-    // width:100%
     font-family: "Jua"
     padding: 30px
     background: #FDFAF5
@@ -140,7 +158,7 @@ p
         flex-direction: column
         align-items: center
         .what-result
-            color: #DDA15E
+            color: #A3B18A
         .start-img
             width: 300px
             height: 300px
