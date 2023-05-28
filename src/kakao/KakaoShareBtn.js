@@ -7,7 +7,7 @@ export default (props) =>{
     const url = "https://mm-test-maker.web.app/"
     const resultUrl = window.location.href;
 
-    console.log('dsfsd',resultUrl);
+    console.log('카카오 공유 시 로컬 url',resultUrl);
 
     useEffect(()=>{
         Kakao.cleanup();

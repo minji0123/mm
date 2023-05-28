@@ -94,7 +94,8 @@ export default function Test(){
             // 결과 페이지로 이동
             // 이동할때 어떤 방식으로 넘겨줄지 고민....
             navigate({
-                pathname: "/result",
+                // pathname: "/result",
+                pathname: `/result/${id}`,
                 search: `?${createSearchParams({// ~/resutl?mbti=ESTJ get 요청으로 데이터를 넘길 수 있음
                 mbti: finalResult,
             })}`,

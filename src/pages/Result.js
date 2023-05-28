@@ -20,25 +20,32 @@ export default function Result(){
     let [mainImg,setMainImg] = useState("");
     let [content,setContent] = useState("");
     const [searchParams] = useSearchParams();
+    const [finalResult, setFinalResult] = useState([]);
+
 
     const mbti = searchParams.get('mbti');
-
     const navigate = useNavigate();
-
-    console.log('ddd',ResultData);
-
+    console.log('로컬 임시 데이터',ResultData);
     let {id} = useParams();
-    // const {documents,error} = useCollectionDtl("ResultData",["contUID","==",id]);
+    const {documents,error} = useCollectionDtl("ResultData",["contUID","==",id]);
     // console.log(documents);
 
+    useEffect(()=>{
+        if(documents){
+            documents.map((data,i) => {
+                console.log('서버에서 받아온 데이터',data);
+        setTitle(data.mainTitle);
+
+                setFinalResult(data.question)
+            })
+        }
+    },[documents]);
 
     useEffect(() => {
-        console.log(mbti);
-        let realTit = ResultData.result[0];
-        let realCont = ResultData.result[matchType(mbti)];
-        setTitle(realTit);
-        setContent(realCont);
-        setMainImg(MainImg);
+        console.log('mbti 타입: ',mbti);
+        console.log('이게뭐지?: ', matchType(mbti));
+        // let realTit = ResultData.result[0];
+        // let realCont = ResultData.result[matchType(mbti)];
 
     });
 
@@ -47,6 +54,10 @@ export default function Result(){
 
     return(
         <>
+        {
+
+            finalResult &&
+
             <div className='result-style'>
                 <div className='result-wrap mt50'>
 
@@ -54,19 +65,19 @@ export default function Result(){
 
                     {/* <p className='page-result mt40'> 결과는??! </p> */}
 
-                    <img alt="결과사진" className='start-img' src={mainImg} ></img>
+                    <img alt="결과사진" className='start-img' src={finalResult.length>0 ? finalResult[matchType(mbti)].imgUrl : '#' } ></img>
 
-                    <p className='result-desc mt20 mb20'> {content && content.name} 입니다.</p>
+                    {/* <p className='result-desc mt20 mb20'> {content && content.name} 입니다.</p> */}
+                    <p className='result-desc mt20 mb20'>{finalResult.length>0 && finalResult[matchType(mbti)].name } </p>
                     {/* <p className='result-more'>{content && content.text}</p> */}
-                    <p className='result-more'>임시데이터 입니다아아아아어ㅏ어아ㅓ아ㅓ아ㅓ아어ㅏ어아ㅓ이ㅏㅓㄴ이라ㅓㅇ니라ㅓㅇ
-                    아아아어ㅏ어아ㅓ아ㅓ아ㅓ아어ㅏ어아ㅓ이ㅏㅓㄴ이라ㅓㅇ니라ㅓㅇㄴ
-                    아아아어ㅏ어아ㅓ아ㅓ아ㅓ아어ㅏ어아ㅓ이ㅏㅓㄴ이라ㅓㅇ니라ㅓㅇㄴ
-                    ㄴ</p>
+                    <p className='result-more'>{finalResult.length>0 && finalResult[matchType(mbti)].text }
+                    </p>
 
                     <div className='btn-group mt40'>
                         <button 
                             className='brown-btn'
-                            onClick={() => navigate("/start")}
+                            // onClick={() => navigate("/start/")}
+                            onClick={() => navigate(`/start/${id}`)}
                         >테스트 다시하기</button>
 
                         <KakaoShareBtn
@@ -79,6 +90,7 @@ export default function Result(){
 
                 </div>
             </div>
+        }
         </>
     )
 }

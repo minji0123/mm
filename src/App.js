@@ -28,12 +28,9 @@ function App() {
         <Routes>
 
           {/* 테스트 하는 경로 */}
-          {/* <Route path = '/start' element={<Start/>}></Route> */}
           <Route path='/start/:id' element={<Start/>} /> 
-          {/* <Route path = '/test' element={<Test/>} /> */}
           <Route path = '/test/:id' element={<Test/>} />
-          {/* <Route path='/result/:id' element={<Result/>}/> */}
-          <Route path='/result' element={<Result/>}/>
+          <Route path='/result/:id' element={<Result/>}/>
           
           {/* 테스트 제작하는 경로 */}
           <Route path='/' element={<RegStart/>}/>
