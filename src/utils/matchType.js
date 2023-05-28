@@ -4,52 +4,52 @@ function matchType(mType){
     let setMId = 0;
 
     switch (mType) {
-        case "ENFJ":
+        case "ESTP":
             setMId = 1;
             break;
-        case "ESTJ":
+        case "ESFP":
             setMId=2;
             break;
-        case "ESFP":
+        case "ENTP":
             setMId=3;
             break;
-        case "ENTJ":
+        case "ENFP":
             setMId=4;
             break;
-        case "ESTP":
+        case "ISTP":
             setMId=5;
             break;
-        case "ESFJ":
+        case "ISFP":
             setMId=6;
             break;
-        case "ENFP":
+        case "INTP":
             setMId=7;
             break;
-        case "ENTP":
+        case "INFP":
             setMId=8;
             break;
-        case "INFJ":
+        case "ESTJ":
             setMId=9;
             break;
-        case "ISTJ":
+        case "ESFJ":
             setMId=10;
             break;
-        case "INTP":
+        case "ENTJ":
             setMId=11;
             break;
-        case "ISFP":
+        case "ENFJ":
             setMId=12;
             break;
-        case "ISTP":
+        case "ISTJ":
             setMId=13;
             break;
         case "ISFJ":
             setMId=14;
             break;
-        case "INFP":
+        case "INTJ":
             setMId=15;
             break;
-        case "INTJ":
+        case "INFJ":
             setMId=16;
             break;
         default:

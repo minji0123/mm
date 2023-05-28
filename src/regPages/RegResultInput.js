@@ -57,7 +57,7 @@ export default (props) => {
                 let data9 =   {id:9, name:data.ESTJ1, type:"ESTJ", text:data.ESTJ2, img:data.ESTJ3[0]}
                 let data10 = {id:10, name:data.ESFJ1, type:"ESFJ", text:data.ESFJ2, img:data.ESFJ3[0]}
                 let data11 = {id:11, name:data.ENTJ1, type:"ENTJ", text:data.ENTJ2, img:data.ENTJ3[0]}
-                let data12 = {id:12, name:data.ENTJ1, type:"ENTJ", text:data.ENTJ2, img:data.ENTJ3[0]}
+                let data12 = {id:12, name:data.ENFJ1, type:"ENFJ", text:data.ENTJ2, img:data.ENTJ3[0]}
                 let data13 = {id:13, name:data.ISTJ1, type:"ISTJ", text:data.ISTJ2, img:data.ISTJ3[0]}
                 let data14 = {id:14, name:data.ISFJ1, type:"ISFJ", text:data.ISFJ2, img:data.ISFJ3[0]}
                 let data15 = {id:15, name:data.INTJ1, type:"INTJ", text:data.INTJ2, img:data.INTJ3[0]}
@@ -401,7 +401,7 @@ return(
                                                 
                                                 />
                                         </div>
-                                        {/* ENTJ */}
+                                        {/* ENFJ */}
                                         <div className='mbti-input enfj'>
                                         <input  type="text"
                                                 id="first"
