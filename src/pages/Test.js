@@ -23,13 +23,15 @@ export default function Test(){
 
     let {id} = useParams();
     const {documents,error} = useCollectionDtl("TestData",["contUID","==",id]);
-    // console.log(documents);
-    console.log('sdfsd',progress);
+    console.log(id);
+    console.log('애애',documents);
+    console.log('progress',progress);
 
 
     useEffect(()=>{
         if(documents){
             documents.map((data,i) => {
+                console.log('서버에서 받아온 데이터',data);
                 setQuestions(data.question);
             })
         }
@@ -47,8 +49,8 @@ export default function Test(){
         {mType:"JP",score:0},
     ])
     
-    console.log(total,'total');
-    console.log(contents,'contents');
+    // console.log(total,'total');
+    // console.log(contents,'contents');
 
 
     /**

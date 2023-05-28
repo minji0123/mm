@@ -33,7 +33,6 @@ export default () => {
     const authControlButton = (link) => {
         navigate(link);
     }
-    console.log('dddd',documents);
 
     return(
         <>

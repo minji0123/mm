@@ -61,22 +61,22 @@ export default () => {
                         <input type="text"  id="myEmail" required onChange={handleData} value={email} />
                     </div>
                     <div>
-                        <label htmlFor="myPassWord" className='mr16 mb20'>사원번호</label>
+                        <label htmlFor="myPassWord" className='mr17 mb20'>사원번호</label>
                         <input type="password" id="myPassWord" required onChange={handleData} value={password} />
                     </div>
                     <div>
-                        <label htmlFor="myNickName" className='mr30 mb20'>닉네임</label>
+                        <label htmlFor="myNickName" className='mr31 mb20'>닉네임</label>
                         <input type="text" id="myNickName" required onChange={handleData} value={displayName} />
                     </div>
                     <div className='warn'>
                         <p style={{textAlign:'center'}} >입사 전 꼭 읽어주세요!!</p>
-                        <p> 개인정보가 필요하지 않아요!🙂 그래서 사원아이디와 사원번호는 잊어버리면 찾을 수 없어요!😨  꼭 기억해주세요!</p>
+                        <p> 꼭 기억해주세요! <br/>개인정보가 필요하지 않아요!🙂 <br/> 그래서 사원아이디와 사원번호는 잊어버리면 찾을 수 없어요!😨  </p>
                     </div>
                 </div>
 
 
                 <div className='btn-wrap'>
-                    <button type="submit" className="btn"> 입사하기</button>
+                    <button type="submit" className="btn grey-btn1"> 입사하기</button>
                     <p className='goback pointer' onClick={()=>{authControlButton('/')}}> 로비로 이동</p>
                 </div>
 

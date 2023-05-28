@@ -14,12 +14,12 @@ import RegResultInput from './RegResultInput';
 import RegModalsResult from './RegModalsResult';
 
 
-export default () => {
+export default (props) => {
     const [modalSwitch,setModalSwitch] = useState(false);
     const [data, setData] = useState(false);
     const {isAuthReady, user } = useAuthContext();
-    const {documents,error} = useCollectionDtl("MainData",["user","==",'admin'],"uqe");
-    console.log(documents&& documents[0]);
+    const {documents,error} = useCollectionDtl("MainData",["user","==",props.userDN],"uqe");
+    // console.log(documents&& documents[0]);
 
     const closeModal = () =>{
         setModalSwitch(!modalSwitch);

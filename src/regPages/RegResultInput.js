@@ -33,6 +33,7 @@ export default (props) => {
                 if(props.datas){
                 props.datas.map((a,i) => {
                         console.log('props 에서 넘어온 데이터',a);
+                        console.log('props 에서 넘어온 데이터',props.datas[0].mainTitle);
                         setContUID(props.datas[0].contUID)
                         setMainTitle(props.datas[0].mainTitle)
                 })

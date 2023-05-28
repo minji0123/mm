@@ -54,7 +54,6 @@ export default function Start(){
                 <button
                     className='start-btn mt30'
                     onClick={() => handleClickButton(contUID)}
-
                     >start</button>
                 </div>
             </div>

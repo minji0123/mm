@@ -77,6 +77,7 @@ export const useFirestore = (transaction) => {
 
         // 230526 추가 글 pk
         const contUID = user + createdUqe;
+        console.log('키값...',contUID);
 
         dispatch({ type: "isPending" });
         try {
@@ -167,7 +168,6 @@ export const useFirestore = (transaction) => {
                 () => {
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     a.imgUrl = downloadURL;
-                    console.log('a',a);
 
                 });
                 }

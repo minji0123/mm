@@ -11,34 +11,15 @@ import { useEffect } from 'react';
 export default ({mbtiDatas}) => {
 
     const navigate = useNavigate();
-    const handleClickButton = (link) => {
-        if(link === '/start'){
-            // 테스트 데이터라구
-            navigate(link);
-        }
-        else{
-            // 어떡해야 하지...?
-        }
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }
 
     let ClickToMoveDetail = (id) => {
-        navigate(`/start/${id}`)
+        navigate(`/start/${id}`);
+        window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     return(
         <>
             <div className='main-testlist pb50'>
-            <div 
-                onClick={()=>{
-                    handleClickButton('/start')
-                }}
-            >
-                <img src={MainImg} alt='#' />
-                <h2 className='pt10 pb10'>나만의 겨울 휴양지 테스트</h2>
-            </div>
-            
-
             {
                 mbtiDatas &&
                 mbtiDatas.map((a,i)=>{

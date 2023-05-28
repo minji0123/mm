@@ -1,4 +1,5 @@
 import {BrowserRouter,Navigate,Route,Routes} from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
 // 테스트 화면
 import Start from './pages/Start';
@@ -19,8 +20,16 @@ import { useAuthContext } from './hooks/useAuthContext';
 
 
 function App() {
+  const [userDN, setUserDN] = useState("");
 
   const {isAuthReady, user } = useAuthContext();
+  useEffect(() => {
+    // console.log('유저정보',user);
+    if(user){
+        setUserDN(user.displayName)
+    }
+  },[user])
+
 
   return (
     <div>
@@ -35,8 +44,8 @@ function App() {
           {/* 테스트 제작하는 경로 */}
           <Route path='/' element={<RegStart/>}/>
           <Route path='/regmain' element={<RegMain/>}/>
-          <Route path='/regtest' element={<RegTest/>}/>
-          <Route path='/regresult' element={<RegResult/>}/>
+          <Route path='/regtest' element={<RegTest userDN={userDN}/>}/>
+          <Route path='/regresult' element={<RegResult userDN={userDN}/>}/>
 
         {/* 회원가입/로그인 경로 */}
         <Route path='/newlogin' 

@@ -11,7 +11,6 @@ import './regstyle.sass';
 import '../margin.sass';
 import '../padding.sass';
 import '../marginpadding.sass';
-import Previmg from '../assets/img/0.jpg';
 
 import { useFirestore } from '../hooks/useFirestore';
 
@@ -57,8 +56,7 @@ export default () => {
 
     const sendDataObj = (data,func) =>{
 
-        console.log(data);
-        console.log('sdsds',picInfo);
+        console.log('이미지',picInfo);
 
         let mainTitle = data.mainTitle;
         let pic = picInfo;
@@ -76,19 +74,25 @@ export default () => {
         <form
             onSubmit={
                 handleSubmit( (data) =>{
-                    
-                    if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
-                        sendDataObj(data,addDocument);
-                    }else{
+                    // console.log(picInfo === undefined);
+                    // console.log(picInfo?.name?.length === undefined);
+                    if(picInfo?.name?.length === undefined){
+                        alert('이미지를 넣어주세요');
                         return false;
+                    }else{
+                        if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
+                            sendDataObj(data,addDocument);
+                        }else{
+                            return false;
+                        }
                     }
-                    
+
                 })
             }
             >
         <div className='regmain pt80 pb80'>
             <div className='regpage-wrap mt30 mb30'>
-                {user ? <p>{user.displayName}</p> : <p>isAuthReady</p>}
+                {user ? <p>{user.displayName}</p> : <p>{isAuthReady}</p>}
                 {/* input start */}
 
                 <p className='main-title'>테스트 메인화면 만들기</p>

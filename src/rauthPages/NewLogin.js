@@ -56,7 +56,7 @@ export default () => {
 
 
                 <div className='btn-wrap'>
-                    <button type="submit" className="btn">출근하기</button>
+                    <button type="submit" className="btn grey-btn1">출근하기</button>
                     <p className='goback pointer' onClick={()=>{authControlButton('/')}}> 로비로 이동</p>
                 </div>
 

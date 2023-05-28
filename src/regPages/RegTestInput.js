@@ -15,11 +15,9 @@ import '../padding.sass';
 import '../marginpadding.sass';
 
 export default (props) => {
-    // isAuthReady 를 쓸 일이 있을까??
     const {isAuthReady, user } = useAuthContext();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { addComment, response } = useFirestore("TestData");
-    // const { editDocument, response } = useFirestore("MainData");
 
     const navigate = useNavigate();
     let [contUID, setContUID] = useState('');
@@ -32,17 +30,15 @@ export default (props) => {
     useEffect(()=>{
         if(props.datas){
             props.datas.map((a,i) => {
-                console.log('sss',a);
+                console.log('input: ',a);
                 setContUID(props.datas[0].contUID)
             })
         }
     },[props]);
     
-    console.log('이 데이터를 넣어줄거에용',contUID);
-
+    console.log('input: 이 데이터를 넣어줄거에용',contUID);
 
     let question = [];
-    let TestData = [];
 
     const printDatas = ["EI","SN","TF","JP"];
     const 임시 = " 질문을 입력해주세요";
@@ -86,12 +82,15 @@ export default (props) => {
         question.push(data6);
         question.push(data7);
         question.push(data8);
-        question.push(data9);
-        question.push(data10);
-        question.push(data11);
-        question.push(data12);
+        if(data.question9 !== undefined){
+            question.push(data9);
+            question.push(data10);
+            question.push(data11);
+            question.push(data12);
+        }
 
         console.log(question);
+        console.log('여긴어대',contUID);
 
         func({question},user.displayName,user.uid,contUID);
         navigate('/regresult');
@@ -120,7 +119,7 @@ export default (props) => {
                         
                         if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
                             setDatatoObj(data, addComment);
-                            // modiDatatoObj(data, editDocument);
+                            // (data, editDocument);
                         }else{
                             return false;
                         }
