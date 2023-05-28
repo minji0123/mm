@@ -22,6 +22,7 @@ export default (props) => {
 
         const navigate = useNavigate();
         let [contUID, setContUID] = useState('');
+        let [mainTitle, setMainTitle] = useState('');
 
         useEffect(()=>{
                 console.log('유저정보',user);
@@ -31,8 +32,9 @@ export default (props) => {
         useEffect(()=>{
                 if(props.datas){
                 props.datas.map((a,i) => {
-                        console.log('sss',a);
+                        console.log('props 에서 넘어온 데이터',a);
                         setContUID(props.datas[0].contUID)
+                        setMainTitle(props.datas[0].mainTitle)
                 })
                 }
         },[props]);
@@ -43,16 +45,16 @@ export default (props) => {
         let pic = [];
 
         const sendDataObj = (data,func) =>{
-                console.log(data);
-                let data1 = {id:1, name:data.ESTP1, type:"ESTP", text:data.ESTP2, img:data.ESTP3[0]}
-                let data2 = {id:2, name:data.ESFP1, type:"ESFP", text:data.ESFP2, img:data.ESFP3[0]}
-                let data3 = {id:3, name:data.ENTP1, type:"ENTP", text:data.ENTP2, img:data.ENTP3[0]}
-                let data4 = {id:4, name:data.ENFP1, type:"ENFP", text:data.ENFP2, img:data.ENFP3[0]}
-                let data5 = {id:5, name:data.ISTP1, type:"ISTP", text:data.ISTP2, img:data.ISTP3[0]}
-                let data6 = {id:6, name:data.ISFP1, type:"ISFP", text:data.ISFP2, img:data.ISFP3[0]}
-                let data7 = {id:7, name:data.INTP1, type:"INTP", text:data.INTP2, img:data.INTP3[0]}
-                let data8 = {id:8, name:data.INFP1, type:"INFP", text:data.INFP2, img:data.INFP3[0]}
-                let data9 = {id:9, name:data.ESTJ1, type:"ESTJ", text:data.ESTJ2, img:data.ESTJ3[0]}
+                console.log('들어오는 데이터',data);
+                let data1 =   {id:1, name:data.ESTP1, type:"ESTP", text:data.ESTP2, img:data.ESTP3[0]}
+                let data2 =   {id:2, name:data.ESFP1, type:"ESFP", text:data.ESFP2, img:data.ESFP3[0]}
+                let data3 =   {id:3, name:data.ENTP1, type:"ENTP", text:data.ENTP2, img:data.ENTP3[0]}
+                let data4 =   {id:4, name:data.ENFP1, type:"ENFP", text:data.ENFP2, img:data.ENFP3[0]}
+                let data5 =   {id:5, name:data.ISTP1, type:"ISTP", text:data.ISTP2, img:data.ISTP3[0]}
+                let data6 =   {id:6, name:data.ISFP1, type:"ISFP", text:data.ISFP2, img:data.ISFP3[0]}
+                let data7 =   {id:7, name:data.INTP1, type:"INTP", text:data.INTP2, img:data.INTP3[0]}
+                let data8 =   {id:8, name:data.INFP1, type:"INFP", text:data.INFP2, img:data.INFP3[0]}
+                let data9 =   {id:9, name:data.ESTJ1, type:"ESTJ", text:data.ESTJ2, img:data.ESTJ3[0]}
                 let data10 = {id:10, name:data.ESFJ1, type:"ESFJ", text:data.ESFJ2, img:data.ESFJ3[0]}
                 let data11 = {id:11, name:data.ENTJ1, type:"ENTJ", text:data.ENTJ2, img:data.ENTJ3[0]}
                 let data12 = {id:12, name:data.ENTJ1, type:"ENTJ", text:data.ENTJ2, img:data.ENTJ3[0]}
@@ -78,9 +80,9 @@ export default (props) => {
                 question.push(data15);
                 question.push(data16);
 
-                console.log(question);
+                console.log('저장되는 질문 데이터',question);
 
-                func({question},user.displayName,user.uid,contUID);
+                func({question},user.displayName,user.uid,contUID,mainTitle);
                 // navigate('/regresult');
         }
 
