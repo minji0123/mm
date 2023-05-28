@@ -63,14 +63,14 @@ export default function Result(){
 
                     <p className='main-title mb40'>{title && title}</p>
 
-                    {/* <p className='page-result mt40'> 결과는??! </p> */}
+                    <p className='what-result'> 당신은 {mbti} 입니다. </p>
 
-                    <img alt="결과사진" className='start-img' src={finalResult.length>0 ? finalResult[matchType(mbti)].imgUrl : '#' } ></img>
+                    <img alt="결과사진" className='start-img' src={finalResult.length>0 ? finalResult[matchType(mbti)-1].imgUrl : '#' } ></img>
 
                     {/* <p className='result-desc mt20 mb20'> {content && content.name} 입니다.</p> */}
-                    <p className='result-desc mt20 mb20'>{finalResult.length>0 && finalResult[matchType(mbti)].name } </p>
+                    <p className='result-desc mt20 mb20'>{finalResult.length>0 && finalResult[matchType(mbti)-1].name } </p>
                     {/* <p className='result-more'>{content && content.text}</p> */}
-                    <p className='result-more'>{finalResult.length>0 && finalResult[matchType(mbti)].text }
+                    <p className='result-more'>{finalResult.length>0 && finalResult[matchType(mbti)-1].text }
                     </p>
 
                     <div className='btn-group mt40'>
