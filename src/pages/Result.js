@@ -83,7 +83,8 @@ export default function Result(){
                         <KakaoShareBtn
                             title={title}
                             img={finalResult.length>0 ? finalResult[matchType(mbti)-1].imgUrl : '#' } 
-                            content={finalResult.length>0 && finalResult[matchType(mbti)-1].name } 
+                            content={finalResult.length>0 && finalResult[matchType(mbti)-1].text } 
+                            contUID={id}
                         />
                         
                     </div>

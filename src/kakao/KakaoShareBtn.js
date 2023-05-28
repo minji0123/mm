@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const { Kakao } = window;
 
 export default (props) =>{
-    const url = "https://mm-test-maker.web.app/"
+    const url = `https://mm-test-maker.web.app/start/${props.contUID}`
     const resultUrl = window.location.href;
 
     console.log('카카오 공유 시 url',resultUrl);
