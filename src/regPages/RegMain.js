@@ -142,11 +142,15 @@ export default () => {
                 <p className='warn'>❕ 제목은 20글자를 넘을 수 없어요</p>
 
                 <div className='btn-group mt40'>
-                    <button
+                    <button type='button'
                             onClick={() => 
                                 {
-                                    handleClickButton('/')
-                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                    if(confirm('입력하신 데이터가 사라집니다. 이동하시겠습니까?')){
+                                        handleClickButton('/')
+                                        window.scrollTo({ top: 0, behavior: "smooth" });
+                                    }else{
+                                        return false;
+                                    }
                                 }
                             }
                     

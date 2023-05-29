@@ -17,7 +17,7 @@ export default () => {
     // isAuthReady 를 쓸 일이 있을까??
     const {isAuthReady, user } = useAuthContext();
     const {documents,error} = useCollection("MainData");
-
+    console.log(user);
     
     // const {user} = useAuthContext();
     const {logout} = useLogout();
@@ -25,7 +25,16 @@ export default () => {
     const navigate = useNavigate();
 
     const handleClickButton = () => {
-        navigate('/regmain');
+        // 
+        if(user === null){
+            if(confirm('입사 한 사원들만 만들 수 있어요! TestMaker Factory 에 입사해보세요!')){
+                authControlButton('/newsignup')
+            }else{
+                return false;
+            }
+        }else{
+            navigate('/regmain');
+        }
     }
     const handleClickButton2 = () => {
         alert('준비중이양...💨');

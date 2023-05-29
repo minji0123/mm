@@ -467,8 +467,12 @@ export default (props) => {
                     <button  type="button"
                         onClick={() => 
                             {
-                                handleClickButton('/regmain')
-                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                if(confirm('입력하신 데이터가 사라집니다. 이동하시겠습니까?')){
+                                    handleClickButton('/regmain')
+                                    window.scrollTo({ top: 0, behavior: "smooth" });
+                                }else{
+                                    return false;
+                                }
                             }
                     
                     }

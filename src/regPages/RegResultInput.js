@@ -12,6 +12,23 @@ import '../margin.sass';
 import '../padding.sass';
 import '../marginpadding.sass';
 
+// dummy datas
+import IMG_estp from '../assets/dummyImg/IMG_3926.PNG';
+import IMG_istp from '../assets/dummyImg/IMG_3927.PNG';
+import IMG_esfp from '../assets/dummyImg/IMG_3928.PNG';
+import IMG_isfp from '../assets/dummyImg/IMG_3929.PNG';
+import IMG_estj from '../assets/dummyImg/IMG_3930.PNG';
+import IMG_istj from '../assets/dummyImg/IMG_3931.PNG';
+import IMG_esfj from '../assets/dummyImg/IMG_3932.PNG';
+import IMG_isfj from '../assets/dummyImg/IMG_3933.PNG';
+import IMG_entp from '../assets/dummyImg/IMG_3934.PNG';
+import IMG_intp from '../assets/dummyImg/IMG_3935.PNG';
+import IMG_enfp from '../assets/dummyImg/IMG_3936.PNG';
+import IMG_infp from '../assets/dummyImg/IMG_3937.PNG';
+import IMG_entj from '../assets/dummyImg/IMG_3938.PNG';
+import IMG_intj from '../assets/dummyImg/IMG_3939.PNG';
+import IMG_enfj from '../assets/dummyImg/IMG_3940.PNG';
+import IMG_infj from '../assets/dummyImg/IMG_3941.PNG';
 
 export default (props) => {
         // isAuthReady 를 쓸 일이 있을까??
@@ -47,22 +64,22 @@ export default (props) => {
 
         const sendDataObj = (data,func) =>{
                 console.log('들어오는 데이터',data);
-                let data1 =   {id:1, name:data.ESTP1, type:"ESTP", text:data.ESTP2, img:data.ESTP3[0]}
-                let data2 =   {id:2, name:data.ESFP1, type:"ESFP", text:data.ESFP2, img:data.ESFP3[0]}
-                let data3 =   {id:3, name:data.ENTP1, type:"ENTP", text:data.ENTP2, img:data.ENTP3[0]}
-                let data4 =   {id:4, name:data.ENFP1, type:"ENFP", text:data.ENFP2, img:data.ENFP3[0]}
-                let data5 =   {id:5, name:data.ISTP1, type:"ISTP", text:data.ISTP2, img:data.ISTP3[0]}
-                let data6 =   {id:6, name:data.ISFP1, type:"ISFP", text:data.ISFP2, img:data.ISFP3[0]}
-                let data7 =   {id:7, name:data.INTP1, type:"INTP", text:data.INTP2, img:data.INTP3[0]}
-                let data8 =   {id:8, name:data.INFP1, type:"INFP", text:data.INFP2, img:data.INFP3[0]}
-                let data9 =   {id:9, name:data.ESTJ1, type:"ESTJ", text:data.ESTJ2, img:data.ESTJ3[0]}
-                let data10 = {id:10, name:data.ESFJ1, type:"ESFJ", text:data.ESFJ2, img:data.ESFJ3[0]}
-                let data11 = {id:11, name:data.ENTJ1, type:"ENTJ", text:data.ENTJ2, img:data.ENTJ3[0]}
-                let data12 = {id:12, name:data.ENFJ1, type:"ENFJ", text:data.ENTJ2, img:data.ENTJ3[0]}
-                let data13 = {id:13, name:data.ISTJ1, type:"ISTJ", text:data.ISTJ2, img:data.ISTJ3[0]}
-                let data14 = {id:14, name:data.ISFJ1, type:"ISFJ", text:data.ISFJ2, img:data.ISFJ3[0]}
-                let data15 = {id:15, name:data.INTJ1, type:"INTJ", text:data.INTJ2, img:data.INTJ3[0]}
-                let data16 = {id:16, name:data.INFJ1, type:"INFJ", text:data.INFJ2, img:data.INFJ3[0]}
+                let data1 =   {id:1, name:data.ESTP1, type:"ESTP", text:data.ESTP2, img:data.ESTP3[0] ? data.ESTP3[0] : IMG_estp}
+                let data2 =   {id:2, name:data.ESFP1, type:"ESFP", text:data.ESFP2, img:data.ESFP3[0] ? data.ESFP3[0] : IMG_esfp}
+                let data3 =   {id:3, name:data.ENTP1, type:"ENTP", text:data.ENTP2, img:data.ENTP3[0] ? data.ENTP3[0] : IMG_entp}
+                let data4 =   {id:4, name:data.ENFP1, type:"ENFP", text:data.ENFP2, img:data.ENFP3[0] ? data.ENFP3[0] : IMG_enfp}
+                let data5 =   {id:5, name:data.ISTP1, type:"ISTP", text:data.ISTP2, img:data.ISTP3[0] ? data.ISTP3[0] : IMG_istp}
+                let data6 =   {id:6, name:data.ISFP1, type:"ISFP", text:data.ISFP2, img:data.ISFP3[0] ? data.ISFP3[0] : IMG_isfp}
+                let data7 =   {id:7, name:data.INTP1, type:"INTP", text:data.INTP2, img:data.INTP3[0] ? data.INTP3[0] : IMG_intp}
+                let data8 =   {id:8, name:data.INFP1, type:"INFP", text:data.INFP2, img:data.INFP3[0] ? data.INFP3[0] : IMG_infp}
+                let data9 =   {id:9, name:data.ESTJ1, type:"ESTJ", text:data.ESTJ2, img:data.ESTJ3[0] ? data.ESTJ3[0] : IMG_estj}
+                let data10 = {id:10, name:data.ESFJ1, type:"ESFJ", text:data.ESFJ2, img:data.ESFJ3[0] ? data.ESFJ3[0] : IMG_esfj}
+                let data11 = {id:11, name:data.ENTJ1, type:"ENTJ", text:data.ENTJ2, img:data.ENTJ3[0] ? data.ENTJ3[0] : IMG_entj}
+                let data12 = {id:12, name:data.ENFJ1, type:"ENFJ", text:data.ENFJ2, img:data.ENFJ3[0] ? data.ENFJ3[0] : IMG_enfj}
+                let data13 = {id:13, name:data.ISTJ1, type:"ISTJ", text:data.ISTJ2, img:data.ISTJ3[0] ? data.ISTJ3[0] : IMG_istj}
+                let data14 = {id:14, name:data.ISFJ1, type:"ISFJ", text:data.ISFJ2, img:data.ISFJ3[0] ? data.ISFJ3[0] : IMG_isfj}
+                let data15 = {id:15, name:data.INTJ1, type:"INTJ", text:data.INTJ2, img:data.INTJ3[0] ? data.INTJ3[0] : IMG_intj}
+                let data16 = {id:16, name:data.INFJ1, type:"INFJ", text:data.INFJ2, img:data.INFJ3[0] ? data.INFJ3[0] : IMG_infj}
 
                 question.push(data1);
                 question.push(data2);
@@ -544,8 +561,12 @@ return(
                                         <button  type="button"
                                                 onClick={() => 
                                                         {
-                                                                handleClickButton('/regtest')
-                                                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                if(confirm('입력하신 데이터가 사라집니다. 이동하시겠습니까?')){
+                                        handleClickButton('/regtest')
+                                        window.scrollTo({ top: 0, behavior: "smooth" });
+                                }else{
+                                        return false;
+                                }
                                                         }
                                         }
                                         >이전</button>
