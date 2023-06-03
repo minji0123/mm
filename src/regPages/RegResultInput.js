@@ -113,7 +113,7 @@ export default (props) => {
 
 return(
 <>
-{user?.displayName === "admin" ? <AdminBtn link='/regresult'/> : '' }
+{user?.displayName === "admin" ? <AdminBtn link='/regfinish'/> : '' }
 
         <section>
                 <div className='resultinput-wrap'>

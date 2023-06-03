@@ -10,6 +10,7 @@ import RegStart from './regPages/RegStart';
 import RegMain from './regPages/RegMain';
 import RegTest from './regPages/RegTest';
 import RegResult from './regPages/RegResult';
+import RegFinish from './regPages/RegFinish';
 
 // 인증 화면
 import NewLogin from './rauthPages/NewLogin'
@@ -46,6 +47,7 @@ function App() {
           <Route path='/regmain' element={<RegMain/>}/>
           <Route path='/regtest' element={<RegTest userDN={userDN}/>}/>
           <Route path='/regresult' element={<RegResult userDN={userDN}/>}/>
+          <Route path='/regfinish' element={<RegFinish userDN={userDN}/>}/>
 
         {/* 회원가입/로그인 경로 */}
         <Route path='/newlogin' 
