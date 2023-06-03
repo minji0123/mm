@@ -1,0 +1,252 @@
+
+/************* regresult *************/
+.regresult
+    // width:100%
+    font-family: "Jua"
+    padding:25px
+    background: #F6F5F4
+    .regresult-wrap
+        display: flex
+        flex-direction: column
+        align-items: center
+
+/************* result regmodalsr *************/
+
+.regmodalsr-all
+    position: absolute
+    background: rgba(1,1,1,0.7)
+    width: 100vw
+    height: 500vh
+    .regmodalsr
+        width: 300px
+        position: absolute
+        background: #FFFFFF
+        top: 2%
+        left: 50%
+        transform: translateX(-50%)
+        .modal-close
+            display: flex
+            justify-content: flex-end
+            color: #969696
+            p
+                padding-right: 10px
+                padding-top: 10px
+                font-size: 20px
+        .regmodalsr-wrap
+            display: flex
+            flex-direction: column
+            padding: 30px 40px 30px 40px
+            font-family: "Jua"
+            .regmodalsr-inputs
+                display: flex
+                flex-direction: column
+                align-items: center
+                .modal-title
+                    text-align: center
+                    font-size: 17px
+                    margin-bottom: 10px
+                textarea
+                    width: 230px
+                    padding: 15px
+                    border: 1px solid #969696
+                    font-size: 12px
+                input
+                    width: 230px
+                    padding: 15px
+                    border: 1px solid #969696
+                    font-size: 12px
+                    &:nth-child(1)
+                        margin-top: 10px
+                        margin-bottom: 10px
+                .input-pic
+                    margin-top: 8px
+                    width: 230px
+                    padding: 15px
+                    background: #CDCCCA
+                    text-align: center
+                    cursor: pointer
+            .example-cardr
+                border: 1px solid #969696
+                padding: 30px
+                .cardr-wrap
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    .cardr-title
+                        font-size: 16px
+                    .cardr-desc
+                        font-size: 11pt
+                        margin-top:20px
+                        margin-bottom:20px
+                        max-width: 80%
+                    .cardr-more
+                        font-size: 11pt
+                        margin-bottom:20px
+            .option-input
+                text-align: center
+                font-family: "Jua"
+                h3
+                    font-size: 22px
+        .lrbtn
+            display: flex
+            justify-content: space-between
+            margin: 10px
+            padding-bottom: 20px
+            p
+                color: gray
+                font-size: 30px
+
+@media screen and (min-width: 645px)
+    .regmodalsr-all
+        position: absolute
+        background: rgba(1,1,1,0.7)
+        width: 100vw
+        height: 200vh
+        .regmodalsr
+            width: 500px
+            position: absolute
+            background: #FFFFFF
+            top: 2%
+            left: 50%
+            transform: translateX(-50%)
+            .modal-close
+                display: flex
+                justify-content: flex-end
+                color: #969696
+                p
+                    padding-right: 10px
+                    padding-top: 10px
+                    font-size: 30px
+            .regmodalsr-wrap
+                display: flex
+                flex-direction: column
+                padding: 30px 40px 30px 40px
+                font-family: "Jua"
+                .regmodalsr-inputs
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    .modal-title
+                        text-align: center
+                        font-size: 28px
+                        margin-bottom: 10px
+                    textarea
+                        width: 350px
+                        padding: 15px
+                        border: 1px solid #969696
+                        font-size: 12px
+                    input
+                        width: 350px
+                        padding: 15px
+                        border: 1px solid #969696
+                        font-size: 12px
+                        &:nth-child(1)
+                            margin-top: 10px
+                            margin-bottom: 10px
+                    .input-pic
+                        margin-top: 8px
+                        width: 350px
+                        padding: 15px
+                        background: #CDCCCA
+                        text-align: center
+                        cursor: pointer
+                .example-cardr
+                    border: 1px solid #969696
+                    padding: 30px
+                    .cardr-wrap
+                        display: flex
+                        flex-direction: column
+                        align-items: center
+                        .cardr-title
+                            font-size: 16px
+                        .cardr-desc
+                            font-size: 11pt
+                            margin-top:20px
+                            margin-bottom:20px
+                            max-width: 80%
+                        .cardr-more
+                            font-size: 11pt
+                            margin-bottom:20px
+                .option-input
+                    text-align: center
+                    font-family: "Jua"
+                    h3
+                        font-size: 28px
+                    p
+                        font-size: 18px
+            .lrbtn
+                display: flex
+                justify-content: space-between
+                margin: 10px 30px 10px 30px
+                p
+                    color: gray
+                    font-size: 30px
+
+
+/************* result reginput *************/
+.mbti-input
+    display: flex
+    flex-direction: column
+
+.resultinput-wrap
+    display: flex
+    flex-direction: column
+    align-items: center
+    .border-top-custom
+        border: 1px solid #786052
+    .mbti-input-wrap
+        display: flex
+        flex-direction: row
+        textarea
+            padding: 10px 18px 10px 18px
+            font-size: 12px
+            border: 0.5px solid #969696
+        input
+            padding: 10px 18px 10px 18px
+            font-size: 12px
+            border: 0.5px solid #969696
+            
+        .resultinput-left
+            margin-right: 10px
+            .mbti-input
+                margin-top: 20px
+            .sep-line
+                text-align: right
+        .resultinput-right
+            margin-left: 10px
+            .mbti-input
+                margin-top: 20px
+            .sep-line
+                text-align: left
+    .btn-group
+        width: 290px
+        margin: 0 auto
+        div
+            display: flex
+            margin-top: 40px
+            button
+                width: 100%
+                &:nth-child(1)
+                    height: 40px
+                    border: 1px solid #BFBFBF
+                    background: rgba(0,0,0,0)
+                    font-size: 17px
+                    line-height: 26px
+                    color: #767676
+                    font-family: "Jua"
+                &:nth-child(2)
+                    height: 40px
+                    background: #786052
+                    font-size: 17px
+                    line-height: 26px
+                    color: #FFFFFF
+                    border: none
+
+@media screen and (max-width: 600px)
+    .mbti-input-wrap
+        display: flex !important
+        flex-direction: column !important
+    .resultinput-right
+        margin-left: 0px !important
+    .plus-style
+        margin-top: 20px !important

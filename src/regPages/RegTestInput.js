@@ -10,6 +10,7 @@ import  AdminBtn  from '../admin/AdminBtn'
 
 //my style
 import './regstyle.sass';
+import './regtest.sass';
 import '../margin.sass';
 import '../padding.sass';
 import '../marginpadding.sass';
@@ -30,13 +31,13 @@ export default (props) => {
     useEffect(()=>{
         if(props.datas){
             props.datas.map((a,i) => {
-                console.log('input: ',a);
+                // console.log('input: ',a);
                 setContUID(props.datas[0].contUID)
             })
         }
     },[props]);
     
-    console.log('input: 이 데이터를 넣어줄거에용',contUID);
+    // console.log('input: 이 데이터를 넣어줄거에용',contUID);
 
     let question = [];
 
@@ -45,9 +46,13 @@ export default (props) => {
     const 임시1 = " 답변을 입력해주세요";
     const [showHide, setShowHide] = useState(true);
     
-    const inputSwitch = () =>{
+    const inputSwitch = (data) =>{
         console.log(showHide?'보여랏':'안보여랏');
-        setShowHide(!showHide)
+        if(data === '8'){
+            setShowHide(true);
+        }else{
+            setShowHide(false);
+        }
     }
 
     const handleClickButton = (link) => {
@@ -103,14 +108,11 @@ export default (props) => {
 
             <section className='testInput-group'>
                 
-                <p>12 개의 질답을 입력해주세요🙂</p>
-
-                <p 
-                onClick={()=>{
-                    inputSwitch()
-                }}
-                className='pointer'
-                >더 입력하기</p>
+                {/* <p>12 개의 질답을 입력해주세요🙂</p> */}
+                <div className='btn-group-input'>
+                    <button type='button' onClick={()=>{ inputSwitch('8')}} >8개 입력하기</button>
+                    <button className='ml3' type='button' onClick={()=>{ inputSwitch('12')}} >12개 입력하기</button>
+                </div>
                 <form 
                 style={{display:"flex", flexDirection:"column", alignItems: "center"}}
                 onSubmit={
@@ -137,21 +139,21 @@ export default (props) => {
                                 name='question1'
                                 placeholder={printDatas[0]+ 임시}
                                 {...register("question1")}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera1" 
                                 name="answera1" 
                                 {...register("answera1")}
                                 placeholder={printDatas[0].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb1" 
                                 name="answerb1" 
                                 {...register("answerb1")}
                                 placeholder={printDatas[0].slice(1)+ 임시1}
-                                
+                                required
                             />
                         </div>
                         {/* 8 */}
@@ -161,7 +163,7 @@ export default (props) => {
                                 name="question8" 
                                 {...register("question8")}
                                 placeholder={printDatas[0]+ 임시}
-                                
+                                required
                             />
 
                             <input type="text"
@@ -169,14 +171,14 @@ export default (props) => {
                                 name="answera8" 
                                 {...register("answera8")}
                                 placeholder={printDatas[0].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb8" 
                                 name="answerb8" 
                                 {...register("answerb8")}
                                 placeholder={printDatas[0].slice(1)+ 임시1}
-                                
+                                required
                             />
                         </div>
                         {/* 9 */}
@@ -188,7 +190,7 @@ export default (props) => {
                                 name="question9" 
                                 {...register("question9")}
                                 placeholder={printDatas[0]+ 임시}
-                                
+                                required
                             />
 
                             <input type="text"
@@ -196,14 +198,14 @@ export default (props) => {
                                 name="answera9" 
                                 {...register("answera9")}
                                 placeholder={printDatas[0].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb9" 
                                 name="answerb9" 
                                 {...register("answerb9")}
                                 placeholder={printDatas[0].slice(1)+ 임시1}
-                                
+                                required
                             />
                             </div>
                         }
@@ -222,21 +224,21 @@ export default (props) => {
                                 name="question2" 
                                 {...register("question2")}
                                 placeholder={printDatas[1]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera2" 
                                 name="answera2" 
                                 {...register("answera2")}
                                 placeholder={printDatas[1].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb2" 
                                 name="answerb2" 
                                 {...register("answerb2")}
                                 placeholder={printDatas[1].slice(1)+ 임시1}
-                                
+                                required
                             />
                         </div>
                         {/* 7 */}
@@ -246,21 +248,21 @@ export default (props) => {
                                 name="question7" 
                                 {...register("question7")}
                                 placeholder={printDatas[1]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera7" 
                                 name="answera7" 
                                 {...register("answera7")}
                                 placeholder={printDatas[1].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb7" 
                                 name="answerb7" 
                                 {...register("answerb7")}
                                 placeholder={printDatas[1].slice(1)+ 임시1}
-                                
+                                required
                             />
                         </div>
                         {/* 10 */}
@@ -272,21 +274,21 @@ export default (props) => {
                                 name="question10" 
                                 {...register("question10")}
                                 placeholder={printDatas[1]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera10" 
                                 name="answera10" 
                                 {...register("answera10")}
                                 placeholder={printDatas[1].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb10" 
                                 name="answerb10" 
                                 {...register("answerb10")}
                                 placeholder={printDatas[1].slice(1)+ 임시1}
-                                
+                                required
                             />
                             </div>
                         }
@@ -305,21 +307,21 @@ export default (props) => {
                                 name="question3" 
                                 {...register("question3")}
                                 placeholder={printDatas[2]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera3" 
                                 name="answera3" 
                                 {...register("answera3")}
                                 placeholder={printDatas[2].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb3" 
                                 name="answerb3" 
                                 {...register("answerb3")}
                                 placeholder={printDatas[2].slice(1)+ 임시1}
-                                
+                                required
                             />
                         </div>
                         {/* 6 */}
@@ -329,21 +331,21 @@ export default (props) => {
                                 name="question6" 
                                 {...register("question6")}
                                 placeholder={printDatas[2]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera6" 
                                 name="answera6" 
                                 {...register("answera6")}
                                 placeholder={printDatas[2].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb6" 
                                 name="answerb6" 
                                 {...register("answerb6")}
                                 placeholder={printDatas[2].slice(1)+ 임시1}
-                                
+                                required
                             />
                         </div>
                         {/* 11 */}
@@ -355,21 +357,21 @@ export default (props) => {
                                 name="question11" 
                                 {...register("question11")}
                                 placeholder={printDatas[2]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera11" 
                                 name="answera11" 
                                 {...register("answera11")}
                                 placeholder={printDatas[2].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb11" 
                                 name="answerb11" 
                                 {...register("answerb11")}
                                 placeholder={printDatas[2].slice(1)+ 임시1}
-                                
+                                required
                             />
                             </div>
                         }
@@ -388,7 +390,7 @@ export default (props) => {
                                 name="question4" 
                                 {...register("question4")}
                                 placeholder={printDatas[3]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera4" 
@@ -396,7 +398,7 @@ export default (props) => {
                                 {...register("answera4")}
 
                                 placeholder={printDatas[3].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb4" 
@@ -404,7 +406,7 @@ export default (props) => {
                                 {...register("answerb4")}
 
                                 placeholder={printDatas[3].slice(1)+ 임시1}
-                                
+                                required
                             />
                         </div>
                         {/* 5 */}
@@ -414,14 +416,14 @@ export default (props) => {
                                 name="question5" 
                                 {...register("question5")}
                                 placeholder={printDatas[3]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera5" 
                                 name="answera5" 
                                 {...register("answera5")}
                                 placeholder={printDatas[3].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb5" 
@@ -429,7 +431,7 @@ export default (props) => {
                                 {...register("answerb5")}
 
                                 placeholder={printDatas[3].slice(1)+ 임시1}
-                                
+                                required
                             />
                         </div>
                         {/* 12 */}
@@ -441,20 +443,20 @@ export default (props) => {
                                 name="question12" 
                                 {...register("question12")}
                                 placeholder={printDatas[3]+ 임시}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answera12" 
                                 name="answera12" 
                                 {...register("answera12")}
                                 placeholder={printDatas[3].slice(0,1)+ 임시1}
-                                
+                                required
                             />
                             <input type="text"
                                 id="answerb12" 
                                 name="answerb12" 
                                 {...register("answerb12")}
-                                
+                                required
                                 placeholder={printDatas[3].slice(1)+ 임시1}
                             />
                         </div>

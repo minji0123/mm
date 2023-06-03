@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFirestore } from '../hooks/useFirestore';
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useForm } from "react-hook-form";
+import  AdminBtn  from '../admin/AdminBtn'
 
 //my style
 import './regstyle.sass';
@@ -105,7 +106,6 @@ export default (props) => {
         }
 
         const handleClickButton = (link) => {
-
                 if(link === '/regtest'){
                         navigate(link);
                 }
@@ -113,9 +113,11 @@ export default (props) => {
 
 return(
 <>
+{user?.displayName === "admin" ? <AdminBtn link='/regresult'/> : '' }
+
         <section>
                 <div className='resultinput-wrap'>
-                <p>16개의 결과를 입력해주세요🙂</p>
+                {/* <p>16개의 결과를 입력해주세요🙂</p> */}
 
                 <form onSubmit={
                 handleSubmit( (data) =>{
@@ -143,14 +145,14 @@ return(
                                                         name='ESTP1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("ESTP1")}
-                                                        
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="ESTP2"
                                                         name='ESTP2' 
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ESTP2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="ESTP3" accept="image/*" 
                                                 {...register("ESTP3")}
@@ -168,14 +170,14 @@ return(
                                                         name='ESFP1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("ESFP1")}
-                                                        
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="ESFP2" 
                                                         name='ESFP2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ESFP2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="ESFP3" accept="image/*" 
                                                 {...register("ESFP3")}
@@ -219,14 +221,14 @@ return(
                                                         name='ENFP1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("ENFP1")}
-                                                        
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="ENFP2" 
                                                         name='ENFP2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ENFP2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="ENFP3" accept="image/*" 
                                                 {...register("ENFP3")}
@@ -245,14 +247,14 @@ return(
                                                         name='ISTP1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("ISTP1")}
-                                                        
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="ISTP2" 
                                                         name='ISTP2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ISTP2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="ISTP3" accept="image/*" 
                                                 {...register("ISTP3")}
@@ -271,15 +273,14 @@ return(
                                                         name='ISFP1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("ISFP1")}
-                                                        
-
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="ISFP2" 
                                                         name='ISFP2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ISFP2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="ISFP3" accept="image/*" 
                                                 {...register("ISFP3")}
@@ -298,14 +299,14 @@ return(
                                                         name='INTP1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("INTP1")}
-                                                        
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="INTP2" 
                                                         name='INTP2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("INTP2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="INTP3" accept="image/*" 
                                                 {...register("INTP3")}
@@ -324,14 +325,14 @@ return(
                                                         name='INFP1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("INFP1")}
-                                                        
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="INFP2" 
                                                         name='INFP2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("INFP2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="INFP3" accept="image/*" 
                                                 {...register("INFP3")}
@@ -353,14 +354,14 @@ return(
                                                         name='ESTJ1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("ESTJ1")}
-                                                        
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="ESTJ2" 
                                                         name='ESTJ2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ESTJ2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="ESTJ3" accept="image/*" 
                                                 {...register("ESTJ3")}
@@ -378,15 +379,14 @@ return(
                                                         name='ESFJ1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("ESFJ1")}
-                                                        
-                
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="ESFJ2" 
                                                         name='ESFJ2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ESFJ2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="ESFJ3" accept="image/*" 
                                                 {...register("ESFJ3")}
@@ -404,15 +404,14 @@ return(
                                                         name='ENTJ1'
                                                         placeholder="결과데이터를 입력해주세요"
                                                         {...register("ENTJ1")}
-                                                        
-
+                                                        required
                                                 />
                                                 <textarea  type="text"
                                                         id="ENTJ2" 
                                                         name='ENTJ2'
                                                         placeholder="설명을 입력해주세요"
                                                         {...register("ENTJ2")}
-                                                        
+                                                        required
                                                 />
                                                 <input type="file" id="ENTJ3" accept="image/*" 
                                                 {...register("ENTJ3")}
@@ -431,18 +430,17 @@ return(
                                                 name='ENFJ1'
                                                 placeholder="결과데이터를 입력해주세요"
                                                 {...register("ENFJ1")}
-                                                
+                                                required
                                         />
                                         <textarea  type="text"
                                                 id="ENFJ2" 
                                                 name='ENFJ2'
                                                 placeholder="설명을 입력해주세요"
                                                 {...register("ENFJ2")}
-                                                
+                                                required
                                         />
                                         <input type="file" id="ENFJ3" accept="image/*" 
                                                 {...register("ENFJ3")}
-                                        
                                         />
                                         </div>
                                         <p className='sep-line mt20'>I 구간 --------------</p>
@@ -459,15 +457,14 @@ return(
                                                 name='ISTJ1'
                                                 placeholder="결과데이터를 입력해주세요"
                                                 {...register("ISTJ1")}
-                                                
-
+                                                required
                                         />
                                         <textarea  type="text"
                                                 id="ISTJ2" 
                                                 name='ISTJ2'
                                                 placeholder="설명을 입력해주세요"
                                                 {...register("ISTJ2")}
-                                                
+                                                required
                                         />
                                         <input type="file" id="ISTJ3" accept="image/*" 
                                                 {...register("ISTJ3")}
@@ -486,15 +483,14 @@ return(
                                                 name='ISFJ1'
                                                 placeholder="결과데이터를 입력해주세요"
                                                 {...register("ISFJ1")}
-                                                
-
+                                                required
                                         />
                                         <textarea  type="text"
                                                 id="ISFJ2" 
                                                 name='ISFJ2'
                                                 placeholder="설명을 입력해주세요"
                                                 {...register("ISFJ2")}
-                                                
+                                                required
                                         />
                                         <input type="file" id="ISFJ3" accept="image/*" 
                                                 {...register("ISFJ3")}
@@ -512,15 +508,14 @@ return(
                                                 name='INTJ1'
                                                 placeholder="결과데이터를 입력해주세요"
                                                 {...register("INTJ1")}
-                                                
-
+                                                required
                                         />
                                         <textarea  type="text"
                                                 id="INTJ2" 
                                                 name='INTJ2'
                                                 placeholder="설명을 입력해주세요"
                                                 {...register("INTJ2")}
-                                                
+                                                required
                                         />
                                         <input type="file" id="INTJ3" accept="image/*" 
                                                 {...register("INTJ3")}
@@ -539,18 +534,17 @@ return(
                                                 name='INFJ1'
                                                 placeholder="결과데이터를 입력해주세요"
                                                 {...register("INFJ1")}
-                                                
+                                                required
                                         />
                                         <textarea  type="text"
                                                 id="INFJ2" 
                                                 name='INFJ2'
                                                 placeholder="설명을 입력해주세요"
                                                 {...register("INFJ2")}
-                                                
+                                                required
                                         />
                                         <input type="file" id="INFJ3" accept="image/*" 
                                                 {...register("INFJ3")}
-                                        
                                         />
                                         </div>
                                 </div>
@@ -561,24 +555,18 @@ return(
                                         <button  type="button"
                                                 onClick={() => 
                                                         {
-                                if(confirm('입력하신 데이터가 사라집니다. 이동하시겠습니까?')){
-                                        handleClickButton('/regtest')
-                                        window.scrollTo({ top: 0, behavior: "smooth" });
-                                }else{
-                                        return false;
-                                }
+                                        if(confirm('입력하신 데이터가 사라집니다. 이동하시겠습니까?')){
+                                                handleClickButton('/regtest')
+                                                window.scrollTo({ top: 0, behavior: "smooth" });
+                                        }else{
+                                                return false;
+                                        }
                                                         }
                                         }
                                         >이전</button>
 
                                         <button className='ml3'
                                                 type='submit'
-                                                // onClick={() => 
-                                                //         {
-                                                //                 handleClickButton('/')
-                                                //                 window.scrollTo({ top: 0, behavior: "smooth" });
-                                                //         }
-                                                // }
                                         >다음</button>
                                 </div>
                         </div>

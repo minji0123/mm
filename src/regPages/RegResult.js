@@ -6,6 +6,7 @@ import { useAuthContext } from '../hooks/useAuthContext'
 
 //my style
 import './regstyle.sass';
+import './regresult.sass';
 import '../margin.sass';
 import '../padding.sass';
 import '../marginpadding.sass';
@@ -16,7 +17,7 @@ import RegModalsResult from './RegModalsResult';
 
 export default (props) => {
     const [modalSwitch,setModalSwitch] = useState(false);
-    const [data, setData] = useState(false);
+    const [data, setData] = useState(true);
     const {isAuthReady, user } = useAuthContext();
     const {documents,error} = useCollectionDtl("MainData",["user","==",props.userDN],"uqe");
     // console.log(documents&& documents[0]);
@@ -24,7 +25,10 @@ export default (props) => {
     const closeModal = () =>{
         setModalSwitch(!modalSwitch);
     }
-
+    useEffect(() => {
+        console.log('유저정보',user);
+    },[])
+    
     useEffect(()=>{
         setModalSwitch(data);
     },[data])
@@ -38,7 +42,7 @@ export default (props) => {
                     <p className='main-title'>결과화면 만들기</p>
                     <p className='pointer'
                             onClick={closeModal}
-                        >예시를 보려면 요기를 더블클릭!</p>
+                        >예시를 보려면 요기를 클릭!</p>
                     <RegResultInput
                     datas={documents} 
                     />

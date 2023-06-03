@@ -95,7 +95,7 @@ export default () => {
                 {user ? <p>{user.displayName}</p> : <p>{isAuthReady}</p>}
                 {/* input start */}
 
-                <p className='main-title'>테스트 메인화면 만들기</p>
+                <p className='main-title'>메인화면 만들기</p>
                     <input  type="text"
                             className='pl18 pt18 mt10'
                             id="mainTitle" 
