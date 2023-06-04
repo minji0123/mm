@@ -50,7 +50,6 @@ export default (props) => {
     return(
         <div>
         {modalSwitch &&
-
         <div className='regmodalsr-all'>
             <div className='regmodalsr'>
                 {/* 닫기 버튼 */}

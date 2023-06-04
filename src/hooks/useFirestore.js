@@ -126,7 +126,6 @@ export const useFirestore = (transaction) => {
 
         dispatch({ type: "isPending" });
         try {
-            console.log('dhlsdfdsaa');
 
             // 데이터 저장
             // docRef : 참조(컬랙션 이름)

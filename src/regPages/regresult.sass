@@ -1,4 +1,7 @@
-
+.dn
+    display: none
+.db
+    display: block
 /************* regresult *************/
 .regresult
     // width:100%
@@ -192,6 +195,29 @@
     display: flex
     flex-direction: column
     align-items: center
+    .btn-group-input
+        width: 200px
+        display: flex
+        margin-top: 40px
+        margin-bottom: 10px
+        button
+            cursor: pointer
+            width: 100%
+            &:nth-child(1)
+                height: 30px
+                border: 1px solid #BFBFBF
+                background: rgba(0,0,0,0)
+                font-size: 13px
+                line-height: 26px
+                color: #767676
+                font-family: "Jua"
+            &:nth-child(2)
+                height: 30px
+                background: #786052
+                font-size: 13px
+                line-height: 26px
+                color: #FFFFFF
+                border: none
     .border-top-custom
         border: 1px solid #786052
     .mbti-input-wrap

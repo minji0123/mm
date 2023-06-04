@@ -19,7 +19,6 @@ import IMG_infj from '../assets/dummyImg/IMG_3941.PNG';
 // id, type 매핑 
 function matchImg(mType){
     let setImg = '';
-
     switch (mType) {
         case "ESTP":
             setImg = IMG_estp;
@@ -44,6 +43,7 @@ function matchImg(mType){
             break;
         case "INFP":
             setImg=IMG_infp;
+
             break;
         case "ESTJ":
             setImg=IMG_estj;
