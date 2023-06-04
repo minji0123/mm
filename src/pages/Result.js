@@ -10,9 +10,28 @@ import '../marginpadding.sass';
 
 //data
 import {matchType} from "../utils/matchType.js";
+import {matchImg} from "../utils/matchImg.js";
 import ResultData from '../assets/data/2.json'
 import MainImg from '../assets/img/4.jpg'
 import KakaoShareBtn from '../kakao/KakaoShareBtn';
+
+// dummy datas
+import IMG_estp from '../assets/dummyImg/IMG_3926.PNG';
+import IMG_istp from '../assets/dummyImg/IMG_3927.PNG';
+import IMG_esfp from '../assets/dummyImg/IMG_3928.PNG';
+import IMG_isfp from '../assets/dummyImg/IMG_3929.PNG';
+import IMG_estj from '../assets/dummyImg/IMG_3930.PNG';
+import IMG_istj from '../assets/dummyImg/IMG_3931.PNG';
+import IMG_esfj from '../assets/dummyImg/IMG_3932.PNG';
+import IMG_isfj from '../assets/dummyImg/IMG_3933.PNG';
+import IMG_entp from '../assets/dummyImg/IMG_3934.PNG';
+import IMG_intp from '../assets/dummyImg/IMG_3935.PNG';
+import IMG_enfp from '../assets/dummyImg/IMG_3936.PNG';
+import IMG_infp from '../assets/dummyImg/IMG_3937.PNG';
+import IMG_entj from '../assets/dummyImg/IMG_3938.PNG';
+import IMG_intj from '../assets/dummyImg/IMG_3939.PNG';
+import IMG_enfj from '../assets/dummyImg/IMG_3940.PNG';
+import IMG_infj from '../assets/dummyImg/IMG_3941.PNG';
 
 
 export default function Result(){
@@ -22,13 +41,11 @@ export default function Result(){
     const [searchParams] = useSearchParams();
     const [finalResult, setFinalResult] = useState([]);
 
-
     const mbti = searchParams.get('mbti');
     const navigate = useNavigate();
     console.log('로컬 임시 데이터',ResultData);
     let {id} = useParams();
     const {documents,error} = useCollectionDtl("ResultData",["contUID","==",id]);
-    // console.log(documents);
 
     useEffect(()=>{
         if(documents){
@@ -43,6 +60,7 @@ export default function Result(){
     useEffect(() => {
         console.log('mbti 타입: ',mbti);
         console.log('이게뭐지?: ', matchType(mbti));
+        console.log('이게뭐지?: ', matchImg(mbti));
         // let realTit = ResultData.result[0];
         // let realCont = ResultData.result[matchType(mbti)];
 

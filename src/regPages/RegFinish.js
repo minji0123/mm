@@ -30,6 +30,8 @@ export default () => {
     // navigation 이벤트
     const handleClickButton = (link) => {
         navigate(link);
+        localStorage.removeItem('contUID');
+        localStorage.removeItem('mainTitle');
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
@@ -68,13 +70,9 @@ export default () => {
                 }
 
                 <div className='btn-group mt10'>
-                    {/* <button 
-                    type='button'     
-                    >내가만든 테스트 공유하기</button> */}
                     <KakaoShareBtn
                             title={ localStorage.getItem('mainTitle')}
                             img={mainImg ? mainImg : '#' } 
-                            // content={finalResult.length>0 && finalResult[matchType(mbti)-1].text } 
                             contUID={localStorage.getItem('contUID')}
                             strValue={'내가 만든 테스트 공유하기'}
                         />
