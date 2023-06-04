@@ -22,7 +22,7 @@ export default (props) =>{
             objectType: 'feed',
             content: {
                 title: props.title,
-                description: props.content ? props.content : '',
+                description: props.content,
                 imageUrl:
                 props.img,
                 link: {
@@ -47,7 +47,7 @@ export default (props) =>{
                 onClick={() => {
                     shareKakao()
                 }}
-            > {props.strValue} </button>
+            > 카카오톡 공유하기 </button>
         </>
     )
 }

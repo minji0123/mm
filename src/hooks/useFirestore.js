@@ -101,6 +101,8 @@ export const useFirestore = (transaction) => {
                 const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL, user, uuid, contUID});
                 console.log(docRef);
 
+                localStorage.setItem('contUID',contUID );
+                
                 dispatch({ type: 'addDoc', payload: docRef });
                 console.log('저장완료');               
                 });

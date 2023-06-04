@@ -34,8 +34,7 @@ export default function Result(){
         if(documents){
             documents.map((data,i) => {
                 console.log('서버에서 받아온 데이터',data);
-        setTitle(data.mainTitle);
-
+                setTitle(data.mainTitle);
                 setFinalResult(data.question)
             })
         }
@@ -85,6 +84,7 @@ export default function Result(){
                             img={finalResult.length>0 ? finalResult[matchType(mbti)-1].imgUrl : '#' } 
                             content={finalResult.length>0 && finalResult[matchType(mbti)-1].text } 
                             contUID={id}
+                            strValue={'카카오톡 공유하기'}
                         />
                         
                     </div>

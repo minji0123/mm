@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import { useAuthContext } from '../hooks/useAuthContext'
 import  AdminBtn  from '../admin/AdminBtn'
 
 //my style
@@ -16,17 +15,19 @@ import { useFirestore } from '../hooks/useFirestore';
 
 export default () => {
 
-    const {isAuthReady, user } = useAuthContext();
     const [mainTitle,setTitle] = useState("");
     const [mainImg,setMainImg] = useState("");
     const [picInfo, setPic] = useState("");
 
+    const [strUserDN, setstrUserDN] = useState("");
+    const [strUserID, setstrUserID] = useState("");
+    useEffect(()=>{
+        setstrUserDN(localStorage.getItem('userDN'))
+        setstrUserID(localStorage.getItem('userID'))
+    });
+
     const navigate = useNavigate();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    
-    useEffect(() => {
-        console.log('유저정보',user);
-    },[])
     
     /**************************************************************
      * 글 저장
@@ -60,16 +61,19 @@ export default () => {
 
         let mainTitle = data.mainTitle;
         let pic = picInfo;
+        localStorage.setItem('mainTitle',mainTitle );
 
-        func({mainTitle },pic,user.displayName,user.uid );
+        // func({mainTitle },pic,user.displayName,user.uid );
+        func({mainTitle}, pic, strUserDN, strUserID);
         navigate('/regtest');
+
         window.scrollTo({ top: 0, behavior: "smooth" });
 
     }
 
     return(
         <>
-            {user?.displayName === "admin" ? <AdminBtn link='/regtest'/> : '' }
+            {strUserDN === "admin" ? <AdminBtn link='/regtest'/> : '' }
 
         <form
             onSubmit={
@@ -92,7 +96,8 @@ export default () => {
             >
         <div className='regmain pt80 pb80'>
             <div className='regpage-wrap mt30 mb30'>
-                {user ? <p>{user.displayName}</p> : <p>{isAuthReady}</p>}
+                {/* {user && <p>{strUserDN}</p> } */}
+                <p>{strUserDN}</p> 
                 {/* input start */}
 
                 <p className='main-title'>메인화면 만들기</p>

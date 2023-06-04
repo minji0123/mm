@@ -15,6 +15,10 @@ export const useLogin = () => {
     // 인증과 관련된 훅
     const {dispatch} = useAuthContext();
 
+    // 로컬 스토리지에 넣어줄 데이터 setting
+    let str_user = '';
+    let str_userid = '';
+
     // 로그인
     const login = (email, password) =>{
         setError(null); // 아직 에러가 없음...
@@ -25,7 +29,8 @@ export const useLogin = () => {
         .then((userCredential)=>{
             const user = userCredential.user;
             dispatch({type:'login', payload:user });
-            console.log(user);
+            str_user = user.displayName
+            str_userid = user.uid
             setError(null); //에러없다고 넣어주고
             setIsPending(false); //통신끊어주기
 
@@ -37,6 +42,11 @@ export const useLogin = () => {
             setError(err.message);
             setIsPending(false);
             console.log(err.message);
+        })
+        .finally((userCredential)=>{
+            // 로컬스토리지에 로그인한 유저 넣어주기...
+            localStorage.setItem('userDN',str_user );
+            localStorage.setItem('userID',str_userid );
         })
 
     }

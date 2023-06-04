@@ -6,6 +6,7 @@ import TestList from './TestList';
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useLogout } from '../hooks/useLogout';
 import { useCollection } from '../hooks/useCollection';
+import { useEffect,useState } from 'react';
 
 //my style
 import './regstyle.sass';
@@ -17,15 +18,17 @@ export default () => {
     // isAuthReady 를 쓸 일이 있을까??
     const {isAuthReady, user } = useAuthContext();
     const {documents,error} = useCollection("MainData");
-    console.log(user);
-    
-    // const {user} = useAuthContext();
-    const {logout} = useLogout();
 
+    const [strUserDN, setstrUserDN] = useState("");
+    useEffect(()=>{
+        setstrUserDN(localStorage.getItem('userDN'))
+    });
+    
+    const {logout} = useLogout();
     const navigate = useNavigate();
 
     const handleClickButton = () => {
-        // 
+        
         if(user === null){
             if(confirm('입사 한 사원들만 만들 수 있어요! TestMaker Factory 에 입사해보세요!')){
                 authControlButton('/newsignup')
@@ -50,7 +53,7 @@ export default () => {
                     {user?
                         <>
                         <div className='login-btn'>
-                            <p>반가워요 {user.displayName} 사원님! </p>
+                            <p>반가워요 {strUserDN} 사원님! </p>
                             <p onClick={logout}>퇴근하기</p>
                         </div>
                         </>

@@ -6,6 +6,7 @@ import { useFirestore } from '../hooks/useFirestore';
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useForm } from "react-hook-form";
 import  AdminBtn  from '../admin/AdminBtn'
+import  Loading  from '../admin/Loading'
 
 //my style
 import './regstyle.sass';
@@ -31,35 +32,29 @@ import IMG_intj from '../assets/dummyImg/IMG_3939.PNG';
 import IMG_enfj from '../assets/dummyImg/IMG_3940.PNG';
 import IMG_infj from '../assets/dummyImg/IMG_3941.PNG';
 
-export default (props) => {
-        // isAuthReady 를 쓸 일이 있을까??
-        const {isAuthReady, user } = useAuthContext();
-        // console.log(user);
+export default () => {
+
+        const [strUserDN, setstrUserDN] = useState("");
+        const [strUserID, setstrUserID] = useState("");
+        const [strContUID, setstrcontUID] = useState("");
+        const [strMainTitle, setstrMainTitle] = useState("");
+        const [printLoading, setPrintLoading] = useState(false);
+
         const { register, handleSubmit, watch, formState: { errors } } = useForm();
         const { addDocumentObjImg, response } = useFirestore("ResultData");
 
         const navigate = useNavigate();
-        let [contUID, setContUID] = useState('');
-        let [mainTitle, setMainTitle] = useState('');
 
         useEffect(()=>{
-                console.log('유저정보',user);
-        },[])
+                setstrUserDN(localStorage.getItem('userDN'))
+                setstrUserID(localStorage.getItem('userID'))
+                setstrcontUID(localStorage.getItem('contUID'))
+                setstrMainTitle(localStorage.getItem('mainTitle'))
+                
+        });
 
-        // 기존 내용 넣어주기
-        useEffect(()=>{
-                if(props.datas){
-                props.datas.map((a,i) => {
-                        console.log('props 에서 넘어온 데이터',a);
-                        console.log('props 에서 넘어온 데이터',props.datas[0].mainTitle);
-                        setContUID(props.datas[0].contUID)
-                        setMainTitle(props.datas[0].mainTitle)
-                })
-                }
-        },[props]);
+        console.log('input: 이 데이터를 넣어줄거에용',strContUID,strMainTitle);
 
-        console.log('이 데이터를 넣어줄거에용',contUID);
-        
         let question = [];
         let pic = [];
 
@@ -101,8 +96,11 @@ export default (props) => {
 
                 console.log('저장되는 질문 데이터',question);
 
-                func({question},user.displayName,user.uid,contUID,mainTitle);
-                // navigate('/regresult');
+                func({question},strUserDN, strUserID, strContUID, strMainTitle);
+                setTimeout(()=>{
+                        navigate('/regfinish');
+                        setPrintLoading(false)
+                },11000)
         }
 
         const handleClickButton = (link) => {
@@ -113,8 +111,10 @@ export default (props) => {
 
 return(
 <>
-{user?.displayName === "admin" ? <AdminBtn link='/regfinish'/> : '' }
-
+{strUserDN === "admin" ? <AdminBtn link='/regfinish'/> : '' }
+{printLoading === true ? <Loading/> : ''}
+{/* {printLoading === false ? <Loading/> : ''} */}
+        
         <section>
                 <div className='resultinput-wrap'>
                 {/* <p>16개의 결과를 입력해주세요🙂</p> */}
@@ -124,6 +124,7 @@ return(
                         if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
                                 // setDatatoObj(data, addComment);
                                 sendDataObj(data,addDocumentObjImg);
+                                setPrintLoading(true)
                         }else{
                                 return false;
                         }
@@ -549,7 +550,6 @@ return(
                                         </div>
                                 </div>
                         </div>
-
                         <div className='btn-group mt40'>
                                 <div>
                                         <button  type="button"

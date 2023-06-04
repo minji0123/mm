@@ -18,7 +18,9 @@ export const useCollectionDtl = (transaction, myQuery, order="") => { // myQuery
             q = query(collection(appFireStore, transaction),where(...myQuery),orderBy("createdUqe","desc"));
         }else if (order === "time"){
             q = query(collection(appFireStore, transaction),where(...myQuery),orderBy("createdTime","desc"));
-        }else{
+        }
+        else{
+            console.log('?');
             q = query(collection(appFireStore, transaction),where(...myQuery));
         }
 
@@ -37,6 +39,7 @@ export const useCollectionDtl = (transaction, myQuery, order="") => { // myQuery
 
                 setDocuments(result);
                 setError(null);
+                console.log(result);
             },
             (error) => {
                 setError(error.message);

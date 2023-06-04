@@ -3,8 +3,6 @@
 import { useEffect, useReducer, useState } from 'react';
 import { useFirestore } from '../hooks/useFirestore';
 import { useNavigate } from 'react-router-dom';
-import { nullCheck, nullCheckDatas } from '../utils/StringUtil.js'
-import { useAuthContext } from '../hooks/useAuthContext'
 import { useForm } from "react-hook-form";
 import  AdminBtn  from '../admin/AdminBtn'
 
@@ -15,32 +13,26 @@ import '../margin.sass';
 import '../padding.sass';
 import '../marginpadding.sass';
 
-export default (props) => {
-    const {isAuthReady, user } = useAuthContext();
+export default () => {
+
+    const [strUserDN, setstrUserDN] = useState("");
+    const [strUserID, setstrUserID] = useState("");
+    const [strContUID, setstrcontUID] = useState("");
+
+    const navigate = useNavigate();
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const { addComment, response } = useFirestore("TestData");
 
-    const navigate = useNavigate();
-    let [contUID, setContUID] = useState('');
-
-    useEffect(()=>{
-        console.log('유저정보',user);
-    },[])
-
-    // 기존 내용 넣어주기
-    useEffect(()=>{
-        if(props.datas){
-            props.datas.map((a,i) => {
-                // console.log('input: ',a);
-                setContUID(props.datas[0].contUID)
-            })
-        }
-    },[props]);
     
-    // console.log('input: 이 데이터를 넣어줄거에용',contUID);
+    useEffect(()=>{
+        setstrUserDN(localStorage.getItem('userDN'))
+        setstrUserID(localStorage.getItem('userID'))
+        setstrcontUID(localStorage.getItem('contUID'))
+    });
+
+    console.log('input: 이 데이터를 넣어줄거에용',strContUID);
 
     let question = [];
-
     const printDatas = ["EI","SN","TF","JP"];
     const 임시 = " 질문을 입력해주세요";
     const 임시1 = " 답변을 입력해주세요";
@@ -62,7 +54,6 @@ export default (props) => {
     }
 
     const setDatatoObj = (data,func) => {
-
         // 여기는 필수
         let data1 = {id:1, content: data.question1, answer1 :data.answera1, answer2: data.answerb1, type:"EI"}
         let data2 = {id:2, content: data.question2, answer1 :data.answera2, answer2: data.answerb2, type:"SN"}
@@ -94,17 +85,16 @@ export default (props) => {
             question.push(data12);
         }
 
-        console.log(question);
-        console.log('여긴어대',contUID);
+        console.log('저장되는 질문 데이터',question);
 
-        func({question},user.displayName,user.uid,contUID);
+        func({question}, strUserDN, strUserID, strContUID);
         navigate('/regresult');
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 
     return(
         <>
-            {user?.displayName === "admin" ? <AdminBtn link='/regresult'/> : '' }
+            {strUserDN === "admin" ? <AdminBtn link='/regresult'/> : '' }
 
             <section className='testInput-group'>
                 
@@ -116,16 +106,13 @@ export default (props) => {
                 <form 
                 style={{display:"flex", flexDirection:"column", alignItems: "center"}}
                 onSubmit={
-                    
                     handleSubmit( (data) =>{
-                        
                         if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
                             setDatatoObj(data, addComment);
                             // (data, editDocument);
                         }else{
                             return false;
                         }
-                        
                     })
                 }>
                 {/* ei */}

@@ -21,16 +21,8 @@ import { useAuthContext } from './hooks/useAuthContext';
 
 
 function App() {
-  const [userDN, setUserDN] = useState("");
 
   const {isAuthReady, user } = useAuthContext();
-  useEffect(() => {
-    // console.log('유저정보',user);
-    if(user){
-        setUserDN(user.displayName)
-    }
-  },[user])
-
 
   return (
     <div>
@@ -45,9 +37,9 @@ function App() {
           {/* 테스트 제작하는 경로 */}
           <Route path='/' element={<RegStart/>}/>
           <Route path='/regmain' element={<RegMain/>}/>
-          <Route path='/regtest' element={<RegTest userDN={userDN}/>}/>
-          <Route path='/regresult' element={<RegResult userDN={userDN}/>}/>
-          <Route path='/regfinish' element={<RegFinish userDN={userDN}/>}/>
+          <Route path='/regtest' element={<RegTest/>}/>
+          <Route path='/regresult' element={<RegResult/>}/>
+          <Route path='/regfinish' element={<RegFinish/>}/>
 
         {/* 회원가입/로그인 경로 */}
         <Route path='/newlogin' 

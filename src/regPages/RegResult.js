@@ -15,20 +15,22 @@ import RegResultInput from './RegResultInput';
 import RegModalsResult from './RegModalsResult';
 
 
-export default (props) => {
-    const [modalSwitch,setModalSwitch] = useState(false);
-    const [data, setData] = useState(true);
-    const {isAuthReady, user } = useAuthContext();
-    const {documents,error} = useCollectionDtl("MainData",["user","==",props.userDN],"uqe");
-    // console.log(documents&& documents[0]);
+export default () => {
+    const [modalSwitch,setModalSwitch] = useState(true);
+    const [data, setData] = useState(true); // true: 페이지 켜질 때 모달 같이 켜짐
+    const [strUserDN, setstrUserDN] = useState("");
+    const [strUserID, setstrUserID] = useState("");
+    const {documents,error} = useCollectionDtl("MainData",["user","==",strUserDN],"uqe");
 
     const closeModal = () =>{
         setModalSwitch(!modalSwitch);
     }
-    useEffect(() => {
-        console.log('유저정보',user);
-    },[])
     
+    useEffect(()=>{
+        setstrUserDN(localStorage.getItem('userDN'))
+        setstrUserID(localStorage.getItem('userID'))
+    });
+
     useEffect(()=>{
         setModalSwitch(data);
     },[data])
@@ -36,7 +38,6 @@ export default (props) => {
     return(
         <>
             {modalSwitch && <RegModalsResult setData={setData} />}
-        
             <div className='regresult pt80 pb60'>
                 <div className='regresult-wrap mt30 mb30'>
                     <p className='main-title'>결과화면 만들기</p>

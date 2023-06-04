@@ -23,7 +23,12 @@ export const useLogout = () => {
         }).catch((err)=>{
             setError(err.message);
             setIsPending(false);
-        });
+        })
+        .finally(()=>{
+            localStorage.removeItem('userDN');
+            localStorage.removeItem('userID');
+        })
+        ;
     }
     return {error, isPending,logout}
 }
