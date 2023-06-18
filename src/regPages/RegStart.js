@@ -17,7 +17,6 @@ import '../padding.sass';
 export default () => {
     // isAuthReady 를 쓸 일이 있을까??
     const {isAuthReady, user } = useAuthContext();
-    const {documents,error} = useCollection("MainData");
     const {documents : document2} = useCollectionDtl("MainData",["mainShow","==",true]);
 
     const [strUserDN, setstrUserDN] = useState("");

@@ -47,7 +47,7 @@ export default () => {
                     {user?
                         <>
                         <div className='login-btn'>
-                            <p onClick={() => authControlButton('아직')}> {strUserDN} 님 </p>
+                            <p onClick={() => authControlButton('mypage')}> {strUserDN} 님 </p>
                             {/* <p onClick={logout}>로그아웃</p> */}
                             <p onClick={() => authControlButton('logout')}>로그아웃</p>
                         </div>

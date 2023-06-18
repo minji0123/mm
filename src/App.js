@@ -15,7 +15,7 @@ import RegFinish from './regPages/RegFinish';
 // 인증 화면
 import NewLogin from './rauthPages/NewLogin'
 import NewSignup from './rauthPages/NewSignup'
-
+import Mypage from './rauthPages/MyPage'
 // 커스텀 훅
 import { useAuthContext } from './hooks/useAuthContext';
 import Nav from './common/Nav';
@@ -39,28 +39,31 @@ function App() {
           {/* 테스트 제작하는 경로 */}
           <Route path='/' element={<RegStart/>}/>
           <Route path='/regmain' element={user
-                                    ?<RegMain/>:<Navigate replace={true} to="/" />
+                                  ?<RegMain/>:<Navigate replace={true} to="/" />
                                   }/>
           <Route path='/regtest' element={user
-                                    ?<RegTest/>:<Navigate replace={true} to="/" />
+                                  ?<RegTest/>:<Navigate replace={true} to="/" />
                                   }/>
           <Route path='/regresult' element={user
-                                    ?<RegResult/>:<Navigate replace={true} to="/" />
+                                  ?<RegResult/>:<Navigate replace={true} to="/" />
                                   }/>
           <Route path='/regfinish' element={user
-                                      ?<RegFinish/>:<Navigate replace={true} to="/" />
-                                    }/>
+                                  ?<RegFinish/>:<Navigate replace={true} to="/" />
+                                  }/>
 
         {/* 회원가입/로그인 경로 */}
-        <Route path='/newlogin' 
-        element={!user
-          ?<NewLogin />
-        :<Navigate replace={true} to="/" />}/> 
+        <Route path='/newlogin' element={!user
+                                ?<NewLogin />:<Navigate replace={true} to="/" />
+                                }/> 
+        <Route path='/newsignup' element={!user
+                                ?<NewSignup />:<Navigate replace={true} to="/" />
+                                }/> 
+        <Route path='/mypage' 
+        element = {<Mypage/>}/>
 
-        <Route path='/newsignup' 
-              element={!user
-                ?<NewSignup />
-              :<Navigate replace={true} to="/" />}/> 
+        {/* // element={user
+        //                         ?<Mypage />:<Navigate replace={true} to="/" />
+        //                         }/>  */}
 
 
         </Routes>
