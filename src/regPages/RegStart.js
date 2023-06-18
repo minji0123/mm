@@ -22,7 +22,6 @@ export default () => {
     const [strUserDN, setstrUserDN] = useState("");
     useEffect(()=>{
         setstrUserDN(localStorage.getItem('userDN'))
-        console.log(document2,'dssds');
     });
     
     const navigate = useNavigate();
@@ -76,7 +75,8 @@ export default () => {
                     <h3 className='mt30 mb30'>🤍 테스트 해보기 🤍</h3>
 
                     {/* TestList 재사용을 위해 부모 컴포넌트에서 데이터를 넘겨준다. */}
-                    <TestList mbtiDatas={document2}/>
+                    <TestList mbtiDatas={document2}
+                    />
                 </div>
             </div>
 

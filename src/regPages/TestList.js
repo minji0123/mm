@@ -13,8 +13,15 @@ export default ({mbtiDatas}) => {
     const navigate = useNavigate();
 
     let ClickToMoveDetail = (id) => {
-        navigate(`/start/${id}`);
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        // if(like === true){
+        if(mbtiDatas[0].mainShow === true){
+            navigate(`/start/${id}`);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }else if(mbtiDatas[0].mainShow === false){
+            alert('테스트 수정 페이지로 이동');
+            // navigate(`/regmain/${id}`);
+            // window.scrollTo({ top: 0, behavior: "smooth" });
+        }
     }
 
     return(
