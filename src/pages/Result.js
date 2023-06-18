@@ -37,15 +37,11 @@ export default function Result(){
         }
     },[documents]);
 
-    useEffect(() => {
-        // console.log('mbti 타입: ',mbti);
-        // console.log('이게뭐지?: ', matchType(mbti));
-        // console.log('이게뭐지?: ', matchImg(mbti));
-
-    });
-
-
-
+    // useEffect(() => {
+    //     console.log('mbti 타입: ',mbti);
+    //     console.log('이게뭐지?: ', matchType(mbti));
+    //     console.log('이게뭐지?: ', matchImg(mbti));
+    // });
 
     return(
         <>

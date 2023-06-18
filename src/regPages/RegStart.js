@@ -48,7 +48,7 @@ export default () => {
 
     return(
         <>
-            <div className='regpage-nav pt10'>
+            {/* <div className='regpage-nav pt10'>
                 <div className='regpage-wrap'>
                     {user?
                         <>
@@ -73,7 +73,7 @@ export default () => {
                     }
 
                 </div>
-            </div>
+            </div> */}
 
             <div className='regpage pt80 pb80'>
                 <div className='regpage-wrap mt30 mb30'>

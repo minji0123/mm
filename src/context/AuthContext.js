@@ -23,12 +23,10 @@ const authReducer = (state,action) => {
     }
 }
 
-
-
 // 이만큼을 context 로 관리할거임
 const AuthContextProvider = ({children}) =>{
     
-    // 유저 정보를 관리할 reduser 훅
+    // 유저 정보를 관리할 reducer 훅
     const [state,dispatch]  = useReducer(authReducer, { 
         user : null,    // user 정보 초기값
         isAuthReady: false // 사용자 인증정보 초기값
@@ -60,15 +58,3 @@ const AuthContextProvider = ({children}) =>{
 }
 
 export {AuthContext, AuthContextProvider}
-
-/**useReducer(리듀서 함수, 관리할 값의 초기화)
- * 
- * useState 대체함수
- * 객체와 같이 복잡한 형태의 데이터를 다룰 때 많이 사용
- * const [관리할 값, dispatch 함수] = useReducer(리듀서 함수, 관리할 값의 초기화)
- * 
- * dispatch({ type: 'login', payload: user })
- * dispatch 함수는 리듀서 함수를 호출하는 역할 
- * dispatch 함수는 위와 같은 형태로 사용
- * 전달하는 인자를 action이라고 하며 action에는 type과 전달할 데이터인 payload 가 있습니다. 
- */

@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFirestore } from '../hooks/useFirestore';
 import { useForm } from "react-hook-form";
-import  AdminBtn  from '../admin/AdminBtn'
-import  Loading  from '../admin/Loading'
+import  AdminBtn  from '../common/AdminBtn'
+import  Loading  from '../common/Loading'
 
 //my style
 import './regstyle.sass';

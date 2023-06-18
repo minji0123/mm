@@ -32,7 +32,13 @@ export default () => {
     }
     
     const authControlButton = (link) => {
-        navigate(link);
+        if(link === '아직'){
+            alert('아직...')
+
+        }else{
+            navigate(link);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
     }
 
 
@@ -41,14 +47,14 @@ export default () => {
             <form className='auth' onSubmit={handleSubmit}>
                 <fieldset className='auth-wrap'>
 
-                <p className='auth-title mt40'>출근게이트</p>
+                <p className='auth-title'>로그인</p>
                 <div className='input-wrap'>
-                    <div>
-                        <label htmlFor="myEmail" className='mr4 mb20'>사원아이디</label>
+                    <div className='email-wrap'>
+                        <label htmlFor="myEmail">이메일</label>
                         <input type="text" id="myEmail" required onChange={handleData} value={email} />
                     </div>
-                    <div>
-                        <label htmlFor="myPassWord" className='mr16 mb20'>사원번호</label>
+                    <div className='password-wrap'>
+                        <label htmlFor="myPassWord" >비밀번호</label>
                         <input type="password" id="myPassWord" required onChange={handleData} value={password} />
                     </div>
 
@@ -56,8 +62,8 @@ export default () => {
 
 
                 <div className='btn-wrap'>
-                    <button type="submit" className="btn grey-btn1">출근하기</button>
-                    <p className='goback pointer' onClick={()=>{authControlButton('/')}}> 로비로 이동</p>
+                    <button type="submit" className="btn grey-btn1">로그인하기</button>
+                    <p className='goback pointer' onClick={()=>{authControlButton('아직')}}>비밀번호 찾기</p>
                 </div>
 
                 </fieldset>

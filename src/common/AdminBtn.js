@@ -1,10 +1,9 @@
 /* eslint-disable*/
 //my style
-import './admin.sass';
+import './common.sass';
 
 
 import { useNavigate } from 'react-router-dom';
-import gifff from '../assets/img/IMG_3948.GIF';
 
 
 export default (props) => {
@@ -21,10 +20,13 @@ export default (props) => {
 
     return(
         <>
-        <div className='loading-img'>
-            <p>데이터 저장중이에요! 😀</p>
-            <img src={gifff} alt='#' />
-        </div>
+            <button className='admin-btn'
+            onClick={() =>{
+                handleClickButton(props.link)
+            }}
+            >
+                admin
+            </button>
         </>
     )
 }

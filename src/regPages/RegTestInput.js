@@ -4,7 +4,7 @@ import { useEffect, useReducer, useState } from 'react';
 import { useFirestore } from '../hooks/useFirestore';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from "react-hook-form";
-import  AdminBtn  from '../admin/AdminBtn'
+import  AdminBtn  from '../common/AdminBtn'
 
 //my style
 import './regstyle.sass';

@@ -35,7 +35,7 @@ export default () => {
         event.preventDefault();
         
         if(password.length < 6){
-            alert('6자리 사원번호를 입력해주세요');
+            alert('6자리 비밀번호를 입력해주세요');
         }else if(isNaN(password)){
             alert('비밀번호는 숫자로 입력해주세요');
         }else{
@@ -45,39 +45,45 @@ export default () => {
     }
 
     const authControlButton = (link) => {
-        navigate(link);
+        if(link === '아직'){
+            alert('아직...')
+
+        }else{
+            navigate(link);
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
     }
 
     return(
         <>
             <form className='auth' onSubmit={handleSubmit}>
                 <fieldset className='auth-wrap '>
-                <p className='auth-title mt40'> 이력서 </p>
+                <p className='auth-title mt40'> 회원가입 </p>
 
-                <div className='input-wrap'>
+                <div className='input-wrap-new'>
 
-                    <div>
-                        <label htmlFor="myEmail" className='mr4 mb20'>사원아이디</label>
+                    <div className='email-wrap'>
+                        <label htmlFor="myEmail" >이메일</label>
                         <input type="text"  id="myEmail" required onChange={handleData} value={email} />
                     </div>
-                    <div>
-                        <label htmlFor="myPassWord" className='mr17 mb20'>사원번호</label>
-                        <input type="password" id="myPassWord" required onChange={handleData} value={password} />
+                    <div className='password-wrap'>
+                        <label htmlFor="myPassWord" >비밀번호</label>
+                        <input type="password" id="myPassWord" maxLength={6} required onChange={handleData} value={password} />
                     </div>
-                    <div>
-                        <label htmlFor="myNickName" className='mr31 mb20'>닉네임</label>
+                    <div className='nick-wrap'>
+                        <label htmlFor="myNickName" >닉네임</label>
                         <input type="text" id="myNickName" required onChange={handleData} value={displayName} />
                     </div>
                     <div className='warn'>
-                        <p style={{textAlign:'center'}} >입사 전 꼭 읽어주세요!!</p>
-                        <p> 꼭 기억해주세요! <br/>개인정보가 필요하지 않아요!🙂 <br/> 그래서 사원아이디와 사원번호는 잊어버리면 찾을 수 없어요!😨  </p>
+                        <p style={{textAlign:'center'}} >회원가입 전 꼭 읽어주세요!!</p>
+                        {/* <p> 꼭 기억해주세요! <br/>개인정보가 필요하지 않아요!🙂 <br/> 그래서 사원아이디와 사원번호는 잊어버리면 찾을 수 없어요!😨  </p> */}
                     </div>
                 </div>
 
 
                 <div className='btn-wrap'>
-                    <button type="submit" className="btn grey-btn1"> 입사하기</button>
-                    <p className='goback pointer' onClick={()=>{authControlButton('/')}}> 로비로 이동</p>
+                    <button type="submit" className="btn grey-btn1">회원가입하기</button>
+                    <p className='goback pointer' onClick={()=>{authControlButton('아직')}}>비밀번호 찾기</p>
                 </div>
 
                 </fieldset>

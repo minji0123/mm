@@ -18,6 +18,7 @@ import NewSignup from './rauthPages/NewSignup'
 
 // 커스텀 훅
 import { useAuthContext } from './hooks/useAuthContext';
+import Nav from './common/Nav';
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+      <Nav></Nav>
         <Routes>
 
           {/* 테스트 하는 경로 */}

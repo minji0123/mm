@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import TestList from './TestList';
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useCollectionDtl } from '../hooks/useCollectionDtl'
-import  AdminBtn  from '../admin/AdminBtn'
+import  AdminBtn  from '../common/AdminBtn'
 import KakaoShareBtn from '../kakao/KakaoShareBtn';
 
 //my style
