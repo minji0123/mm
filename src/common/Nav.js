@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 //my style
 import './common.sass';
 
+import logoimg from '../assets/img/IMG_3925.PNG';
 
 export default () => {
     const {isAuthReady, user } = useAuthContext();
@@ -37,7 +38,7 @@ export default () => {
     return(
         <>
         <nav>
-            <img src='IMG_3925.PNG' alt='#' onClick={()=>authControlButton('/')} />
+            <img src={logoimg} alt='#' onClick={()=>authControlButton('/')} />
             <ul>
                 <li onClick={() => authControlButton('아직')}>테스트 해보기</li>
                 <li onClick={() => authControlButton('아직')}>테스트 만들기</li>
