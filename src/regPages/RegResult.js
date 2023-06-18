@@ -38,8 +38,8 @@ export default () => {
     return(
         <>
             {modalSwitch && <RegModalsResult setData={setData} />}
-            <div className='regresult pt80 pb60'>
-                <div className='regresult-wrap mt30 mb30'>
+            <div className='regresult'>
+                <div className='regresult-wrap'>
                     <p className='main-title'>결과화면 만들기</p>
                     <p className='pointer'
                             onClick={closeModal}

@@ -35,9 +35,8 @@ export default () => {
     return(
         <>
             {modalSwitch && <RegModal setData={setData} />}
-            <div className='regtest pt80 pb80'>
+            <div className='regtest'>
                 <div className='regtest-wrap  mt30 mb30'>
-                <p>{strUserDN}</p> 
                     <p className='main-title'>선택지 입력하기</p>
                     <p className='pointer'
                         onClick={closeModal}

@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import TestList from './TestList';
 
 import { useAuthContext } from '../hooks/useAuthContext'
-import { useLogout } from '../hooks/useLogout';
 import { useCollection } from '../hooks/useCollection';
 import { useEffect,useState } from 'react';
 
@@ -24,13 +23,12 @@ export default () => {
         setstrUserDN(localStorage.getItem('userDN'))
     });
     
-    const {logout} = useLogout();
     const navigate = useNavigate();
 
     const handleClickButton = () => {
         
         if(user === null){
-            if(confirm('입사 한 사원들만 만들 수 있어요! TestMaker Factory 에 입사해보세요!')){
+            if(confirm('로그인한 사용자만 만들 수 있어요! TestMaker Factory 의 회원이 되어보세요!')){
                 authControlButton('/newsignup')
             }else{
                 return false;
@@ -48,37 +46,10 @@ export default () => {
 
     return(
         <>
-            {/* <div className='regpage-nav pt10'>
+            <div className='regpage'>
                 <div className='regpage-wrap'>
-                    {user?
-                        <>
-                        <div className='login-btn'>
-                            <p>반가워요 {strUserDN} 사원님! </p>
-                            <p onClick={logout}>퇴근하기</p>
-                        </div>
-                        </>
-                        :
-                        <>
-                            <p 
-                                onClick= {() => {
-                                    authControlButton('/newsignup')
-                                }}
-                            >입사하기</p>
-                            <p 
-                            onClick= {() => {
-                                authControlButton('/newlogin')
-                            }}
-                            >출근하기</p>
-                        </>
-                    }
 
-                </div>
-            </div> */}
-
-            <div className='regpage pt80 pb80'>
-                <div className='regpage-wrap mt30 mb30'>
-
-                    <h1 className='main-title mt30'>TestMaker Factory</h1>
+                    <h1 className='main-title'>TestMaker Factory</h1>
                     <p>나만의 테스트 만들기</p>
 
                     <button 

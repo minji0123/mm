@@ -59,7 +59,6 @@ export default () => {
         <div className='regfinish pt80 pb80'>
             <div className='regpage-wrap mt30 mb30'>
                 {/* {user ? <p>{user.displayName}</p> : <p>{isAuthReady}</p>} */}
-                <p>{strUserDN}</p> 
 
                 <p className='main-title mb20'>테스트 제작 완료!</p>
                 {

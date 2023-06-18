@@ -50,6 +50,14 @@ export default () => {
 
     }
 
+    // 텍스트 미리보기
+    const handleData = (event) => {
+        if (event.target.id === 'mainTitle') {
+            setTitle(event.target.value);
+        }
+    }
+
+
     // navigation 이벤트
     const handleClickButton = (link) => {
         navigate(link);
@@ -78,8 +86,6 @@ export default () => {
         <form
             onSubmit={
                 handleSubmit( (data) =>{
-                    // console.log(picInfo === undefined);
-                    // console.log(picInfo?.name?.length === undefined);
                     if(picInfo?.name?.length === undefined){
                         alert('이미지를 넣어주세요');
                         return false;
@@ -90,22 +96,18 @@ export default () => {
                             return false;
                         }
                     }
-
                 })
             }
             >
-        <div className='regmain pt80 pb80'>
-            <div className='regpage-wrap mt30 mb30'>
-                {/* {user && <p>{strUserDN}</p> } */}
-                <p>{strUserDN}</p> 
-                {/* input start */}
-
+        <div className='regmain'>
+            <div className='regpage-wrap'>
                 <p className='main-title'>메인화면 만들기</p>
                     <input  type="text"
-                            className='pl18 pt18 mt10'
+                            className='main-input pl18 pt18 mt10'
                             id="mainTitle" 
                             name='mainTitle'
                             {...register("mainTitle")}
+                            onChange={handleData}
                             placeholder="테스트 제목을 입력해주세요"
                             required
 
@@ -137,7 +139,7 @@ export default () => {
                         
                         }
 
-                        <button className='brown-btn mt20' >start</button>
+                        <button type='button' className='brown-btn mt20' >start</button>
                     </div>
                 </div>
 

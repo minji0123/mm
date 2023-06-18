@@ -39,7 +39,7 @@ export default () => {
     const [showHide, setShowHide] = useState(true);
     
     const inputSwitch = (data) =>{
-        console.log(showHide?'보여랏':'안보여랏');
+        console.log(showHide?'안보여랏':'보여랏');
         if(data === '8'){
             setShowHide(true);
         }else{

@@ -97,7 +97,7 @@ export default function Result(){
                                     navigate('/') 
                                     window.scrollTo({ top: 0, behavior: "smooth" });
                                 }}
-                    >나도 테스트 만들어볼래!</button>
+                    >나도 테스트 만들래!</button>
 
                 </div>
             </div>

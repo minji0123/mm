@@ -21,7 +21,12 @@ export default () => {
     const authControlButton = (link) => {
         if(link === '아직'){
             alert('아직...')
-        }else{
+        }else if(link === 'logout'){
+            logout();
+            navigate('/');
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+        else{
             navigate(link);
             window.scrollTo({ top: 0, behavior: "smooth" });
         }
@@ -42,7 +47,8 @@ export default () => {
                         <>
                         <div className='login-btn'>
                             <p onClick={() => authControlButton('아직')}> {strUserDN} 님 </p>
-                            <p onClick={logout}>로그아웃</p>
+                            {/* <p onClick={logout}>로그아웃</p> */}
+                            <p onClick={() => authControlButton('logout')}>로그아웃</p>
                         </div>
                         </>
                         :
