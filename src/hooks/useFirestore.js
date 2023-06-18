@@ -62,7 +62,7 @@ export const useFirestore = (transaction) => {
     /*===============================================
     // 컬렉션에 문서를 저장(Main 저장 시 _ 이미지 저장 포함됨)
     *===================================================*/
-    const addDocument = async (doc,pic,user="",uuid="") => {
+    const addDocument = async (doc,pic,user="",uuid="",mainShow = "false") => {
 
         // 시간 저장(order by 용)
         const createdTime = timestamp.fromDate(new Date());
@@ -98,7 +98,7 @@ export const useFirestore = (transaction) => {
                 // 데이터 저장
                 // docRef : 참조(컬랙션 이름)
                 // addDoc : 컬렉션에 문서를 추가
-                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL, user, uuid, contUID});
+                const docRef = addDoc(colRef,{ ...doc, createdTime, createdDate,createdUqe, downloadURL, user, uuid, contUID,mainShow});
                 console.log(docRef);
 
                 localStorage.setItem('contUID',contUID );

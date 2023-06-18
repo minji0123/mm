@@ -27,6 +27,8 @@ export const useLogout = () => {
         .finally(()=>{
             localStorage.removeItem('userDN');
             localStorage.removeItem('userID');
+            localStorage.removeItem('contUID');
+            localStorage.removeItem('mainTitle');
         })
         ;
     }

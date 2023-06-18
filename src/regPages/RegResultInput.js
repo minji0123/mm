@@ -25,6 +25,7 @@ export default () => {
         const { register, handleSubmit, watch, formState: { errors } } = useForm();
         const { addDocumentObjImg, response } = useFirestore("ResultData");
         const { addComment } = useFirestore("ResultData");
+        const { editDocument } = useFirestore("MainData");
 
         const navigate = useNavigate();
 
@@ -33,7 +34,6 @@ export default () => {
                 setstrUserID(localStorage.getItem('userID'))
                 setstrcontUID(localStorage.getItem('contUID'))
                 setstrMainTitle(localStorage.getItem('mainTitle'))
-                
         });
 
         console.log('input: 이 데이터를 넣어줄거에용',strContUID,strMainTitle);
@@ -151,11 +151,9 @@ return(
 <>
 {strUserDN === "admin" ? <AdminBtn link='/regfinish'/> : '' }
 {printLoading === true ? <Loading/> : ''}
-{/* {printLoading === false ? <Loading/> : ''} */}
         
         <section>
                 <div className='resultinput-wrap'>
-                {/* <p>16개의 결과를 입력해주세요🙂</p> */}
                 <div className='btn-group-input'>
                         <button type='button' onClick={()=>{ inputSwitch('8')}} >이미지 빼기</button>
                         <button className='ml3' type='button' onClick={()=>{ inputSwitch('12')}} >이미지 넣기</button>
@@ -164,15 +162,18 @@ return(
                 <form onSubmit={
                 handleSubmit( (data) =>{
                         if(confirm("데이터가 저장됩니다. 진행하시겠습니까?")){
-                                // setDatatoObj(data, addComment);
                                 if(showHide === true){
                                         // 이미지빼기
                                         sendDataNoImg(data,addComment);
+                                        let mainShow = true;
+                                        editDocument({mainShow},strContUID);
                                         setPrintLoading(true);
 
                                 }else{
                                         // 이미지넣기
                                         sendDataObj(data,addDocumentObjImg);
+                                        let mainShow = true;
+                                        editDocument({mainShow},strContUID);
                                         setPrintLoading(true);
                                 }
                         }else{

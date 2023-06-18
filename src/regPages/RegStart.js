@@ -5,6 +5,7 @@ import TestList from './TestList';
 
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useCollection } from '../hooks/useCollection';
+import { useCollectionDtl } from '../hooks/useCollectionDtl';
 import { useEffect,useState } from 'react';
 
 //my style
@@ -17,10 +18,12 @@ export default () => {
     // isAuthReady 를 쓸 일이 있을까??
     const {isAuthReady, user } = useAuthContext();
     const {documents,error} = useCollection("MainData");
+    const {documents : document2} = useCollectionDtl("MainData",["mainShow","==",true]);
 
     const [strUserDN, setstrUserDN] = useState("");
     useEffect(()=>{
         setstrUserDN(localStorage.getItem('userDN'))
+        console.log(document2,'dssds');
     });
     
     const navigate = useNavigate();
@@ -74,7 +77,7 @@ export default () => {
                     <h3 className='mt30 mb30'>🤍 테스트 해보기 🤍</h3>
 
                     {/* TestList 재사용을 위해 부모 컴포넌트에서 데이터를 넘겨준다. */}
-                    <TestList mbtiDatas={documents}/>
+                    <TestList mbtiDatas={document2}/>
                 </div>
             </div>
 

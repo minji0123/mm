@@ -38,10 +38,18 @@ function App() {
           
           {/* 테스트 제작하는 경로 */}
           <Route path='/' element={<RegStart/>}/>
-          <Route path='/regmain' element={<RegMain/>}/>
-          <Route path='/regtest' element={<RegTest/>}/>
-          <Route path='/regresult' element={<RegResult/>}/>
-          <Route path='/regfinish' element={<RegFinish/>}/>
+          <Route path='/regmain' element={user
+                                    ?<RegMain/>:<Navigate replace={true} to="/" />
+                                  }/>
+          <Route path='/regtest' element={user
+                                    ?<RegTest/>:<Navigate replace={true} to="/" />
+                                  }/>
+          <Route path='/regresult' element={user
+                                    ?<RegResult/>:<Navigate replace={true} to="/" />
+                                  }/>
+          <Route path='/regfinish' element={user
+                                      ?<RegFinish/>:<Navigate replace={true} to="/" />
+                                    }/>
 
         {/* 회원가입/로그인 경로 */}
         <Route path='/newlogin' 

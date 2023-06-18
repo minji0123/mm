@@ -9,6 +9,7 @@ import '../margin.sass';
 import '../padding.sass';
 import '../marginpadding.sass';
 import Previmg from '../assets/img/4.jpg';
+import Dummyvimg from '../assets/dummyImg/IMG_3926.PNG';
 
 export default (props) => {
 
@@ -114,10 +115,10 @@ export default (props) => {
                             <h3>결과를 입력할 순서에요.</h3>
                             <p>mbti 별 테스트 결과를 입력해주세요.</p>
                             <p>이미지를 넣지 않으면 기본 이미지로 저장됩니다.</p>
+                            <img src={Dummyvimg} alt='#' />
                         </div>
                     }
                 </div>
-
                 {/* 하단버튼 */}
                 <div className='lrbtn'>
                     <p onClick={()=>moveToNext()} className='pointer'>◀️</p>

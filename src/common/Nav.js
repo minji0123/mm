@@ -25,6 +25,7 @@ export default () => {
             logout();
             navigate('/');
             window.scrollTo({ top: 0, behavior: "smooth" });
+            
         }
         else{
             navigate(link);

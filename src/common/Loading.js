@@ -7,13 +7,12 @@ import { useNavigate } from 'react-router-dom';
 import gifff from '../assets/img/IMG_3948.GIF';
 
 
-export default (props) => {
+export default () => {
 
     const navigate = useNavigate();
 
     // navigation 이벤트
     const handleClickButton = (link) => {
-        console.log(link);
         navigate(link);
         window.scrollTo({ top: 0, behavior: "smooth" });
 
