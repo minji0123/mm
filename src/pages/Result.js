@@ -105,7 +105,8 @@ export default function Result(){
                                 {
                                     finalResult.length>0
                                     ?
-                                    <img alt="궁합사진" className='' src={(finalResult[matchType(goodCompati(mbti)[1])].imgUrl).length !== 0 ? finalResult[matchType(goodCompati(mbti)[1])-1].imgUrl :  matchImg(goodCompati(mbti)[1]) } ></img>
+                                    <img onClick={()=>{moveToAnotherResult(goodCompati(mbti)[1])}}
+                                    alt="궁합사진" className='' src={(finalResult[matchType(goodCompati(mbti)[1])].imgUrl).length !== 0 ? finalResult[matchType(goodCompati(mbti)[1])-1].imgUrl :  matchImg(goodCompati(mbti)[1]) } ></img>
                                     :
                                     ''
                                 }
@@ -120,7 +121,8 @@ export default function Result(){
                                 {
                                     finalResult.length>0
                                     ?
-                                    <img alt="궁합사진" className='' src={(finalResult[matchType(badCompati(mbti)[0])-1].imgUrl).length !== 0 ? finalResult[matchType(badCompati(mbti)[0])-1].imgUrl :  matchImg(badCompati(mbti)[0]) } ></img>
+                                    <img onClick={()=>{moveToAnotherResult(badCompati(mbti)[0])}}
+                                    alt="궁합사진" className='' src={(finalResult[matchType(badCompati(mbti)[0])-1].imgUrl).length !== 0 ? finalResult[matchType(badCompati(mbti)[0])-1].imgUrl :  matchImg(badCompati(mbti)[0]) } ></img>
                                     :
                                     ''
                                 }
@@ -130,7 +132,8 @@ export default function Result(){
                                 {
                                     finalResult.length>0
                                     ?
-                                    <img alt="궁합사진" className='' src={(finalResult[matchType(badCompati(mbti)[1])-1].imgUrl).length !== 0 ? finalResult[matchType(badCompati(mbti)[1])-1].imgUrl :  matchImg(badCompati(mbti)[1]) } ></img>
+                                    <img  onClick={()=>{moveToAnotherResult(badCompati(mbti)[1])}}
+                                    alt="궁합사진" className='' src={(finalResult[matchType(badCompati(mbti)[1])-1].imgUrl).length !== 0 ? finalResult[matchType(badCompati(mbti)[1])-1].imgUrl :  matchImg(badCompati(mbti)[1]) } ></img>
                                     :
                                     ''
                                 }
