@@ -94,7 +94,7 @@ export default function Result(){
                                     finalResult.length>0
                                     ?
                                     <img onClick={()=>{moveToAnotherResult(goodCompati(mbti)[0])}}
-                                        alt="궁합사진" className='' src={(finalResult[matchType(goodCompati(mbti)[0])].imgUrl).length !== 0 ? finalResult[matchType(goodCompati(mbti)[0])-1].imgUrl :  matchImg(goodCompati(mbti)[0]) } ></img>
+                                        alt="궁합사진" className='' src={(finalResult[matchType(goodCompati(mbti)[0])-1].imgUrl).length !== 0 ? finalResult[matchType(goodCompati(mbti)[0])-1].imgUrl :  matchImg(goodCompati(mbti)[0]) } ></img>
                                     :
                                     ''
                                 }
@@ -106,7 +106,7 @@ export default function Result(){
                                     finalResult.length>0
                                     ?
                                     <img onClick={()=>{moveToAnotherResult(goodCompati(mbti)[1])}}
-                                    alt="궁합사진" className='' src={(finalResult[matchType(goodCompati(mbti)[1])].imgUrl).length !== 0 ? finalResult[matchType(goodCompati(mbti)[1])-1].imgUrl :  matchImg(goodCompati(mbti)[1]) } ></img>
+                                    alt="궁합사진" className='' src={(finalResult[matchType(goodCompati(mbti)[1])-1].imgUrl).length !== 0 ? finalResult[matchType(goodCompati(mbti)[1])-1].imgUrl :  matchImg(goodCompati(mbti)[1]) } ></img>
                                     :
                                     ''
                                 }
