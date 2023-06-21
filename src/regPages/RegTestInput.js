@@ -59,10 +59,10 @@ export default () => {
         let data2 = {id:2, content: data.question2, answer1 :data.answera2, answer2: data.answerb2, type:"SN"}
         let data3 = {id:3, content: data.question3, answer1 :data.answera3, answer2: data.answerb3, type:"TF"}
         let data4 = {id:4, content: data.question4, answer1 :data.answera4, answer2: data.answerb4, type:"JP"}
-        let data5 = {id:5, content: data.question5, answer1 :data.answera5, answer2: data.answerb5, type:"JP"}
-        let data6 = {id:6, content: data.question6, answer1 :data.answera6, answer2: data.answerb6, type:"TF"}
-        let data7 = {id:7, content: data.question7, answer1 :data.answera7, answer2: data.answerb7, type:"SN"}
-        let data8 = {id:8, content: data.question8, answer1 :data.answera8, answer2: data.answerb8, type:"EI"}
+        let data5 = {id:5, content: data.question5, answer1 :data.answera5, answer2: data.answerb5, type:"EI"}
+        let data6 = {id:6, content: data.question6, answer1 :data.answera6, answer2: data.answerb6, type:"SN"}
+        let data7 = {id:7, content: data.question7, answer1 :data.answera7, answer2: data.answerb7, type:"TF"}
+        let data8 = {id:8, content: data.question8, answer1 :data.answera8, answer2: data.answerb8, type:"JP"}
 
         // 여기는 선택... undefined 가 들어올 수도 있다.
         let data9  = {id:9, content:data.question9  === undefined? '' : data.question9, answer1:data.answera9 === undefined? '' : data.answera9 , answer2: data.answerb9  === undefined? '' : data.answerb9, type:"EI"}
@@ -115,7 +115,7 @@ export default () => {
                         }
                     })
                 }>
-                {/* ei */}
+                {/* ei 159 */}
                 <div className='group-wrap '>
                     <p className='group-p'>e 와 i 질문을 입력해 주세요</p>
                     <div className='grpup-inputs'>
@@ -143,27 +143,27 @@ export default () => {
                                 required
                             />
                         </div>
-                        {/* 8 */}
+                        {/* 5 */}
                         <div className='group2'>
                             <textarea type="text"
-                                id="question8" 
-                                name="question8" 
-                                {...register("question8")}
+                                id="question5" 
+                                name="question5" 
+                                {...register("question5")}
                                 placeholder={printDatas[0]+ 임시}
                                 required
                             />
 
                             <input type="text"
-                                id="answera8" 
-                                name="answera8" 
-                                {...register("answera8")}
+                                id="answera5" 
+                                name="answera5" 
+                                {...register("answera5")}
                                 placeholder={printDatas[0].slice(0,1)+ 임시1}
                                 required
                             />
                             <input type="text"
-                                id="answerb8" 
-                                name="answerb8" 
-                                {...register("answerb8")}
+                                id="answerb5" 
+                                name="answerb5" 
+                                {...register("answerb5")}
                                 placeholder={printDatas[0].slice(1)+ 임시1}
                                 required
                             />
@@ -200,7 +200,7 @@ export default () => {
                     </div>
                 </div>
 
-                {/* sn */}
+                {/* sn 2 6 10*/}
                 <div className='group-wrap '>
                     <p className='group-p'>s 와 n 질문을 입력해 주세요</p>
                     <div className='grpup-inputs'>
@@ -228,26 +228,26 @@ export default () => {
                                 required
                             />
                         </div>
-                        {/* 7 */}
+                        {/* 6 */}
                         <div className='group2'>
                             <textarea type="text"
-                                id="question7" 
-                                name="question7" 
-                                {...register("question7")}
+                                id="question6" 
+                                name="question6" 
+                                {...register("question6")}
                                 placeholder={printDatas[1]+ 임시}
                                 required
                             />
                             <input type="text"
-                                id="answera7" 
-                                name="answera7" 
-                                {...register("answera7")}
+                                id="answera6" 
+                                name="answera6" 
+                                {...register("answera6")}
                                 placeholder={printDatas[1].slice(0,1)+ 임시1}
                                 required
                             />
                             <input type="text"
-                                id="answerb7" 
-                                name="answerb7" 
-                                {...register("answerb7")}
+                                id="answerb6" 
+                                name="answerb6" 
+                                {...register("answerb6")}
                                 placeholder={printDatas[1].slice(1)+ 임시1}
                                 required
                             />
@@ -283,7 +283,7 @@ export default () => {
                     </div>
                 </div>
 
-                {/* tf */}
+                {/* tf 3 7 11*/}
                 <div className='group-wrap '>
                     <p className='group-p'>t 와 f 질문을 입력해 주세요</p>
                     <div className='grpup-inputs'>
@@ -311,26 +311,26 @@ export default () => {
                                 required
                             />
                         </div>
-                        {/* 6 */}
+                        {/* 7 */}
                         <div className='group2'>
                             <textarea type="text"
-                                id="question6" 
-                                name="question6" 
-                                {...register("question6")}
+                                id="question7" 
+                                name="question7" 
+                                {...register("question7")}
                                 placeholder={printDatas[2]+ 임시}
                                 required
                             />
                             <input type="text"
-                                id="answera6" 
-                                name="answera6" 
-                                {...register("answera6")}
+                                id="answera7" 
+                                name="answera7" 
+                                {...register("answera7")}
                                 placeholder={printDatas[2].slice(0,1)+ 임시1}
                                 required
                             />
                             <input type="text"
-                                id="answerb6" 
-                                name="answerb6" 
-                                {...register("answerb6")}
+                                id="answerb7" 
+                                name="answerb7" 
+                                {...register("answerb7")}
                                 placeholder={printDatas[2].slice(1)+ 임시1}
                                 required
                             />
@@ -366,7 +366,7 @@ export default () => {
                     </div>
                 </div>
 
-                {/* jp */}
+                {/* jp 4 8 12*/}
                 <div className='group-wrap '>
                     <p className='group-p'>j 와 p 질문을 입력해 주세요</p>
                     <div className='grpup-inputs'>
@@ -396,27 +396,26 @@ export default () => {
                                 required
                             />
                         </div>
-                        {/* 5 */}
+                        {/* 8 */}
                         <div className='group2'>
                             <textarea type="text"
-                                id="question5" 
-                                name="question5" 
-                                {...register("question5")}
+                                id="question8" 
+                                name="question8" 
+                                {...register("question8")}
                                 placeholder={printDatas[3]+ 임시}
                                 required
                             />
                             <input type="text"
-                                id="answera5" 
-                                name="answera5" 
-                                {...register("answera5")}
+                                id="answera8" 
+                                name="answera8" 
+                                {...register("answera8")}
                                 placeholder={printDatas[3].slice(0,1)+ 임시1}
                                 required
                             />
                             <input type="text"
-                                id="answerb5" 
-                                name="answerb5" 
-                                {...register("answerb5")}
-
+                                id="answerb8" 
+                                name="answerb8" 
+                                {...register("answerb8")}
                                 placeholder={printDatas[3].slice(1)+ 임시1}
                                 required
                             />
@@ -463,7 +462,6 @@ export default () => {
                                     return false;
                                 }
                             }
-                    
                     }
                     >이전</button>
                     <button className='ml3'

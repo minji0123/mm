@@ -62,7 +62,7 @@ export const useFirestore = (transaction) => {
     /*===============================================
     // 컬렉션에 문서를 저장(Main 저장 시 _ 이미지 저장 포함됨)
     *===================================================*/
-    const addDocument = async (doc,pic,user="",uuid="",mainShow = "false") => {
+    const addDocument = async (doc,pic,user="",uuid="",mainShow = false) => {
 
         // 시간 저장(order by 용)
         const createdTime = timestamp.fromDate(new Date());
@@ -214,6 +214,7 @@ export const useFirestore = (transaction) => {
             // docRef : 참조(컬랙션 이름)
             // updateDoc : 컬렉션에 있는 문서 수정
             // 230526 궁금 => 키 값이 없어도 수정이 되는거신가?!!
+            console.log('수정',documents);
             const docRef = await updateDoc(doc(colRef,id),{ ...documents, createdTime,createdDate});
             dispatch({ type: 'editDoc', payload: docRef });
 

@@ -23,9 +23,9 @@ export default function Test(){
 
     let {id} = useParams();
     const {documents,error} = useCollectionDtl("TestData",["contUID","==",id]);
-    console.log(id);
-    console.log('애애',documents);
-    console.log('progress',progress);
+    // console.log(id);
+    // console.log('애애',documents);
+    // console.log('progress',progress);
 
 
     useEffect(()=>{

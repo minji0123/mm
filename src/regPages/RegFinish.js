@@ -26,13 +26,21 @@ export default () => {
     const navigate = useNavigate();
     const {documents,error} = useCollectionDtl("MainData",["contUID","==", localStorage.getItem('contUID') ],"dn");
     console.log(documents);
+    const { editDocument } = useFirestore("MainData");
 
     // navigation 이벤트
     const handleClickButton = (link) => {
-        navigate(link);
-        localStorage.removeItem('contUID');
-        localStorage.removeItem('mainTitle');
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        if(link==='ㄴㅇㄹㄴㅇㄹ'){
+            let mainShow = true;
+            editDocument({mainShow},strContUID);
+
+        }else{
+
+            navigate(link);
+            localStorage.removeItem('contUID');
+            localStorage.removeItem('mainTitle');
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
     }
 
     useEffect(()=>{
@@ -79,6 +87,9 @@ export default () => {
                     <button className='mt10'
                     onClick={()=>{handleClickButton('/')}}
                     type='button'>메인으로 돌아가기</button>
+                    {/* <button className='mt10'
+                    onClick={()=>{handleClickButton('ㄴㅇㄹㄴㅇㄹ')}}
+                    type='button'>임시</button> */}
                 </div>
 
             </div>

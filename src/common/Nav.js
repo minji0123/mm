@@ -22,7 +22,13 @@ export default () => {
     const authControlButton = (link) => {
         if(link === '아직'){
             alert('아직...')
-        }else if(link === 'logout'){
+        }
+        else if(link === 'default'){
+            // window.location.href='www.naver.com'
+            // window.open('www.naver.com')
+            
+        }
+        else if(link === 'logout'){
             logout();
             navigate('/');
             window.scrollTo({ top: 0, behavior: "smooth" });
@@ -40,8 +46,8 @@ export default () => {
         <nav>
             <img src={logoimg} alt='#' onClick={()=>authControlButton('/')} />
             <ul>
-                <li onClick={() => authControlButton('아직')}>테스트 해보기</li>
-                <li onClick={() => authControlButton('아직')}>테스트 만들기</li>
+                <li onClick={() => authControlButton('아직')}>mbti 테스트</li>
+                <li onClick={() => authControlButton('아직')}>ai 얼굴인식</li>
             </ul>
 
             <div className=''>

@@ -1,5 +1,5 @@
 import { useEffect,useState } from 'react';
-import { useNavigate, useSearchParams,useParams } from 'react-router-dom';
+import { useNavigate,createSearchParams, useSearchParams,useParams } from 'react-router-dom';
 import { useCollectionDtl } from '../hooks/useCollectionDtl';
 
 //my style
@@ -9,39 +9,55 @@ import '../padding.sass';
 import '../marginpadding.sass';
 
 //data
-import {matchType} from "../utils/matchType.js";
-import {matchImg} from "../utils/matchImg.js";
-import ResultData from '../assets/data/2.json'
-import MainImg from '../assets/img/4.jpg'
+import { matchType } from "../utils/matchType.js";
+import  { goodCompati, badCompati } from "../utils/compatibility";
+import { matchImg } from "../utils/matchImg.js";
 import KakaoShareBtn from '../kakao/KakaoShareBtn';
 
 
 export default function Result(){
-    let [title,setTitle] = useState("");
-    const [searchParams] = useSearchParams();
+    const [title,setTitle] = useState("");
     const [finalResult, setFinalResult] = useState([]);
 
-    const mbti = searchParams.get('mbti');
     const navigate = useNavigate();
-    console.log('로컬 임시 데이터',ResultData);
-    let {id} = useParams();
-    const {documents,error} = useCollectionDtl("ResultData",["contUID","==",id]);
 
+    const [searchParams] = useSearchParams();
+    const mbti = searchParams.get('mbti');
+    let {id} = useParams();
+
+    const {documents,error} = useCollectionDtl("ResultData",["contUID","==",id]);
+    
     useEffect(()=>{
         if(documents){
             documents.map((data,i) => {
                 console.log('서버에서 받아온 데이터',data);
                 setTitle(data.mainTitle);
-                setFinalResult(data.question)
+                setFinalResult(data.question);
+                // log
             })
         }
     },[documents]);
 
-    // useEffect(() => {
-    //     console.log('mbti 타입: ',mbti);
-    //     console.log('이게뭐지?: ', matchType(mbti));
-    //     console.log('이게뭐지?: ', matchImg(mbti));
-    // });
+    useEffect(() => {
+        console.log('mbti 타입: ',mbti);
+        // console.log('이게뭐지?: ', matchType(mbti));
+        // console.log('이게뭐지?: ', matchImg(mbti));
+        console.log('이게뭐지?good: ', goodCompati(mbti)[0] );
+        // console.log('이게뭐지?bad: ', badCompati(mbti));
+
+        console.log('이게뭐지?good: ', matchType(goodCompati(mbti)[0]), matchType(goodCompati(mbti)[1]) );
+        console.log('이게뭐지?bad: ', matchImg(goodCompati(mbti)[0]), matchImg(goodCompati(mbti)[1]));
+    });
+
+    const moveToAnotherResult = (data) => {
+
+        navigate({
+            // pathname: "/result",
+            pathname: `/result/${id}`,
+            search: `?${createSearchParams({mbti: data,})}`,
+        });
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
 
     return(
         <>
@@ -64,16 +80,69 @@ export default function Result(){
                         ''
                     }
 
-                    {/* <p className='result-desc mt20 mb20'> {content && content.name} 입니다.</p> */}
                     <p className='result-desc mt20 mb20'>{finalResult.length>0 && finalResult[matchType(mbti)-1].name } </p>
-                    {/* <p className='result-more'>{content && content.text}</p> */}
                     <p className='result-more'>{finalResult.length>0 && finalResult[matchType(mbti)-1].text }
                     </p>
+
+                    {/* mbti 궁합 추가! */}
+                    <div className='compatibility'>
+                        <div className='content'>
+                            <p className='compa-title'>나와 잘맞는 mbti는?</p>
+                            <div className='result-wrap'>
+                                <div className='result'>
+                                {
+                                    finalResult.length>0
+                                    ?
+                                    <img onClick={()=>{moveToAnotherResult(goodCompati(mbti)[0])}}
+                                        alt="궁합사진" className='' src={(finalResult[matchType(goodCompati(mbti)[0])].imgUrl).length !== 0 ? finalResult[matchType(goodCompati(mbti)[0])-1].imgUrl :  matchImg(goodCompati(mbti)[0]) } ></img>
+                                    :
+                                    ''
+                                }
+                                <p>{goodCompati(mbti)[0]}</p>
+
+                                </div>
+                                <div className='result'>                            
+                                {
+                                    finalResult.length>0
+                                    ?
+                                    <img alt="궁합사진" className='' src={(finalResult[matchType(goodCompati(mbti)[1])].imgUrl).length !== 0 ? finalResult[matchType(goodCompati(mbti)[1])-1].imgUrl :  matchImg(goodCompati(mbti)[1]) } ></img>
+                                    :
+                                    ''
+                                }
+                                <p>{goodCompati(mbti)[1]}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='content bad-cont'>
+                        <p className='compa-title'>나와 안맞는 mbti는?</p>
+                            <div className='result-wrap'>
+                                <div className='result'>
+                                {
+                                    finalResult.length>0
+                                    ?
+                                    <img alt="궁합사진" className='' src={(finalResult[matchType(badCompati(mbti)[0])-1].imgUrl).length !== 0 ? finalResult[matchType(badCompati(mbti)[0])-1].imgUrl :  matchImg(badCompati(mbti)[0]) } ></img>
+                                    :
+                                    ''
+                                }
+                                <p>{badCompati(mbti)[0]}</p>
+                                </div>
+                                <div className='result'>                            
+                                {
+                                    finalResult.length>0
+                                    ?
+                                    <img alt="궁합사진" className='' src={(finalResult[matchType(badCompati(mbti)[1])-1].imgUrl).length !== 0 ? finalResult[matchType(badCompati(mbti)[1])-1].imgUrl :  matchImg(badCompati(mbti)[1]) } ></img>
+                                    :
+                                    ''
+                                }
+                                <p>{badCompati(mbti)[1]}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div className='btn-group mt40'>
                         <button 
                             className='brown-btn'
-                            // onClick={() => navigate("/start/")}
                             onClick={() => {
                                 navigate(`/start/${id}`)
                                 window.scrollTo({ top: 0, behavior: "smooth" });

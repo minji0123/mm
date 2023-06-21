@@ -28,6 +28,7 @@ export const useCollectionDtl = (transaction, myQuery, order="") => { // myQuery
             q = query(collection(appFireStore, transaction),where(...myQuery),where('mainShow','==',true),orderBy("createdTime","desc"));
         }
         else{
+            console.log('요기타나?');
             q = query(collection(appFireStore, transaction),where(...myQuery));
         }
 
